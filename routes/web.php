@@ -24,4 +24,5 @@ Route::middleware([
      * Client Routes
      */
     Route::get('/clients', \App\Livewire\Client\Index::class)->name('client.index');
+    Route::get('/clients/{client}', \App\Livewire\Client\Show::class)->name('client.show');
 });
