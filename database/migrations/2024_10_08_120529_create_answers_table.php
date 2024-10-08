@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Item;
+use App\Models\Client;
+use App\Models\Question;
 use App\Models\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,12 +14,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('item_user', function (Blueprint $table) {
+        Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Item::class)->onDelete('cascade');
-            $table->foreignIdFor(User::class)->onDelete('cascade');
+            $table->foreignIdFor(Client::class)->constrained()->nullOnDelete();
+            $table->foreignIdFor(User::class)->constrained()->nullOnDelete();
+            $table->foreignIdFor(Question::class)->constrained()->onDelete('cascade');
+            $table->text('answer');
             $table->timestamps();
-            $table->timestamp('completed_at')->nullable();
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('item_user');
+        Schema::dropIfExists('answers');
     }
 };

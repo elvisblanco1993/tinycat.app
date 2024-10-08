@@ -59,9 +59,9 @@ class Create extends Component
                 $this->owner_name,
                 $password,
             ));
-
-            $this->redirect(url: route('client.show', ['client' => $client]), navigate: true);
+            $this->reset();
+            $this->banner('Client added!');
+            $this->dispatch('client-added');
         });
-        //
     }
 }

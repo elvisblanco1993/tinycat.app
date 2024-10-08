@@ -30,6 +30,7 @@ return new class extends Migration
             $table->char('zip', 10)->nullable();
             $table->string('country', 100)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -50,6 +50,10 @@ class JetstreamServiceProvider extends ServiceProvider
             'client:read',
             'client:update',
             'client:delete',
+            'form:create',
+            'form:read',
+            'form:update',
+            'form:delete',
         ])->description('Administrator users can perform any action.');
 
         Jetstream::role('editor', 'Employee', [
