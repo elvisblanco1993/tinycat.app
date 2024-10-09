@@ -17,10 +17,11 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" x-data="themeSwitcher()" :class="{ 'dark': switchOn }">
+
         <x-banner />
 
-        <div class="min-h-screen bg-slate-100 dark:bg-slate-900">
+        <div class="min-h-screen bg-slate-50 dark:bg-slate-900">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -39,7 +40,10 @@
         </div>
 
         @stack('modals')
-
         @livewireScripts
+        @persist('app-scripts')
+            <script src="https://unpkg.com/@nextapps-be/livewire-sortablejs@0.4.0/dist/livewire-sortable.js"></script>
+            <script defer src="https://unpkg.com/@alpinejs/ui@3.13.8-beta.0/dist/cdn.min.js"></script>
+        @endpersist
     </body>
 </html>

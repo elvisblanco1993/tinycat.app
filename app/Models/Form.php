@@ -26,7 +26,9 @@ class Form extends Model
 
     public function questions(): HasMany
     {
-        return $this->hasMany(Question::class)->chaperone();
+        return $this->hasMany(Question::class)
+            ->orderBy('order')
+            ->chaperone();
     }
 
     public function answers(): HasMany

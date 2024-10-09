@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('is_required')->default(1);
             $table->string('question_text')->nullable();
             $table->string('placeholder')->nullable();
+            $table->json('options')->nullable();
             $table->integer('order');
             $table->timestamps();
         });

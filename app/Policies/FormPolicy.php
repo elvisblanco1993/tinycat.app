@@ -38,7 +38,7 @@ class FormPolicy
     public function update(User $user, Form $form): bool
     {
         return $user->hasTeamPermission($user->currentTeam,'form:update')
-            && $user->current_team_id === $form->team_id;
+            && $form->team_id === $user->current_team_id;
     }
 
     /**

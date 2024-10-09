@@ -17,7 +17,7 @@ class Create extends Component
     {
         $form = Auth::user()->currentTeam->forms()->create([
             'title' => 'New form',
-            'slug' => Str::uuid()
+            'slug' => Str::random(12)
         ]);
 
         $this->redirect(url: route('form.show', ['form' => $form]), navigate: true);
