@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-gray-100 dark:bg-gray-900">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,22 +21,26 @@
 
         <x-banner />
 
-        <div class="min-h-screen bg-slate-50 dark:bg-slate-900">
-            @livewire('navigation-menu')
+        <div class="min-h-screen md:py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
+            <div class="md:grid grid-cols-9 gap-16">
+                @include('navigation-menu')
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-slate-800 shadow">
-                    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+                <div class="col-span-9 md:col-span-7">
+                    <!-- Page Heading -->
+                    @if (isset($header))
+                        <header>
+                            <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                                {{ $header }}
+                            </div>
+                        </header>
+                    @endif
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                    <!-- Page Content -->
+                    <main>
+                        {{ $slot }}
+                    </main>
+                </div>
+            </div>
         </div>
 
         @stack('modals')

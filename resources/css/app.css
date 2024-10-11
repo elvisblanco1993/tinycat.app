@@ -10,14 +10,14 @@
     display: none !important;
 }
 .filepond--drop-label, .filepond--panel-root {
-    background-color: theme('colors.slate.200') !important;
+    background-color: theme('colors.gray.200') !important;
     border-radius: theme('borderRadius.md') !important;
-    color: theme('colors.slate.700') !important;
+    color: theme('colors.gray.700') !important;
 }
 
 @media (prefers-color-scheme: dark) {
     .filepond--drop-label, .filepond--panel-root {
-        background-color: theme('colors.slate.700') !important;
+        background-color: theme('colors.gray.700') !important;
         border-radius: theme('borderRadius.md') !important;
         color: theme('colors.white') !important;
     }
