@@ -32,7 +32,11 @@
                     @endif
                 </div>
             </div>
-            <div class="p-4 border-t-2 border-gray-100 dark:border-gray-700"></div>
+
+            <div class="px-4 border-t-2 border-gray-100 dark:border-gray-700">
+                {{-- Navigation --}}
+                @include('client-navigation')
+            </div>
         </div>
     </div>
 </div>

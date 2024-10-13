@@ -225,7 +225,7 @@
     </div>
 </nav> --}}
 
-<nav class="col-span-9 md:col-span-2 flex items-center justify-between md:block">
+<nav class="hidden fixed md:block md:h-full md:w-72 bg-gray-100 dark:bg-gray-800 md:py-6 px-4 sm:px-6">
     <x-application-logo />
 
     <div class="hidden md:block mt-6 font-medium text-gray-500">

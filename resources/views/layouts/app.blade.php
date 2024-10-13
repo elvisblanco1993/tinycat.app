@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-gray-100 dark:bg-gray-900">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white dark:bg-gray-900">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,12 +21,11 @@
 
         <x-banner />
 
-        <div class="min-h-screen md:py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
-            <div class="md:grid grid-cols-9 gap-16">
-                @include('navigation-menu')
+        <div class="h-screen min-h-screen md:flex items-start">
+            @include('navigation-menu')
 
-                <div class="col-span-9 md:col-span-7">
-                    <!-- Page Heading -->
+            <div class="md:ml-72 w-full">
+                <div class="w-full max-w-7xl mx-auto py-6">
                     @if (isset($header))
                         <header>
                             <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
