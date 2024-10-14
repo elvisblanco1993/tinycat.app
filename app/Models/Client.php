@@ -38,4 +38,9 @@ class Client extends Model
     {
         return $this->belongsToMany(Form::class)->withTimestamps();
     }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class, 'client_id');
+    }
 }
