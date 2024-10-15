@@ -21,6 +21,7 @@ class Item extends Model
         'name',
         'is_folder',
         'path',
+        'thumbnail',
         'mime',
         'size',
     ];

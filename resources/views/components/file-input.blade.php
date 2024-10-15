@@ -1,3 +1,15 @@
+{{-- Sample Usage:
+    <x-file-input wire:model="files"
+        multiple
+        allowImagePreview
+        imagePreviewMaxHeight="200"
+        allowFileTypeValidation
+        acceptedFileTypes="['image/png', 'image/jpg', 'image/webp', 'application/pdf']"
+        allowFileSizeValidation
+        maxFileSize="25mb"
+    />
+--}}
+
 <div wire:ignore x-data x-init="() => {
     const post = FilePond.create($refs.{{ $attributes->get('ref') ?? 'input' }});
     post.setOptions({

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('is_folder')->default(0);
             $table->string('path')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->string('mime')->nullable();
             $table->integer('size')->default(0);
             $table->timestamps();

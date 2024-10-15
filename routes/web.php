@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileAccessController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,4 +34,10 @@ Route::middleware([
 
     Route::get('/forms', \App\Livewire\Form\Index::class)->name('form.index');
     Route::get('/forms/{form}', \App\Livewire\Form\Show::class)->name('form.show');
+
+
+    /**
+     * Image manipulation routes
+     */
+    Route::get('/get-thumbnail/{item}', [FileAccessController::class, 'serveThumbnail'])->name('thumbnail');
 });

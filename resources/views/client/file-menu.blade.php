@@ -1,6 +1,7 @@
 <div x-data="{ open: false }"
     @click.away="open = false"
     @close.stop="open = false"
+    @click.outside="open = false"
 >
     <x-secondary-button class="mx-auto" x-ref="addbtn" @click="open = !open">
         {{ __("New") }}
@@ -10,6 +11,7 @@
         x-cloak
         x-show="open"
         @click.outside="open = false"
+        @click.away="open = false"
         x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="transform opacity-0 scale-95"
         x-transition:enter-end="transform opacity-100 scale-100"
