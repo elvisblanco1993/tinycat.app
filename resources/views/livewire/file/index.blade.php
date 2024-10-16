@@ -19,9 +19,9 @@
             <li class="flex items-center justify-between">
                 @if ($item->is_folder)
                     <a href="{{ route('client.files', ['client' => $client, 'item' => $item]) }}" class="w-full rounded-lg overflow-hidden">
-                        <div class="flex items-center space-x-3 h-16 hover:bg-slate-100 dark:hover:bg-slate-800">
-                            <svg class="h-full text-slate-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M3 6a2 2 0 0 1 2-2h5.532a2 2 0 0 1 1.536.72l1.9 2.28H3V6Zm0 3v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9H3Z" clip-rule="evenodd"/>
+                        <div class="flex items-center space-x-3 h-16 px-2 hover:bg-slate-100 dark:hover:bg-slate-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-12 fill-indigo-500">
+                                <path d="M19.5 21a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h15ZM1.5 10.146V6a3 3 0 0 1 3-3h5.379a2.25 2.25 0 0 1 1.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 0 1 3 3v1.146A4.483 4.483 0 0 0 19.5 9h-15a4.483 4.483 0 0 0-3 1.146Z" />
                             </svg>
                             <div class="">
                                 <p class="text-slate-700 dark:text-white text-sm">{{ $item->name }}</p>

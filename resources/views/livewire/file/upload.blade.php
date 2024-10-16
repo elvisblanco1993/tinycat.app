@@ -11,7 +11,7 @@
                 allowImagePreview
                 imagePreviewMaxHeight="200"
                 allowFileTypeValidation
-                acceptedFileTypes="['image/png', 'image/jpg', 'image/webp', 'application/pdf']"
+                acceptedFileTypes="{{ $supported }}"
                 allowFileSizeValidation
                 maxFileSize="25mb"
             />

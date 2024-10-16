@@ -25,6 +25,13 @@ class Upload extends Component
     #[Validate(['files.*' => 'mimes:pdf,jpeg,jpg,png,gif,webp|max:102400'])]
     public $files = [];
 
+    public $supported = [];
+
+    public function mount()
+    {
+        $this->supported = json_encode(['image/png', 'image/jpg', 'image/jpeg', 'image/webp', 'application/pdf']);
+    }
+
     public function render()
     {
         return view('livewire.file.upload');
