@@ -1,5 +1,5 @@
 <div>
     {{-- Client Card --}}
-    @include('client.profile')
+    @include('partials.client.profile')
     {{-- End | Client Card --}}
 </div>

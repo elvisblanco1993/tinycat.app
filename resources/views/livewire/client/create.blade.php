@@ -3,7 +3,7 @@
         {{__("New client")}}
     </x-button>
 
-    <x-dialog-modal wire:model="modal" maxWidth="md">
+    <x-dialog-modal wire:model="modal" maxWidth="lg">
         <x-slot name="title">{{ __("New client") }}</x-slot>
         <x-slot name="content">
             <div>
@@ -31,10 +31,20 @@
             <div class="mt-4">
                 <x-label for="owner_email">{{ __("Owner's email") }}</x-label>
                 <x-input id="owner_email" type="email" wire:model="owner_email" wire:keydown.enter="save" placeholder="email@example.com" class="w-full mt-1" autocomplete="false" />
+                <small class="text-xs text-slate-700 dark:text-slate-300">{{ __("Login credentials will be sent to this email address.") }}</small>
                 <x-input-error for="owner_email" />
             </div>
-            <div class="mt-4 px-3 py-2 bg-sky-100 border border-sky-300 text-sky-900 rounded-lg">
-                {{ __("We will send an email to this person with their login information.") }}
+
+            <div class="mt-4">
+                <x-label for="filesystem">{{ __("Select File Organization Template") }}</x-label>
+                <x-select id="filesystem" wire:model="filesystem" class="mt-1 w-full">
+                    @forelse ($itemTemplates as $template)
+                        <option value="{{ $template->id }}">{{ $template->name }}</option>
+                    @empty
+                    @endforelse
+                </x-select>
+                <small class="text-xs text-slate-700 dark:text-slate-300">{{ __("Choose a template, and we'll automatically set up all the folders for you.") }}</small>
+                <x-input-error for="filesystem" />
             </div>
         </x-slot>
         <x-slot name="footer">

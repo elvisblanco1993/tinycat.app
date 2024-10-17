@@ -19,11 +19,12 @@ return new class extends Migration
             $table->foreignIdFor(Client::class)->index()->onDelete('cascade');
             $table->foreignIdFor(Item::class, 'parent_id')->index()->nullable();
             $table->string('name');
-            $table->boolean('is_folder')->default(0);
             $table->string('path')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('mime')->nullable();
             $table->integer('size')->default(0);
+            $table->boolean('is_folder')->default(0);
+            $table->boolean('is_external')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

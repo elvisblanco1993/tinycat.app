@@ -7,7 +7,7 @@
         <x-slot name="title">{{ __("New Folder") }}</x-slot>
         <x-slot name="content">
             <x-label for="name">{{ __("Folder name") }}</x-label>
-            <x-input type="text" wire:model="name" id="name" class="mt-2 w-full" />
+            <x-input type="text" wire:model="name" wire:keydown.enter="save" id="name" class="mt-2 w-full" />
             <x-input-error for="name" />
         </x-slot>
         <x-slot name="footer">

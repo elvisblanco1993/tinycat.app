@@ -20,6 +20,7 @@ class Item extends Model
         'parent_id',
         'name',
         'is_folder',
+        'is_external',
         'path',
         'thumbnail',
         'mime',

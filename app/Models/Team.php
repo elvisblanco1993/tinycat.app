@@ -47,6 +47,11 @@ class Team extends JetstreamTeam
         ];
     }
 
+    public function itemTemplates(): HasMany
+    {
+        return $this->hasMany(ItemTemplate::class)->chaperone();
+    }
+
     public function clients(): HasMany
     {
         return $this->hasMany(Client::class)->chaperone();

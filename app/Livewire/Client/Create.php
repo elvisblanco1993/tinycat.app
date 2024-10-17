@@ -26,7 +26,9 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.client.create');
+        return view('livewire.client.create', [
+            'itemTemplates' => Auth::user()->currentTeam->itemTemplates,
+        ]);
     }
 
     public function save()

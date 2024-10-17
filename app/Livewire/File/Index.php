@@ -5,6 +5,7 @@ namespace App\Livewire\File;
 use App\Models\Item;
 use App\Models\Client;
 use Livewire\Component;
+use Livewire\Attributes\Renderless;
 
 class Index extends Component
 {
@@ -26,8 +27,16 @@ class Index extends Component
             ? $this->item->children()
             : $this->client->items()->whereNull('parent_id');
 
-        return $items->where('name', 'like', "%$this->search%")->orderBy('is_folder', 'desc')
+        return $items->where('name', 'like', "%$this->search%")
+            ->orderBy('is_folder', 'desc')
+            ->orderBy('is_external', 'asc')
             ->orderBy('name', 'asc')
             ->get();
+    }
+
+    #[Renderless]
+    public function moveItems($items)
+    {
+        //
     }
 }

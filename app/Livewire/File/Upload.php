@@ -56,7 +56,7 @@ class Upload extends Component
                     $thumbnail = $this->generateImageThumbnail($filepath, $thumbpath);
                 }
 
-                Item::create([
+                $this->client->items()->create([
                     'team_id' => Auth::id(),
                     'client_id' => $this->client?->id,
                     'parent_id' => $this->parent?->id,

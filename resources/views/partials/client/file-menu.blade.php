@@ -24,7 +24,7 @@
         @livewire('file.new-folder', ['client' => $client, 'parent' => $item])
         <div class="border-t border-gray-200 dark:border-gray-600"></div>
         @livewire('file.upload', ['client' => $client, 'parent' => $item])
-        @livewire('file.create', ['client' => $client, 'parent' => $item])
+        @livewire('file.create-link', ['client' => $client, 'parent' => $item])
         <div class="border-t border-gray-200 dark:border-gray-600"></div>
         @livewire('file.request', ['client' => $client, 'parent' => $item])
     </div>

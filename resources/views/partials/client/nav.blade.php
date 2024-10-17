@@ -2,9 +2,6 @@
     <x-nav-link wire:navigate href="{{ route('client.files', ['client' => $client]) }}" :active="request()->routeIs('client.files*')">
         {{ __("Files") }}
     </x-nav-link>
-    <x-nav-link wire:navigate href="{{ route('client.forms', ['client' => $client]) }}" :active="request()->routeIs('client.forms')">
-        {{ __("Forms") }}
-    </x-nav-link>
     <x-nav-link wire:navigate href="{{ route('client.tasks', ['client' => $client]) }}" :active="request()->routeIs('client.tasks')">
         {{ __("Tasks") }}
     </x-nav-link>
