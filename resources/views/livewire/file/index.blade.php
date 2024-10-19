@@ -20,9 +20,7 @@
                 @if ($item->is_folder)
                     <a href="{{ route('client.files', ['client' => $client, 'item' => $item]) }}" class="w-full rounded-lg overflow-hidden">
                         <div class="flex items-center space-x-3 h-16 px-2 hover:bg-slate-100 dark:hover:bg-slate-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-12 fill-indigo-500">
-                                <path d="M19.5 21a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h15ZM1.5 10.146V6a3 3 0 0 1 3-3h5.379a2.25 2.25 0 0 1 1.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 0 1 3 3v1.146A4.483 4.483 0 0 0 19.5 9h-15a4.483 4.483 0 0 0-3 1.146Z" />
-                            </svg>
+                            <img src="{{ asset( config('internal.icons.dir') ) }}">
                             <div class="">
                                 <p class="text-slate-700 dark:text-white text-sm">{{ $item->name }}</p>
                                 <small class="text-slate-500 dark:text-slate-400">{{ __("Last updated on ") . $item->updated_at->format('M d, Y h:i a') }}</small>
@@ -44,14 +42,15 @@
                         </div>
                     </a>
                 @else
-                    <button class="w-full rounded-lg overflow-hidden text-left">
+                    <button
+                        wire:click="$dispatchTo('file.update', 'show-item', { id: {{ $item->id }} })"
+                        class="w-full rounded-lg overflow-hidden text-left"
+                    >
                         <div class="flex items-center space-x-3 h-16 px-2 hover:bg-slate-100 dark:hover:bg-slate-800">
                             @if ($item->thumbnail)
                                 <img src="{{ route('thumbnail', ['item' => $item]) }}" class="size-12 aspect-square rounded object-cover object-center shadow">
                             @else
-                                <svg class="h-full text-slate-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7Z" clip-rule="evenodd"/>
-                                </svg>
+                                <img src="{{ asset( config("internal.icons.{$item->mime}") ) }}">
                             @endif
                             <div class="">
                                 <p class="text-slate-700 dark:text-white text-sm">{{ $item->name }}</p>
@@ -65,4 +64,6 @@
 
         @endforelse
     </ul>
+
+    @livewire('file.update')
 </div>

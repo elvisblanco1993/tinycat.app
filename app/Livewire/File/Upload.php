@@ -22,14 +22,14 @@ class Upload extends Component
     public $modal;
 
     #[Validate(['files' => 'required'])]
-    #[Validate(['files.*' => 'mimes:pdf,jpeg,jpg,png,gif,webp|max:102400'])]
+    // #[Validate(['files.*' => 'max:102400'])]
     public $files = [];
 
     public $supported = [];
 
     public function mount()
     {
-        $this->supported = json_encode(['image/png', 'image/jpg', 'image/jpeg', 'image/webp', 'application/pdf']);
+        $this->supported = json_encode( config('mime_types') );
     }
 
     public function render()
@@ -52,7 +52,8 @@ class Upload extends Component
                 $mime = $file->getMimeType();
 
                 // Generates a thumbnail
-                if (str_starts_with($mime, 'image/')) {
+                $thumbnail = null;
+                if (str_starts_with($mime, 'image/') && $mime !== 'image/svg+xml') {
                     $thumbnail = $this->generateImageThumbnail($filepath, $thumbpath);
                 }
 

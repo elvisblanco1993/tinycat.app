@@ -13,7 +13,7 @@
                 allowFileTypeValidation
                 acceptedFileTypes="{{ $supported }}"
                 allowFileSizeValidation
-                maxFileSize="25mb"
+                {{-- maxFileSize="200mb" --}}
             />
             <x-input-error for="files" />
         </x-slot>
