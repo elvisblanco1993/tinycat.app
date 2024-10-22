@@ -1,5 +1,5 @@
 <div x-data="setupEditor(
-    $wire.entangle('{{ $attributes->wire('model')->value() }}').live
+    $wire.entangle('{{ $attributes->wire('model')->value() }}')
 )" x-init="() => init($refs.editor)" wire:ignore {{ $attributes->whereDoesntStartWith('wire:model') }}>
 
     <div class="flex w-full border border-slate-300 border-b-0 divide-x divide-slate-300 bg-slate-100 dark:bg-slate-900 rounded-t-lg">

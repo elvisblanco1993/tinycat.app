@@ -33,6 +33,7 @@ window.setupEditor = function (content) {
         onUpdate: ({ editor }) => {
           this.content = editor.getHTML()
         },
+        autofocus: 'start',
     })
     this.editor = editor;
     this.toggleBold = () => editor.chain().focus().toggleBold().run();

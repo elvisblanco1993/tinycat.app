@@ -6,7 +6,7 @@
     <x-dialog-modal wire:model="modal" maxWidth="2xl">
         <x-slot name="title">{{ __("File request") }}</x-slot>
         <x-slot name="content">
-            <x-editor wire:model.live.debounce.250="message"></x-editor>
+            <x-editor wire:model.blur="message"></x-editor>
             <div class="mt-4">
                 <p>{{ __("You can find all uploaded files in the /Uploads directory.") }}</p>
             </div>

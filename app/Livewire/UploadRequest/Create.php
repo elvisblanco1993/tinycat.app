@@ -11,8 +11,8 @@ use Livewire\Component;
 class Create extends Component
 {
     public Client $client;
-    public $modal = true;
-    public $message = "Hellows!";
+    public $modal;
+    public $message;
 
     public function render()
     {
