@@ -1,12 +1,16 @@
 <div>
-    <x-dropdown-button wire:click="$toggle('modal')">
-        {{ __("File request") }}
-    </x-dropdown-link>
+    <x-button wire:click="$toggle('modal')">
+        {{ __("New request") }}
+    </x-link>
 
     <x-dialog-modal wire:model="modal" maxWidth="2xl">
         <x-slot name="title">{{ __("File request") }}</x-slot>
         <x-slot name="content">
             <x-trix-editor :placeholder="__('Please specify what information or files you need from the customer.')"/>
+
+            <div class="mt-4">
+                <p>{{ __("You can find all uploaded files in the /Uploads directory.") }}</p>
+            </div>
         </x-slot>
         <x-slot name="footer">
             <x-secondary-button wire:click="$toggle('modal')">{{ __("Cancel") }}</x-secondary-button>

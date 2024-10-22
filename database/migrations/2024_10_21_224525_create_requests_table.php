@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignIdFor(Item::class)->nullOnDelete();
             $table->text('message')->nullable();
             $table->foreignIdFor(User::class, 'completed_by')->nullOnDelete()->nullable();
-            $table->timestamp('completed_at');
+            $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });
     }

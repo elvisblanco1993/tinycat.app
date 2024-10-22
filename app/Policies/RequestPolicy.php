@@ -29,7 +29,7 @@ class RequestPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->hasTeamPermission($user->currentTeam,'upload-request:create');
     }
 
     /**
