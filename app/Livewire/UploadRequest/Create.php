@@ -11,8 +11,8 @@ use Livewire\Component;
 class Create extends Component
 {
     public Client $client;
-    public $modal;
-    public $message;
+    public $modal = true;
+    public $message = "Hellows!";
 
     public function render()
     {
@@ -32,11 +32,5 @@ class Create extends Component
         // Return to previous URL
         session()->flash('banner', 'We have sent your request!');
         $this->redirect(url: url()->previous());
-    }
-
-    #[On('editorContentUpdated')]
-    public function setMessage($content)
-    {
-        $this->message = $content;
     }
 }
