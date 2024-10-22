@@ -17,6 +17,7 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
+            $table->ulid()->index();
             $table->foreignIdFor(Team::class)->onDelete('cascade');
             $table->foreignIdFor(Client::class)->onDelete('cascade');
             $table->foreignIdFor(Item::class)->nullOnDelete();

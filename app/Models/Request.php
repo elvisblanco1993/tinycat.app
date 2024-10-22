@@ -12,12 +12,17 @@ class Request extends Model
     use HasFactory;
 
     protected $fillable = [
+        'ulid',
         'team_id',
         'client_id',
         'item_id',
         'message',
         'completed_by',
         'completed_at',
+    ];
+
+    protected $casts = [
+        'completed_at' => 'datetime'
     ];
 
     public function team(): BelongsTo

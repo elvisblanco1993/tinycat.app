@@ -3,10 +3,11 @@
 namespace App\Livewire\UploadRequest;
 
 use App\Models\Client;
-use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
+use Illuminate\Support\Str;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Renderless;
-use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Create extends Component
 {
@@ -22,6 +23,7 @@ class Create extends Component
     public function save()
     {
         $this->client->requests()->create([
+            'ulid' => Str::ulid(),
             'team_id' => Auth::user()->currentTeam->id,
             'item_id' => $this->client->items()->where('name', 'Uploads')->firstOrCreate(['name' => 'Uploads'], ['is_folder' => 1, 'team_id' => Auth::user()->currentTeam->id])->id, // The folder where files will be uploaded to.
             'message' => $this->message

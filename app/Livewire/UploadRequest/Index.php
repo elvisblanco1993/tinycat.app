@@ -11,6 +11,8 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.upload-request.index');
+        return view('livewire.upload-request.index', [
+            'requests' => $this->client->requests
+        ]);
     }
 }
