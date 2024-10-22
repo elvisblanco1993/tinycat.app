@@ -15,7 +15,8 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">{{ __("ID") }}</th>
-                        <th scope="col" class="px-6 py-3">{{ __("Completed at") }}</th>
+                        <th scope="col" class="px-6 py-3">{{ __("Due date") }}</th>
+                        <th scope="col" class="px-6 py-3">{{ __("Completed on") }}</th>
                         <th scope="col" class="px-6 py-3">
                             <span class="sr-only">{{ __("Edit") }}</span>
                         </th>
@@ -27,14 +28,19 @@
                             <th scope="row" class="px-6 py-4 font-normal whitespace-nowrap">
                                 {{ $req->ulid }}
                             </th>
-                            <th class="px-6 py-4 font-normal">
+                            <td class="px-6 py-4">
+                                <span @class(['px-3 py-1 rounded-full', 'bg-red-100 text-red-900' => $req->due_at && $req->due_at <= today()])>
+                                    {{ $req->due_at?->format('M d Y') ?? 'No due date' }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
                                 <span @class([
-                                    'px-3 py-1 rounded-full bg-amber-100 text-amber-900' => !$req->completed_at,
+                                    'px-3 py-1 rounded-full bg-slate-100 text-slate-900' => !$req->completed_at,
                                     'px-3 py-1 rounded-full bg-green-100 text-green-900' => $req->completed_at,
                                 ])>
                                     {{ $req->completed_at?->format('M d Y') ?? __('Pending') }}
                                 </span>
-                            </th>
+                            </td>
                             <td class="px-6 py-4 text-right">
                                 <x-secondary-button-link href="" wire:navigate>
                                     {{ __("View") }}

@@ -2,7 +2,7 @@
 
 <div x-data="{{ json_encode(['show' => true, 'style' => $style, 'message' => $message]) }}"
     x-init="setTimeout( () => show = false, 10000 )"
-    class="z-40 fixed bottom-8 sm:right-8 block w-full sm:max-w-96 sm:min-w-72"
+    class="z-40 fixed top-8 sm:right-8 block w-full sm:max-w-96 sm:min-w-72"
     style="display: none;"
     x-show="show && message"
     x-on:banner-message.window="

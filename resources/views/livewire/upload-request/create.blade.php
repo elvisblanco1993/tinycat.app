@@ -7,6 +7,11 @@
         <x-slot name="title">{{ __("File request") }}</x-slot>
         <x-slot name="content">
             <x-editor wire:model.blur="message"></x-editor>
+
+            <div class="mt-4">
+                <x-label for="due_at">{{ __("Due date") }}</x-label>
+                <x-input id="due_at" type="date" wire:model="due_at" class="mt-1" min="{{ today()->toDateString() }}"/>
+            </div>
             <div class="mt-4">
                 <p>{{ __("You can find all uploaded files in the /Uploads directory.") }}</p>
             </div>

@@ -17,12 +17,14 @@ class Request extends Model
         'client_id',
         'item_id',
         'message',
+        'due_at',
         'completed_by',
         'completed_at',
     ];
 
     protected $casts = [
-        'completed_at' => 'datetime'
+        'completed_at' => 'datetime',
+        'due_at' => 'datetime'
     ];
 
     public function team(): BelongsTo

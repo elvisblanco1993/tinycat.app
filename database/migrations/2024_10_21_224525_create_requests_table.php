@@ -22,8 +22,9 @@ return new class extends Migration
             $table->foreignIdFor(Client::class)->onDelete('cascade');
             $table->foreignIdFor(Item::class)->nullOnDelete();
             $table->text('message')->nullable();
-            $table->foreignIdFor(User::class, 'completed_by')->nullOnDelete()->nullable();
             $table->timestamp('completed_at')->nullable();
+            $table->timestamp('due_at')->nullable();
+            $table->foreignIdFor(User::class, 'completed_by')->nullOnDelete()->nullable();
             $table->timestamps();
         });
     }

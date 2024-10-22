@@ -11,11 +11,12 @@ use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Notifications\Notifiable;
 
 #[ScopedBy(ClientScope::class)]
 class Client extends Model
 {
-    use HasFactory, Searchable, SoftDeletes;
+    use HasFactory, Searchable, SoftDeletes, Notifiable;
 
     protected $guarded = [];
 
@@ -46,6 +47,6 @@ class Client extends Model
 
     public function requests(): HasMany
     {
-        return $this->hasMany(Request::class, 'client_id');
+        return $this->hasMany(Request::class, 'client_id')->orderBy('updated_at', 'desc');
     }
 }
