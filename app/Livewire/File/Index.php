@@ -35,10 +35,4 @@ class Index extends Component
             ->orderBy('name', 'asc')
             ->get();
     }
-
-    #[Renderless]
-    public function moveItems($items)
-    {
-        //
-    }
 }

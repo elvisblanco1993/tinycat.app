@@ -13,8 +13,17 @@
                         ])
                     ></object>
                 @else
-                    <audio controls class="w-full rounded-lg" preload="metadata">
-                        <source src="{{ route('download', ['item' => $item]) }}" type="{{ $item->mime }}">
+                    <img src="{{ asset( config("internal.icons.{$item->mime}") ) }}" class="h-64 mx-auto">
+
+                    <audio controls class="w-full rounded-lg"
+                        x-ref="audioPlayer"
+                        preload="none"
+                        x-data="{ audioSrc: '' }"
+                        @play="if (!audioSrc) { audioSrc = '{{ route('download', ['item' => $item]) }}'; $el.load(); }"
+                    >
+                        <template x-if="audioSrc">
+                            <source :src="audioSrc" type="{{ $item->mime }}">
+                        </template>
                     </audio>
                 @endunless
 
@@ -28,7 +37,7 @@
                 </div>
                 <div class="mt-4">
                     <span class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ __("Location") }}</span>
-                    <div class="dark:text-slate-100">{{ $item->parent->name }}</div>
+                    <div class="dark:text-slate-100">{{ $item->parent?->name ?? '/' }}</div>
                 </div>
                 <div class="mt-4">
                     <span class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ __("Uploaded") }}</span>
@@ -44,12 +53,17 @@
                 <div class="mt-4">
                     <div class="flex items-center justify-between">
                         <x-label for="item-name">{{ __("Update Name") }}</x-label>
-                        <x-action-message on="saved-name">
-                            {{ __('Saved.') }}
-                        </x-action-message>
+                        <div class="flex items-center space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 animate-spin" wire:loading wire:target="updateName">
+                                <path fill-rule="evenodd" d="M13.836 2.477a.75.75 0 0 1 .75.75v3.182a.75.75 0 0 1-.75.75h-3.182a.75.75 0 0 1 0-1.5h1.37l-.84-.841a4.5 4.5 0 0 0-7.08.932.75.75 0 0 1-1.3-.75 6 6 0 0 1 9.44-1.242l.842.84V3.227a.75.75 0 0 1 .75-.75Zm-.911 7.5A.75.75 0 0 1 13.199 11a6 6 0 0 1-9.44 1.241l-.84-.84v1.371a.75.75 0 0 1-1.5 0V9.591a.75.75 0 0 1 .75-.75H5.35a.75.75 0 0 1 0 1.5H3.98l.841.841a4.5 4.5 0 0 0 7.08-.932.75.75 0 0 1 1.025-.273Z" clip-rule="evenodd" />
+                            </svg>
+                            <x-action-message on="saved-name">
+                                {{ __('Saved.') }}
+                            </x-action-message>
+                        </div>
                     </div>
                     <x-input id="item-name" wire:model="name" wire:keydown.enter="updateName" class="mt-1 w-full" />
-                    <small class="text-slate-600 dark:text-slate-400">Press <kbd class="font-mono font-semibold p-0.5 text-slate-900 dark:text-slate-200 border dark:border-slate-500 rounded">Enter</kbd> to save.</small>
+                    <small class="text-slate-600 dark:text-slate-400 text-xs">Press <kbd class="font-mono font-semibold p-0.5 text-slate-900 dark:text-slate-200 border dark:border-slate-500 rounded">Enter</kbd> to save.</small>
                     <x-input-error for="name" />
                 </div>
 
