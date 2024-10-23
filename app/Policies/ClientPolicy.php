@@ -13,7 +13,7 @@ class ClientPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return !$user->is_client;
     }
 
     /**
@@ -29,7 +29,7 @@ class ClientPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'client:create');
+        return !$user->is_client && $user->hasTeamPermission($user->currentTeam,'client:create');
     }
 
     /**

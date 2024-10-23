@@ -18,7 +18,7 @@ Route::middleware([
     Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
 
     /**
-     * Client Routes
+     * Admin Client Routes
      */
     Route::get('/clients', \App\Livewire\Client\Index::class)->name('client.index');
     Route::get('/clients/{client}', \App\Livewire\Client\Show::class)->name('client.show');
@@ -40,5 +40,10 @@ Route::middleware([
     Route::get('/download/{item}', [FileAccessController::class, 'downloadPrivately'])->name('download');
 
     // @TODO: Create middleware to only allow clients to see these routes.
-    Route::get('/request/{request}/upload', fn() => view('dashboard') )->name('request.show');
+    Route::prefix('my')
+        ->group(function() {
+            Route::get('/files', fn() => view('dashboard') )->name('request.show');
+            Route::get('/projects', fn() => view('dashboard') )->name('request.show');
+            Route::get('/requests/{request}/upload', fn() => view('dashboard') )->name('request.show');
+        });
 });

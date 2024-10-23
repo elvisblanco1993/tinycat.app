@@ -18,6 +18,10 @@ class Index extends Component
     public $select_page = false;
     public $select_all = false;
 
+    public function mount()
+    {
+        $this->authorize('viewAny', Client::class);
+    }
 
     #[On('client-added')]
     public function render()

@@ -47,25 +47,25 @@ class JetstreamServiceProvider extends ServiceProvider
 
         Jetstream::role('admin', 'Administrator', [
             'client:create',
-            'client:read',
+            'client:view',
             'client:update',
             'client:delete',
             'form:create',
-            'form:read',
+            'form:view',
             'form:update',
             'form:delete',
             'file-template:create',
-            'file-template:read',
+            'file-template:view',
             'file-template:update',
             'file-template:delete',
             'upload-request:create',
-            'upload-request:read',
+            'upload-request:view',
             'upload-request:update',
             'upload-request:delete',
         ])->description('Administrator users can perform any action.');
 
         Jetstream::role('editor', 'Employee', [
-            'client:read',
+            'client:view',
             'client:create',
             'client:update',
         ])->description('Editor users have the ability to read, create, and update.');

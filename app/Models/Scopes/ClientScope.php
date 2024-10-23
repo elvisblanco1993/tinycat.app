@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\Auth;
 class ClientScope implements Scope
 {
     /**
-     * Apply the scope to a given Eloquent query builder.
+     * Only show to people under the assigned provider, or client.
      */
     public function apply(Builder $builder, Model $model): void
     {
-        $builder->where('team_id', Auth::user()->current_team_id);
+        $builder->where('team_id', Auth::user()->current_team_id)
+            ->orWhere('owner_id', Auth::id());
     }
 }
