@@ -30,14 +30,15 @@ Route::middleware([
      * Project Routes
      */
     Route::get('/projects', fn() => view('dashboard') )->name('project.index');
-
     Route::get('/forms', \App\Livewire\Form\Index::class)->name('form.index');
     Route::get('/forms/{form}', \App\Livewire\Form\Show::class)->name('form.show');
-
 
     /**
      * Image manipulation routes
      */
     Route::get('/get-thumbnail/{item}', [FileAccessController::class, 'downloadThumbnail'])->name('thumbnail');
     Route::get('/download/{item}', [FileAccessController::class, 'downloadPrivately'])->name('download');
+
+    // @TODO: Create middleware to only allow clients to see these routes.
+    Route::get('/request/{request}/upload', fn() => view('dashboard') )->name('request.show');
 });

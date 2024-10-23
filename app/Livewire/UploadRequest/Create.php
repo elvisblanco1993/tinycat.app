@@ -2,11 +2,12 @@
 
 namespace App\Livewire\UploadRequest;
 
-use App\Mail\UploadRequestSent;
 use App\Models\Client;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\Attributes\On;
+use App\Mail\UploadRequestSent;
+use Illuminate\Support\Facades\URL;
 use Livewire\Attributes\Renderless;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;

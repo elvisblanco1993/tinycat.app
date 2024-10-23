@@ -2,23 +2,31 @@
 
 namespace App\Mail;
 
+use App\Models\Request;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\URL;
 
 class UploadRequestSent extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $requestor;
+    public $message;
+    public $url;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
-        //
+        $this->requestor = $request->team->name;
+        $this->message = $request->message;
+        $this->url = URL::signedRoute('request.show', ['request' => $request->ulid]);
     }
 
     /**
@@ -27,7 +35,7 @@ class UploadRequestSent extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Upload Request Sent',
+            subject: 'New request from ' . $this->requestor,
         );
     }
 
@@ -38,6 +46,11 @@ class UploadRequestSent extends Mailable
     {
         return new Content(
             markdown: 'mail.upload-request-sent',
+            with: [
+                'requestor' => $this->requestor,
+                'message' => $this->message,
+                'request_url' => $this->url,
+            ]
         );
     }
 

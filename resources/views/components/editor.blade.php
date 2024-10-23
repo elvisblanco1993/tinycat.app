@@ -32,5 +32,5 @@
             <x-svg class="w-4 h-auto" svg="list" />
         </button>
     </div>
-    <div x-ref="editor" autofocus class="border border-slate-300 shadow-sm min-h-24 rounded-b-lg dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"></div>
+    <div x-ref="editor" autofocus class="border border-slate-300 shadow-sm rounded-b-lg dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"></div>
 </div>

@@ -1,12 +1,14 @@
 <x-mail::message>
-# Introduction
+{{ __("You have a new request below:") }}
 
-The body of your message.
+<div class="prose">
+    {!! $message !!}
+</div>
 
-<x-mail::button :url="''">
-Button Text
+<x-mail::button :url="$request_url">
+{{ __("Complete request") }}
 </x-mail::button>
 
-Thanks,<br>
-{{ config('app.name') }}
+{{ __("Thanks") }},<br>
+{{ $requestor }}
 </x-mail::message>
