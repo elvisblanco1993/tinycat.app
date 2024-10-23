@@ -6,7 +6,10 @@
     <x-dialog-modal wire:model="modal" maxWidth="2xl">
         <x-slot name="title">{{ __("File request") }}</x-slot>
         <x-slot name="content">
-            <x-editor wire:model.blur="message"></x-editor>
+            <x-label for="message">{{__("Write your request")}}</x-label>
+            <div class="mt-1">
+                <x-editor id="message" wire:model.blur="message"></x-editor>
+            </div>
 
             <div class="mt-4">
                 <x-label for="due_at">{{ __("Due date") }}</x-label>

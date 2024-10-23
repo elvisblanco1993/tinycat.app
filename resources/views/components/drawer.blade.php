@@ -11,7 +11,7 @@
     x-transition:leave="translate-x-full"
     x-cloak
 >
-    <div class="h-full md:rounded-2xl divide-y drop-shadow dark:divide-slate-700 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+    <div class="h-full md:rounded-2xl divide-y drop-shadow dark:divide-slate-700 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-y-auto">
         <div class="h-16 px-4 flex items-center justify-between">
             <div class="inline-flex items-center dark:text-white">
                 {{ $title }}
