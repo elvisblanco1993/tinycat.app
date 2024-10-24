@@ -39,4 +39,10 @@
             </div>
         </div>
     </div>
+
+    <div class="block mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+        @can('delete', $request)
+            @livewire('upload-request.delete', ['request' => $request, 'client' => $client])
+        @endcan
+    </div>
 </div>

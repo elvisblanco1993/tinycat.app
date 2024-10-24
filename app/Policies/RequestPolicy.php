@@ -45,7 +45,8 @@ class RequestPolicy
      */
     public function delete(User $user, Request $request): bool
     {
-        //
+        return $user->current_team_id === $request->team_id
+            && $user->hasTeamPermission($user->currentTeam, 'upload-request:delete');
     }
 
     /**
