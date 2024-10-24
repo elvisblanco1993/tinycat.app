@@ -3,7 +3,8 @@
     @include('partials.client.profile')
     {{-- End | Client Card --}}
 
-    <div class="mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-end">
+    <div class="mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-between">
+        <x-tinycat.search type="search" wire:model.live.debounce.250="search" placeholder="Search..." class="text-sm" />
         @can('create', \App\Models\Request::class)
             @livewire('upload-request.create', ['client' => $client])
         @endcan
@@ -56,6 +57,9 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+        <div class="mt-6">
+            {{ $requests->links() }}
         </div>
     </div>
 </div>
