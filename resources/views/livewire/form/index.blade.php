@@ -1,6 +1,6 @@
 <div>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-slate-800 dark:text-slate-200 leading-tight">
             {{ __('Forms') }}
         </h2>
         @can('create', \App\Models\Form::class)
@@ -15,8 +15,8 @@
             </div>
 
             <div class="mt-3 relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-left rtl:text-right text-slate-500 dark:text-slate-400">
+                    <thead class="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">{{ __("ID") }}</th>
                             <th scope="col" class="px-6 py-3">{{ __("Form") }}</th>
@@ -27,11 +27,11 @@
                     </thead>
                     <tbody class="text-sm">
                         @forelse ($forms as $form)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600">
+                                <th scope="row" class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white">
                                     {{ $form->id }}
                                 </th>
-                                <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white">
                                     {{ $form->title }}
                                 </th>
                                 <td class="px-6 py-4 text-right">
@@ -41,7 +41,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600">
                                 <td colspan="5" class="px-6 py-3 text-center">
                                     {{ __("No forms have been added yet.") }}
                                 </td>

@@ -28,23 +28,23 @@
                 @endunless
 
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ __("Type") }}</span>
+                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Type") }}</span>
                     <div class="dark:text-slate-100">{{ $item->mime }}</div>
                 </div>
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ __("Size") }}</span>
+                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Size") }}</span>
                     <div class="dark:text-slate-100">{{ $item->formatBytes($item->size) }}</div>
                 </div>
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ __("Location") }}</span>
+                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Location") }}</span>
                     <div class="dark:text-slate-100">{{ $item->parent?->name ?? '/' }}</div>
                 </div>
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ __("Uploaded") }}</span>
+                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Uploaded") }}</span>
                     <div class="dark:text-slate-100">{{ $item->created_at->format('M d, Y h:i a') }}</div>
                 </div>
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ __("Modified") }}</span>
+                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Modified") }}</span>
                     <div class="dark:text-slate-100">{{ $item->updated_at->format('M d, Y h:i a') }}</div>
                 </div>
 

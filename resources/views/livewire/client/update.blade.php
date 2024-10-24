@@ -4,8 +4,8 @@
     {{-- End | Client Card --}}
 
     <div class="py-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow overflow-hidden">
-            <div class="px-4 border-b dark:border-b-gray-700 h-12 flex space-x-3">
+        <div class="bg-white dark:bg-slate-800 dark:text-white rounded-lg shadow overflow-hidden">
+            <div class="px-4 border-b dark:border-b-slate-700 h-12 flex space-x-3">
                 <x-nav-button wire:click="$set('navigate', 'business-details')" :active="$navigate === 'business-details'">
                     {{ __("Business") }}
                 </x-nav-button>
@@ -86,7 +86,7 @@
                     @endif
                 </div>
 
-                <div class="p-4 bg-gray-100 dark:bg-gray-700 flex items-center justify-end">
+                <div class="p-4 bg-slate-100 dark:bg-slate-700 flex items-center justify-end">
                     <x-action-message class="me-3" on="saved">
                         {{ __('Saved.') }}
                     </x-action-message>

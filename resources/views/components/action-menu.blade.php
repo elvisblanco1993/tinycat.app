@@ -19,7 +19,7 @@
         x-transition:leave-start="transform opacity-100 scale-100"
         x-transition:leave-end="transform opacity-0 scale-95"
         x-anchor.bottom-end.offset.10="$refs.addbtn"
-        class="z-50 w-48 text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg"
+        class="z-50 w-48 text-sm text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-700 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg"
     >
         {{ $content }}
     </div>

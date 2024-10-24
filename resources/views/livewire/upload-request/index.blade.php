@@ -12,8 +12,8 @@
 
     <div class="mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-left rtl:text-right text-slate-500 dark:text-slate-400">
+                <thead class="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">{{ __("ID") }}</th>
                         <th scope="col" class="px-6 py-3">{{ __("Due date") }}</th>
@@ -25,7 +25,7 @@
                 </thead>
                 <tbody class="text-sm">
                     @forelse ($requests as $req)
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600">
                             <th scope="row" class="px-6 py-4 font-normal whitespace-nowrap">
                                 {{ $req->ulid }}
                             </th>
@@ -49,7 +49,7 @@
                             </td>
                         </tr>
                     @empty
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600">
                             <td colspan="4" class="px-6 py-3 text-center">
                                 {{ __("No requests found.") }}
                             </td>

@@ -1,6 +1,6 @@
 <div>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-slate-800 dark:text-slate-200 leading-tight">
             {{ __('Clients') }}
         </h2>
         @can('create', \App\Models\Client::class)
@@ -25,8 +25,8 @@
             </div>
 
             <div class="mt-3 relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-left rtl:text-right text-slate-500 dark:text-slate-400">
+                    <thead class="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 <x-checkbox wire:model.live="select_page" />
@@ -42,7 +42,7 @@
                     <tbody class="text-sm">
                         @if ($select_page)
                             <tr class="">
-                                <td colspan="5" class="px-6 py-2 bg-yellow-100 dark:bg-gray-900/50 dark:text-yellow-500">
+                                <td colspan="5" class="px-6 py-2 bg-yellow-100 dark:bg-slate-900/50 dark:text-yellow-500">
                                     @unless ($select_all)
                                         <span>You have selected <strong>{{ $clients->count() }}</strong> clients. Do you want to select all <strong>{{ $clients->total() }}</strong>?</span>
                                         <button wire:click="selectAll" class="ml-1 text-blue-600">Select all</button>
@@ -53,11 +53,11 @@
                             </tr>
                         @endif
                         @forelse ($clients as $client)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600">
                                 <td class="px-6 py-3">
                                     <x-checkbox wire:model.live="selected" value="{{ $client->id }}" />
                                 </td>
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" class="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white">
                                     {{ $client->id }}
                                 </th>
                                 <td scope="row" class="px-6 py-4">
@@ -74,7 +74,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600">
                                 <td colspan="5" class="px-6 py-3 text-center">
                                     {{ __("No clients found.") }}
                                 </td>

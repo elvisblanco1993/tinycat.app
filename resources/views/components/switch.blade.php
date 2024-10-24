@@ -6,11 +6,11 @@
 
 <div x-data="{ label: '{{ $label }}', isChecked: @entangle($attributes->wire('model')) }" x-switch:group class="flex items-center">
     <!-- Button -->
-    <button x-cloak x-switch x-model="isChecked" :class="isChecked ? 'bg-indigo-500 dark:bg-indigo-500' : 'bg-gray-300 dark:bg-gray-500'"
+    <button x-cloak x-switch x-model="isChecked" :class="isChecked ? 'bg-indigo-500 dark:bg-indigo-500' : 'bg-slate-300 dark:bg-slate-500'"
             class="relative inline-flex w-8 rounded-full py-1 transition outline-none">
         <span :class="isChecked ? 'translate-x-4' : 'translate-x-1'"
-              class="bg-white dark:bg-gray-200 h-3 w-3 rounded-full transition shadow-md"></span>
+              class="bg-white dark:bg-slate-200 h-3 w-3 rounded-full transition shadow-md"></span>
     </button>
     <!-- Label -->
-    <label x-switch:label class="ml-2 text-sm text-gray-600 dark:text-gray-200 font-normal" x-text="label"></label>
+    <label x-switch:label class="ml-2 text-sm text-slate-600 dark:text-slate-200 font-normal" x-text="label"></label>
 </div>
