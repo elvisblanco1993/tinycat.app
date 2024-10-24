@@ -43,14 +43,14 @@
                                 </span>
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <x-secondary-button-link href="" wire:navigate>
+                                <x-secondary-button-link href="{{ route('upload-request.show', ['client' => $client, 'request' => $req]) }}" wire:navigate>
                                     {{ __("View") }}
                                 </x-secondary-button-link>
                             </td>
                         </tr>
                     @empty
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td colspan="3" class="px-6 py-3 text-center">
+                            <td colspan="4" class="px-6 py-3 text-center">
                                 {{ __("No requests found.") }}
                             </td>
                         </tr>

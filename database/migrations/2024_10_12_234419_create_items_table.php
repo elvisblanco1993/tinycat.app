@@ -1,7 +1,9 @@
 <?php
 
-use App\Models\Client;
 use App\Models\Item;
+use App\Models\Team;
+use App\Models\Client;
+use App\Models\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,9 +17,10 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('team_id')->index()->onDelete('cascade');
+            $table->foreignIdFor(Team::class)->index()->onDelete('cascade');
             $table->foreignIdFor(Client::class)->index()->onDelete('cascade');
             $table->foreignIdFor(Item::class, 'parent_id')->index()->nullable();
+            $table->foreignIdFor(Request::class, 'request_id')->index()->nullable();
             $table->string('name');
             $table->string('path')->nullable();
             $table->string('thumbnail')->nullable();

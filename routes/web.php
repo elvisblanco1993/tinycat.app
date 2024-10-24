@@ -25,7 +25,12 @@ Route::middleware([
     Route::get('/clients/{client}/edit', \App\Livewire\Client\Update::class)->name('client.update');
     Route::get('/clients/{client}/files/{item?}', \App\Livewire\File\Index::class)->name('client.files');
     Route::get('/clients/{client}/projects', \App\Livewire\Client\Show::class)->name('client.projects');
-    Route::get('/clients/{client}/upload-requests', \App\Livewire\UploadRequest\Index::class)->name('client.requests');
+
+    /**
+     * Requests Routes
+     */
+    Route::get('/clients/{client}/requests', \App\Livewire\UploadRequest\Index::class)->name('upload-request.index');
+    Route::get('/clients/{client}/requests/{request}', \App\Livewire\UploadRequest\Show::class)->name('upload-request.show');
 
     /**
      * Project Routes
@@ -43,8 +48,8 @@ Route::middleware([
     // @TODO: Create middleware to only allow clients to see these routes.
     Route::prefix('my')
         ->group(function() {
-            Route::get('/files', fn() => view('dashboard') )->name('request.show');
-            Route::get('/projects', fn() => view('dashboard') )->name('request.show');
-            Route::get('/requests/{request}/upload', fn() => view('dashboard') )->name('request.show');
+            Route::get('/files', fn() => view('dashboard') )->name('my.request.show');
+            Route::get('/projects', fn() => view('dashboard') )->name('my.request.show');
+            Route::get('/requests/{request}/upload', fn() => view('dashboard') )->name('my.request.show');
         });
 });

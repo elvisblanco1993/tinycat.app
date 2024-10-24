@@ -18,6 +18,7 @@ class Item extends Model
         'team_id',
         'client_id',
         'parent_id',
+        'request_id',
         'name',
         'is_folder',
         'is_external',
@@ -35,6 +36,11 @@ class Item extends Model
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function request(): BelongsTo
+    {
+        return $this->belongsTo(Request::class);
     }
 
     public function getAncestors()
@@ -73,16 +79,12 @@ class Item extends Model
     function formatBytes($bytes, $precision = 2)
     {
         $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
-
         if ($bytes == 0) {
             return '0 B';
         }
-
         $exponent = (int) floor(log($bytes, 1024));
         $exponent = min($exponent, count($units) - 1);
-
         $size = $bytes / pow(1024, $exponent);
-
         return round($size, $precision) . ' ' . $units[$exponent];
     }
 }

@@ -14,7 +14,7 @@ window.setupEditor = function (content) {
         element: element,
         editorProps: {
             attributes: {
-                class: 'p-2 prose prose-sm dark:prose-invert min-h-36 prose-h2:mb-0 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 focus:outline-none',
+                class: 'p-2 min-h-24 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 focus:outline-none',
             },
         },
         extensions: [
