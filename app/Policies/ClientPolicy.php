@@ -37,7 +37,12 @@ class ClientPolicy
      */
     public function update(User $user, Client $client): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'client:update');
+        return $client->owner_id === $user->id
+            || (
+                $user->hasTeamPermission($user->currentTeam,'client:update')
+                &&
+                $client->team_id === $user->current_team_id
+            );
     }
 
     /**

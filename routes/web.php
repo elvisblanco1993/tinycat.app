@@ -22,6 +22,7 @@ Route::middleware([
      */
     Route::get('/clients', \App\Livewire\Client\Index::class)->name('client.index');
     Route::get('/clients/{client}', \App\Livewire\Client\Show::class)->name('client.show');
+    Route::get('/clients/{client}/edit', \App\Livewire\Client\Update::class)->name('client.update');
     Route::get('/clients/{client}/files/{item?}', \App\Livewire\File\Index::class)->name('client.files');
     Route::get('/clients/{client}/projects', \App\Livewire\Client\Show::class)->name('client.projects');
     Route::get('/clients/{client}/upload-requests', \App\Livewire\UploadRequest\Index::class)->name('client.requests');
