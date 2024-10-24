@@ -47,6 +47,7 @@ class Create extends Component
                 'name' => $this->owner_name,
                 'email' => $this->owner_email,
                 'password' => Hash::make($password),
+                'is_client' => true,
             ]);
 
             $client = Auth::user()->currentTeam->clients()->create([
