@@ -2,15 +2,15 @@
 
 namespace App\Livewire\Auth;
 
-use App\Models\User;
-use Livewire\Component;
+use App\Actions\Fortify\PasswordValidationRules;
 use App\Models\TeamInvitation;
-use Livewire\Attributes\Layout;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Actions\Fortify\PasswordValidationRules;
 use Laravel\Jetstream\Contracts\AddsTeamMembers;
 use Laravel\Jetstream\InteractsWithBanner;
+use Livewire\Attributes\Layout;
+use Livewire\Component;
 
 #[Layout('layouts.guest')]
 class RegisterWithInvitation extends Component
@@ -21,7 +21,9 @@ class RegisterWithInvitation extends Component
     public TeamInvitation $invitation;
 
     public $name;
+
     public $password;
+
     public $password_confirmation;
 
     public function mount()
@@ -43,12 +45,12 @@ class RegisterWithInvitation extends Component
             'password' => $this->passwordRules(),
         ]);
 
-        DB::transaction( function () {
+        DB::transaction(function () {
             User::create([
                 'name' => $this->name,
                 'email' => $this->invitation->email,
                 'password' => Hash::make($this->password),
-                'current_team_id' => $this->invitation->team_id
+                'current_team_id' => $this->invitation->team_id,
             ]);
 
             app(AddsTeamMembers::class)->add(

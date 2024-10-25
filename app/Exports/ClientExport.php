@@ -2,7 +2,6 @@
 
 namespace App\Exports;
 
-use App\Models\Client;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
@@ -31,13 +30,13 @@ class ClientExport implements FromCollection, WithHeadings
             'State',
             'Zip code',
             'Country',
-            'Date Created'
+            'Date Created',
         ];
     }
 
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         return $this->clients->map(function ($client) {

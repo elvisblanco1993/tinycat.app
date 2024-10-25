@@ -2,16 +2,18 @@
 
 namespace App\Livewire\File;
 
-use App\Models\Item;
 use App\Models\Client;
-use Livewire\Component;
-use Livewire\Attributes\Validate;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Validate;
+use Livewire\Component;
 
 class NewFolder extends Component
 {
     public $modal;
+
     public Client $client;
+
     public ?Item $parent = null;
 
     #[Validate('required')]

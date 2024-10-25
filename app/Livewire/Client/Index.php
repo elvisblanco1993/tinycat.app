@@ -13,9 +13,13 @@ class Index extends Component
     use WithPagination;
 
     public $search = '';
+
     public $per_page = 25;
+
     public $selected = [];
+
     public $select_page = false;
+
     public $select_all = false;
 
     public function mount()

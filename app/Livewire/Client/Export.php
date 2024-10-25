@@ -2,10 +2,10 @@
 
 namespace App\Livewire\Client;
 
-use App\Models\Client;
-use Livewire\Component;
-use Livewire\Attributes\On;
 use App\Exports\ClientExport;
+use App\Models\Client;
+use Livewire\Attributes\On;
+use Livewire\Component;
 use Maatwebsite\Excel\Facades\Excel;
 
 class Export extends Component
@@ -20,6 +20,7 @@ class Export extends Component
     public function export()
     {
         $clients = Client::whereIn('id', $this->selected)->get();
+
         return Excel::download(new ClientExport($clients), 'clients.xlsx');
     }
 

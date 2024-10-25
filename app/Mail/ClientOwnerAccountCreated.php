@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -14,7 +13,9 @@ class ClientOwnerAccountCreated extends Mailable
     use Queueable, SerializesModels;
 
     public $team;
+
     public $owner_name;
+
     public $password;
 
     /**
@@ -33,7 +34,7 @@ class ClientOwnerAccountCreated extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Your customer portal access - ' . $this->team,
+            subject: 'Your customer portal access - '.$this->team,
         );
     }
 

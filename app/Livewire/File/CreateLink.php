@@ -2,19 +2,21 @@
 
 namespace App\Livewire\File;
 
-use App\Models\Item;
 use App\Models\Client;
-use Livewire\Component;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class CreateLink extends Component
 {
     public Client $client;
+
     public ?Item $parent = null;
 
     public $modal;
 
     public $name;
+
     public $path;
 
     public function render()
@@ -25,7 +27,7 @@ class CreateLink extends Component
     public function save()
     {
         $this->validate([
-            'path' => ['required', 'active_url']
+            'path' => ['required', 'active_url'],
         ]);
 
         $this->client->items()->create([

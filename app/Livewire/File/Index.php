@@ -2,16 +2,17 @@
 
 namespace App\Livewire\File;
 
-use App\Models\Item;
 use App\Models\Client;
+use App\Models\Item;
 use Livewire\Attributes\On;
 use Livewire\Component;
-use Livewire\Attributes\Renderless;
 
 class Index extends Component
 {
     public Client $client;
+
     public ?Item $item = null;
+
     public $search = '';
 
     #[On('updated-item')]

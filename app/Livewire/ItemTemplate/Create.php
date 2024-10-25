@@ -2,13 +2,15 @@
 
 namespace App\Livewire\ItemTemplate;
 
-use Livewire\Component;
 use Illuminate\Support\Collection;
+use Livewire\Component;
 
 class Create extends Component
 {
     public $modal = true;
+
     public $root_name;
+
     public Collection $inputs;
 
     protected $rules = [

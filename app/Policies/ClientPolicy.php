@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\Client;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class ClientPolicy
 {
@@ -13,7 +12,7 @@ class ClientPolicy
      */
     public function viewAny(User $user): bool
     {
-        return !$user->is_client;
+        return ! $user->is_client;
     }
 
     /**
@@ -29,7 +28,7 @@ class ClientPolicy
      */
     public function create(User $user): bool
     {
-        return !$user->is_client && $user->hasTeamPermission($user->currentTeam,'client:create');
+        return ! $user->is_client && $user->hasTeamPermission($user->currentTeam, 'client:create');
     }
 
     /**
@@ -39,7 +38,7 @@ class ClientPolicy
     {
         return $client->owner_id === $user->id
             || (
-                $user->hasTeamPermission($user->currentTeam,'client:update')
+                $user->hasTeamPermission($user->currentTeam, 'client:update')
                 &&
                 $client->team_id === $user->current_team_id
             );
@@ -50,7 +49,7 @@ class ClientPolicy
      */
     public function delete(User $user, Client $client): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'client:delete');
+        return $user->hasTeamPermission($user->currentTeam, 'client:delete');
     }
 
     /**
@@ -58,7 +57,7 @@ class ClientPolicy
      */
     public function restore(User $user, Client $client): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'client:restore');
+        return $user->hasTeamPermission($user->currentTeam, 'client:restore');
     }
 
     /**
@@ -66,6 +65,6 @@ class ClientPolicy
      */
     public function forceDelete(User $user, Client $client): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'client:forceDelete');
+        return $user->hasTeamPermission($user->currentTeam, 'client:forceDelete');
     }
 }

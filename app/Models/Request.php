@@ -25,7 +25,7 @@ class Request extends Model
 
     protected $casts = [
         'completed_at' => 'datetime',
-        'due_at' => 'datetime'
+        'due_at' => 'datetime',
     ];
 
     public function team(): BelongsTo

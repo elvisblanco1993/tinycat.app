@@ -3,9 +3,8 @@
 namespace App\Livewire\Form;
 
 use App\Models\Form;
-use Livewire\Component;
-use Illuminate\Support\Str;
 use Laravel\Jetstream\InteractsWithBanner;
+use Livewire\Component;
 
 class Update extends Component
 {
@@ -16,9 +15,13 @@ class Update extends Component
     public $modal;
 
     public $title;
+
     public $slug;
+
     public $heading;
+
     public $subheading;
+
     public $status;
 
     public function mount()
@@ -42,7 +45,7 @@ class Update extends Component
         $this->validate([
             'title' => 'required',
             'slug' => 'required',
-            'status' => 'required|in:DRAFT,PUBLISHED,CLOSED'
+            'status' => 'required|in:DRAFT,PUBLISHED,CLOSED',
         ]);
 
         $this->form->update([

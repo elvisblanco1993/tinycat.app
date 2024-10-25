@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\Request;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class RequestPolicy
 {
@@ -29,7 +28,7 @@ class RequestPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'upload-request:create');
+        return $user->hasTeamPermission($user->currentTeam, 'upload-request:create');
     }
 
     /**

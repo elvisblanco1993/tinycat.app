@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\ItemTemplate;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class ItemTemplatePolicy
 {
@@ -29,7 +28,7 @@ class ItemTemplatePolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'file-template:create');
+        return $user->hasTeamPermission($user->currentTeam, 'file-template:create');
     }
 
     /**
@@ -37,7 +36,7 @@ class ItemTemplatePolicy
      */
     public function update(User $user, ItemTemplate $itemTemplate): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'file-template:update');
+        return $user->hasTeamPermission($user->currentTeam, 'file-template:update');
     }
 
     /**
@@ -45,7 +44,7 @@ class ItemTemplatePolicy
      */
     public function delete(User $user, ItemTemplate $itemTemplate): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'file-template:delete');
+        return $user->hasTeamPermission($user->currentTeam, 'file-template:delete');
     }
 
     /**

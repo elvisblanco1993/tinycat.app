@@ -12,7 +12,7 @@ class Project extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'team_id', 'client_id', 'name', 'description', 'start_date', 'end_date', 'status'
+        'team_id', 'client_id', 'name', 'description', 'start_date', 'end_date', 'status',
     ];
 
     public function tasks(): HasMany

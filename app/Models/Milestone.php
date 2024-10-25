@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Milestone extends Model
 {
     protected $fillable = [
-        'project_id', 'title', 'due_date', 'completed'
+        'project_id', 'title', 'due_date', 'completed',
     ];
 
     public function project(): BelongsTo

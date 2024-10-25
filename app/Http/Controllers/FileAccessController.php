@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Attributes\Renderless;
 
 class FileAccessController extends Controller
 {
@@ -15,11 +14,13 @@ class FileAccessController extends Controller
 
     /**
      * Download file with a signed URL.
+     *
      * @return url
      */
     public function downloadPrivately(Item $item)
     {
-        $signedUrl =  Storage::temporaryUrl($item->path, now()->addMinutes(10));
+        $signedUrl = Storage::temporaryUrl($item->path, now()->addMinutes(10));
+
         return redirect($signedUrl);
     }
 }

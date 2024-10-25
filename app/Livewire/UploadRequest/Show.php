@@ -9,6 +9,7 @@ use Livewire\Component;
 class Show extends Component
 {
     public Client $client;
+
     public Request $request;
 
     public function render()

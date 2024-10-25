@@ -2,17 +2,21 @@
 
 namespace App\Livewire\File;
 
-use App\Models\Item;
 use App\Models\Client;
-use Livewire\Component;
+use App\Models\Item;
 use Livewire\Attributes\On;
+use Livewire\Component;
 
 class Move extends Component
 {
     public $modal;
+
     public $folders;
+
     public $client;
+
     public $items;
+
     public $currentItem;
 
     #[On('move-item')]

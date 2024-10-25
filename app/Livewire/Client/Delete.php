@@ -3,8 +3,8 @@
 namespace App\Livewire\Client;
 
 use App\Models\Client;
-use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\Component;
 
 class Delete extends Component
 {

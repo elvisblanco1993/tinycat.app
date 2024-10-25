@@ -1,12 +1,12 @@
 <?php
 
-use App\Models\Item;
-use App\Models\Team;
 use App\Models\Client;
+use App\Models\Item;
 use App\Models\Request;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Team;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {

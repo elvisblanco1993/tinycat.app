@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class TaskLabel extends Model
 {
     protected $fillable = [
-        'name'
+        'name',
     ];
 
     public function tasks(): BelongsToMany

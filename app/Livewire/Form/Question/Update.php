@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Form\Question;
 
-use Livewire\Component;
 use App\Models\Question;
 use Livewire\Attributes\Renderless;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Update extends Component
@@ -14,10 +14,15 @@ class Update extends Component
     public Question $question;
 
     public $question_text;
+
     public $placeholder;
+
     public $is_required;
+
     public $type;
+
     public $options;
+
     public $dummyfile; // This is for the user to test the input (Does not save to DB)
 
     public function mount()
@@ -58,7 +63,7 @@ class Update extends Component
     #[Renderless]
     public function updatedOptions()
     {
-        $this->question->options = array_filter(explode(PHP_EOL, $this->options), fn($line) => trim($line) !== '');
+        $this->question->options = array_filter(explode(PHP_EOL, $this->options), fn ($line) => trim($line) !== '');
         $this->question->save();
     }
 }

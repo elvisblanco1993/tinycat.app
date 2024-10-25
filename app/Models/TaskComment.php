@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class TaskComment extends Model
 {
     protected $fillable = [
-        'task_id', 'user_id', 'comment'
+        'task_id', 'user_id', 'comment',
     ];
 
     public function task(): BelongsTo

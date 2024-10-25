@@ -4,12 +4,13 @@ namespace App\Livewire\UploadRequest;
 
 use App\Models\Client;
 use App\Models\Request;
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class Delete extends Component
 {
     public Request $request;
+
     public Client $client;
 
     public function mount()

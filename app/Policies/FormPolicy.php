@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\Form;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class FormPolicy
 {
@@ -29,7 +28,7 @@ class FormPolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'form:create');
+        return $user->hasTeamPermission($user->currentTeam, 'form:create');
     }
 
     /**
@@ -37,7 +36,7 @@ class FormPolicy
      */
     public function update(User $user, Form $form): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'form:update')
+        return $user->hasTeamPermission($user->currentTeam, 'form:update')
             && $form->team_id === $user->current_team_id;
     }
 
@@ -46,7 +45,7 @@ class FormPolicy
      */
     public function delete(User $user, Form $form): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'form:delete')
+        return $user->hasTeamPermission($user->currentTeam, 'form:delete')
             && $form->team_id === $user->current_team_id;
     }
 
@@ -55,7 +54,7 @@ class FormPolicy
      */
     public function restore(User $user, Form $form): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'form:restore')
+        return $user->hasTeamPermission($user->currentTeam, 'form:restore')
             && $form->team_id === $user->current_team_id;
     }
 
@@ -64,7 +63,7 @@ class FormPolicy
      */
     public function forceDelete(User $user, Form $form): bool
     {
-        return $user->hasTeamPermission($user->currentTeam,'form:forceDelete')
+        return $user->hasTeamPermission($user->currentTeam, 'form:forceDelete')
             && $form->team_id === $user->current_team_id;
     }
 }

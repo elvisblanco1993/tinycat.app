@@ -9,7 +9,9 @@ use Livewire\Component;
 class Update extends Component
 {
     public $drawer;
+
     public $item;
+
     public $name;
 
     #[On('show-item')]

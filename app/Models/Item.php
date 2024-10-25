@@ -12,6 +12,7 @@ class Item extends Model
 {
     /** @use HasFactory<\Database\Factories\ItemFactory> */
     use HasFactory;
+
     use SoftDeletes;
 
     protected $fillable = [
@@ -51,6 +52,7 @@ class Item extends Model
             $ancestors->prepend($parent);
             $parent = $parent->parent;
         }
+
         return $ancestors;
     }
 
@@ -72,11 +74,11 @@ class Item extends Model
     /**
      * Convert bytes to a human-readable format (KB, MB, GB, etc.).
      *
-     * @param int $bytes
-     * @param int $precision
+     * @param  int  $bytes
+     * @param  int  $precision
      * @return string
      */
-    function formatBytes($bytes, $precision = 2)
+    public function formatBytes($bytes, $precision = 2)
     {
         $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
         if ($bytes == 0) {
@@ -85,6 +87,7 @@ class Item extends Model
         $exponent = (int) floor(log($bytes, 1024));
         $exponent = min($exponent, count($units) - 1);
         $size = $bytes / pow(1024, $exponent);
-        return round($size, $precision) . ' ' . $units[$exponent];
+
+        return round($size, $precision).' '.$units[$exponent];
     }
 }

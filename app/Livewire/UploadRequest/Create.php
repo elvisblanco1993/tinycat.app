@@ -2,21 +2,22 @@
 
 namespace App\Livewire\UploadRequest;
 
-use App\Models\Client;
-use Livewire\Component;
-use Illuminate\Support\Str;
-use Livewire\Attributes\On;
 use App\Mail\UploadRequestSent;
-use Illuminate\Support\Facades\URL;
-use Livewire\Attributes\Renderless;
+use App\Models\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
+use Livewire\Component;
 
 class Create extends Component
 {
     public Client $client;
+
     public $modal;
+
     public $message;
+
     public $due_at;
 
     public function render()
@@ -31,7 +32,7 @@ class Create extends Component
             'team_id' => Auth::user()->currentTeam->id,
             'item_id' => $this->client->items()->where('name', 'Uploads')->firstOrCreate(['name' => 'Uploads'], ['is_folder' => 1, 'team_id' => Auth::user()->currentTeam->id])->id, // The folder where files will be uploaded to.
             'due_at' => $this->due_at,
-            'message' => $this->message
+            'message' => $this->message,
         ]);
 
         // Send email to client

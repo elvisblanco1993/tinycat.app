@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Form;
 
-use Livewire\Component;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Livewire\Component;
 
 class Create extends Component
 {
@@ -17,7 +17,7 @@ class Create extends Component
     {
         $form = Auth::user()->currentTeam->forms()->create([
             'title' => 'New form',
-            'slug' => Str::random(12)
+            'slug' => Str::random(12),
         ]);
 
         $this->redirect(url: route('form.show', ['form' => $form]), navigate: true);

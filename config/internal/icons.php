@@ -1,4 +1,5 @@
 <?php
+
 return [
     'application/vnd.android.package-archive' => 'icons/apk.svg',
     'application/epub+zip' => 'icons/epub.svg',

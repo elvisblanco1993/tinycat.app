@@ -2,16 +2,15 @@
 
 namespace App\Livewire\Client;
 
+use App\Mail\ClientOwnerAccountCreated;
 use App\Models\User;
-use Livewire\Component;
-use Illuminate\Support\Str;
-use Livewire\Attributes\Validate;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ClientOwnerAccountCreated;
+use Illuminate\Support\Str;
 use Laravel\Jetstream\InteractsWithBanner;
+use Livewire\Component;
 
 class Create extends Component
 {
@@ -20,8 +19,11 @@ class Create extends Component
     public $modal;
 
     public $name;
+
     public $business_type;
+
     public $owner_name;
+
     public $owner_email;
 
     public function render()

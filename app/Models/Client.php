@@ -2,21 +2,21 @@
 
 namespace App\Models;
 
-use Laravel\Scout\Searchable;
 use App\Models\Scopes\ClientScope;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Scout\Searchable;
 
 #[ScopedBy(ClientScope::class)]
 class Client extends Model
 {
-    use HasFactory, Searchable, SoftDeletes, Notifiable;
+    use HasFactory, Notifiable, Searchable, SoftDeletes;
 
     protected $guarded = [];
 

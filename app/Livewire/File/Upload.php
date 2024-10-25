@@ -2,21 +2,22 @@
 
 namespace App\Livewire\File;
 
-use App\Models\Item;
 use App\Models\Client;
-use Livewire\Component;
-use Livewire\WithFileUploads;
-use Livewire\Attributes\Validate;
-use Illuminate\Support\Facades\Log;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
+use Livewire\Attributes\Validate;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Upload extends Component
 {
     use WithFileUploads;
 
     public Client $client;
+
     public ?Item $parent = null;
 
     public $modal;
@@ -29,7 +30,7 @@ class Upload extends Component
 
     public function mount()
     {
-        $this->supported = json_encode( config('mime_types') );
+        $this->supported = json_encode(config('mime_types'));
     }
 
     public function render()
@@ -85,13 +86,14 @@ class Upload extends Component
      */
     protected function generateImageThumbnail($filepath, $thumbpath)
     {
-        if (!Storage::exists($thumbpath)) {
+        if (! Storage::exists($thumbpath)) {
             Storage::makeDirectory($thumbpath);
         }
         $thumb = Image::read(Storage::path($filepath))->scale(width: 150);
-        $thumbnailName = basename($filepath, '.' . pathinfo($filepath, PATHINFO_EXTENSION)) . '.webp';
+        $thumbnailName = basename($filepath, '.'.pathinfo($filepath, PATHINFO_EXTENSION)).'.webp';
         $thumbnailPath = "{$thumbpath}/{$thumbnailName}";
         $thumb->toWebp()->save(Storage::path($thumbnailPath));
+
         return $thumbnailPath;
     }
 

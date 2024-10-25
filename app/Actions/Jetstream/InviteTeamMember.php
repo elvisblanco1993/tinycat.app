@@ -2,19 +2,19 @@
 
 namespace App\Actions\Jetstream;
 
-use Closure;
+use App\Mail\TeamInvitation;
 use App\Models\Team;
 use App\Models\User;
-use App\Mail\TeamInvitation;
-use Illuminate\Validation\Rule;
-use Laravel\Jetstream\Jetstream;
-use Laravel\Jetstream\Rules\Role;
+use Closure;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Validator;
-use Laravel\Jetstream\Events\InvitingTeamMember;
+use Illuminate\Validation\Rule;
 use Laravel\Jetstream\Contracts\InvitesTeamMembers;
+use Laravel\Jetstream\Events\InvitingTeamMember;
+use Laravel\Jetstream\Jetstream;
+use Laravel\Jetstream\Rules\Role;
 
 class InviteTeamMember implements InvitesTeamMembers
 {

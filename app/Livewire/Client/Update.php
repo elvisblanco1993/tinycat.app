@@ -3,7 +3,6 @@
 namespace App\Livewire\Client;
 
 use App\Models\Client;
-use Livewire\Attributes\Renderless;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
@@ -14,25 +13,36 @@ class Update extends Component
     #[Url]
     public $navigate = 'business-details';
 
-    public  $name,
-            $dba,
-            $business_type,
-            $phone,
-            $email,
-            $itin,
-            $address,
-            $address_ext,
-            $city,
-            $state,
-            $zip,
-            $country;
+    public $name;
+
+    public $dba;
+
+    public $business_type;
+
+    public $phone;
+
+    public $email;
+
+    public $itin;
+
+    public $address;
+
+    public $address_ext;
+
+    public $city;
+
+    public $state;
+
+    public $zip;
+
+    public $country;
 
     public function mount()
     {
         $this->authorize('update', $this->client);
         $this->fill($this->client->only([
             'name', 'dba', 'business_type', 'phone', 'email', 'itin',
-            'address', 'address_ext', 'city', 'state', 'zip', 'country'
+            'address', 'address_ext', 'city', 'state', 'zip', 'country',
         ]));
     }
 

@@ -6,9 +6,8 @@ use App\Models\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\URL;
 
 class UploadRequestSent extends Mailable
@@ -16,7 +15,9 @@ class UploadRequestSent extends Mailable
     use Queueable, SerializesModels;
 
     public $requestor;
+
     public $message;
+
     public $url;
 
     /**
@@ -35,7 +36,7 @@ class UploadRequestSent extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New request from ' . $this->requestor,
+            subject: 'New request from '.$this->requestor,
         );
     }
 
