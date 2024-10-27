@@ -1,7 +1,11 @@
 <div>
-    {{-- Client Card --}}
-    @include('partials.client.profile')
-    {{-- End | Client Card --}}
+    @unless (Auth::user()->is_client)
+        @include('partials.client.profile')
+    @else
+    <h2 class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 font-semibold text-xl text-slate-800 dark:text-slate-200">
+        {{ __("Upload requests") }}
+    </h2>
+    @endunless
 
     <div class="mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-between">
         <x-tinycat.search type="search" wire:model.live.debounce.250="search" placeholder="Search..." class="text-sm" />
@@ -51,7 +55,7 @@
                     @empty
                         <tr class="bg-white border-b dark:bg-slate-800 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600">
                             <td colspan="4" class="px-6 py-3 text-center">
-                                {{ __("No requests found.") }}
+                                {{ __("No requests found at this time.") }}
                             </td>
                         </tr>
                     @endforelse

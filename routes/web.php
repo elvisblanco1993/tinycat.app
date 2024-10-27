@@ -17,42 +17,32 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        if (Auth::user()->is_client) {
-            return redirect()->route('my.files');
-        }
-
         return view('dashboard');
     })->name('dashboard');
 
-    /**
-     * Admin Client Routes
-     */
-    Route::get('/clients', \App\Livewire\Client\Index::class)->name('client.index');
-    Route::get('/clients/{client}', fn ($client) => redirect(route('client.files', ['client' => $client])))->name('client.show');
-    Route::get('/clients/{client}/edit', \App\Livewire\Client\Update::class)->name('client.update');
-    Route::get('/clients/{client}/files/{item?}', \App\Livewire\File\Index::class)->name('client.files');
-    Route::get('/clients/{client}/projects', fn () => view('dashboard'))->name('client.projects');
-    Route::get('/clients/{client}/requests', \App\Livewire\UploadRequest\Index::class)->name('upload-request.index');
-    Route::get('/clients/{client}/requests/{request}', \App\Livewire\UploadRequest\Show::class)->name('upload-request.show');
+    // Clients
+    Route::get('/clients', \App\Livewire\Admin\Client\Index::class)->name('client.index');
+    Route::get('/clients/{client}', fn ($client) => redirect(route('file.index', ['client' => $client])))->name('client.show');
+    Route::get('/clients/{client}/edit', \App\Livewire\Admin\Client\Update::class)->name('client.update');
+    // Projects
+    Route::get('/projects/{client?}', fn () => view('dashboard'))->name('project.index');
+    Route::get('/projects/{client?}/{project}', fn () => view('dashboard'))->name('project.show');
+    // Upload Requests
+    Route::get('/requests/{client?}', \App\Livewire\UploadRequest\Index::class)->name('upload-request.index');
+    Route::get('/requests/{client?}/{request}', \App\Livewire\UploadRequest\Show::class)->name('upload-request.show');
+    Route::get('/requests/{client?}/{request}/upload', fn () => view('dashboard'))->name('upload-request.complete');
+    // Files
+    Route::get('/files/{client?}/{item?}', \App\Livewire\File\Index::class)->name('file.index');
+    // Forms
+    Route::get('/forms', \App\Livewire\Admin\Form\Index::class)->name('form.index');
+    Route::get('/forms/{form}', \App\Livewire\Admin\Form\Show::class)->name('form.show');
 
-    /**
-     * Project Routes
-     */
-    Route::get('/projects', fn () => view('dashboard'))->name('project.index');
-    Route::get('/forms', \App\Livewire\Form\Index::class)->name('form.index');
-    Route::get('/forms/{form}', \App\Livewire\Form\Show::class)->name('form.show');
-
-    /**
-     * Image manipulation routes
-     */
+    // Attachments
     Route::get('/get-thumbnail/{item}', [FileAccessController::class, 'downloadThumbnail'])->name('thumbnail');
     Route::get('/download/{item}', [FileAccessController::class, 'downloadPrivately'])->name('download');
 
     // @TODO: Create middleware to only allow clients to see these routes.
-    Route::prefix('my')
-        ->group(function () {
-            Route::get('/files', fn () => view('dashboard'))->name('my.files');
-            Route::get('/projects', fn () => view('dashboard'))->name('my.project.index');
-            Route::get('/requests/{request}/upload', fn () => view('dashboard'))->name('my.request.show');
-        });
+    Route::prefix('my')->group(function () {
+        Route::get('/tasks', fn () => view('dashboard'))->name('my.task.index');
+    });
 });

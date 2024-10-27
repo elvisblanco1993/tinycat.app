@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -75,8 +76,8 @@ class User extends Authenticatable
         return $this->hasOne(Client::class, 'owner_id');
     }
 
-    public function client(): BelongsTo
+    public function clients(): BelongsToMany
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsToMany(Client::class);
     }
 }

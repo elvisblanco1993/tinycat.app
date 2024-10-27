@@ -2,18 +2,29 @@
 
 namespace App\Livewire\File;
 
-use App\Models\Client;
 use App\Models\Item;
-use Livewire\Attributes\On;
+use App\Models\Client;
 use Livewire\Component;
+use Livewire\Attributes\On;
+use Illuminate\Support\Facades\Auth;
 
 class Index extends Component
 {
-    public Client $client;
+    public $client;
 
     public ?Item $item = null;
 
     public $search = '';
+
+    public function mount($client = null)
+    {
+        $user = Auth::user();
+        if (!$client && $user->is_client) {
+            $this->client = $user->ownedClient;
+        } else {
+            $this->client = Client::where('id', $client)->firstOrFail();
+        }
+    }
 
     #[On('updated-item')]
     public function render()

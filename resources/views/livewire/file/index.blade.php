@@ -1,7 +1,11 @@
 <div>
-    {{-- Client Card --}}
-    @include('partials.client.profile')
-    {{-- End | Client Card --}}
+    @unless (Auth::user()->is_client)
+        @include('partials.client.profile')
+    @else
+    <h2 class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 font-semibold text-xl text-slate-800 dark:text-slate-200">
+        {{ __("Files") }}
+    </h2>
+    @endunless
 
     <div class="mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
@@ -18,7 +22,7 @@
         @forelse ($items as $item)
             <li class="flex items-center justify-between rounded-lg px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800">
                 @if ($item->is_folder)
-                    <a href="{{ route('client.files', ['client' => $client, 'item' => $item]) }}" class="w-full">
+                    <a href="{{ route('file.index', ['client' => $client, 'item' => $item]) }}" class="w-full">
                         <div class="flex items-center space-x-3 h-16 ">
                             <img src="{{ asset( config('internal.icons.dir') ) }}">
                             <div class="">

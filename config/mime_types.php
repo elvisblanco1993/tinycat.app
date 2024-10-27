@@ -15,8 +15,7 @@ return [
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     'application/vnd.ms-powerpoint',
     'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-    'audio/midi',
-
+    'text/csv',
     // Major Image MIME Types
     'image/jpeg',
     'image/png',
@@ -41,5 +40,6 @@ return [
     'audio/flac',
     'audio/aac',
     'audio/mp3',
+    'audio/midi',
     'audio/*',
 ];

@@ -20,7 +20,9 @@ class RequestPolicy
      */
     public function view(User $user, Request $request): bool
     {
-        //
+        return ($user->is_client && $user->clients()->where('clients.id', $request->client_id)->exists())
+            ||
+            ($user->current_team_id === $request->team_id);
     }
 
     /**
@@ -37,6 +39,16 @@ class RequestPolicy
     public function update(User $user, Request $request): bool
     {
         //
+    }
+
+        /**
+     * Determine whether the user can update the model.
+     */
+    public function complete(User $user, Request $request): bool
+    {
+        return $user->is_client
+            && !$request->completed_at
+            && $user->clients()->where('clients.id', $request->client_id)->exists();
     }
 
     /**

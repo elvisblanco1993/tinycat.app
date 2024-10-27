@@ -23,7 +23,7 @@ class Upload extends Component
     public $modal;
 
     #[Validate(['files' => 'required'])]
-    // #[Validate(['files.*' => 'max:102400'])]
+    #[Validate(['files.*' => 'max:102400'])]
     public $files = [];
 
     public $supported = [];

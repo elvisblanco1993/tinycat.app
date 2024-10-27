@@ -30,9 +30,9 @@ class Client extends Model
         return $this->belongsTo(User::class, 'owner_id');
     }
 
-    public function users(): HasMany
+    public function users(): BelongsToMany
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function forms(): BelongsToMany
