@@ -4,8 +4,8 @@ namespace App\Livewire\UploadRequest;
 
 use App\Models\Client;
 use App\Models\Request;
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class Show extends Component
 {
@@ -16,7 +16,7 @@ class Show extends Component
     public function mount($client = null)
     {
         $user = Auth::user();
-        if (!$client && $user->is_client) {
+        if (! $client && $user->is_client) {
             $this->client = $user->ownedClient;
         } else {
             $this->client = Client::where('id', $client)->firstOrFail();

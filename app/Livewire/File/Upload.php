@@ -41,6 +41,7 @@ class Upload extends Component
     public function save()
     {
         $this->validate();
+        $team_id = Auth::user()->is_client ? $this->client->team_id : Auth::user()->current_team_id;
         // Attachments will always be saved under the lead folder in storage.
         // Each lead folder can be identified by the lead's ID number.
         $basepath = "filesystem/client/{$this->client->id}";
@@ -59,7 +60,7 @@ class Upload extends Component
                 }
 
                 $this->client->items()->create([
-                    'team_id' => Auth::id(),
+                    'team_id' => $team_id,
                     'client_id' => $this->client?->id,
                     'parent_id' => $this->parent?->id,
                     'name' => $file->getClientOriginalName(),

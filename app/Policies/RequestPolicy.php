@@ -41,13 +41,13 @@ class RequestPolicy
         //
     }
 
-        /**
+    /**
      * Determine whether the user can update the model.
      */
     public function complete(User $user, Request $request): bool
     {
         return $user->is_client
-            && !$request->completed_at
+            && ! $request->completed_at
             && $user->clients()->where('clients.id', $request->client_id)->exists();
     }
 

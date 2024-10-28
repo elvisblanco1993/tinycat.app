@@ -27,7 +27,7 @@ class UploadRequestSent extends Mailable
     {
         $this->requestor = $request->team->name;
         $this->message = $request->message;
-        $this->url = URL::signedRoute('my.request.show', ['request' => $request->ulid]);
+        $this->url = URL::signedRoute('upload-request.show', ['request' => $request->ulid]);
     }
 
     /**

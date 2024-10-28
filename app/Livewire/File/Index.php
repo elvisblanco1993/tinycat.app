@@ -2,11 +2,11 @@
 
 namespace App\Livewire\File;
 
-use App\Models\Item;
 use App\Models\Client;
-use Livewire\Component;
-use Livewire\Attributes\On;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
+use Livewire\Component;
 
 class Index extends Component
 {
@@ -19,7 +19,7 @@ class Index extends Component
     public function mount($client = null)
     {
         $user = Auth::user();
-        if (!$client && $user->is_client) {
+        if (! $client && $user->is_client) {
             $this->client = $user->ownedClient;
         } else {
             $this->client = Client::where('id', $client)->firstOrFail();

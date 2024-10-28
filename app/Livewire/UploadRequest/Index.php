@@ -20,7 +20,7 @@ class Index extends Component
     public function mount($client = null)
     {
         $user = Auth::user();
-        if (!$client && $user->is_client) {
+        if (! $client && $user->is_client) {
             $this->client = $user->ownedClient;
         } else {
             $this->client = Client::where('id', $client)->firstOrFail();
