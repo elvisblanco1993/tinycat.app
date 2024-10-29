@@ -66,9 +66,11 @@
 
                 {{-- Options Menu --}}
                 <div>
-                    <x-secondary-button wire:click="$dispatchTo('file.move', 'move-item', { client: {{ $client }}, item: {{ $item }} })">
-                        {{ __("Move") }}
-                    </x-secondary-link>
+                    @can('move', \App\Models\Item::class, Auth::user())
+                        <x-secondary-button wire:click="$dispatchTo('file.move', 'move-item', { client: {{ $client }}, item: {{ $item }} })">
+                            {{ __("Move") }}
+                        </x-secondary-link>
+                    @endcan
                 </div>
             </li>
         @empty

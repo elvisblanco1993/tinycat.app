@@ -40,6 +40,6 @@ class Move extends Component
     public function move($parent = null)
     {
         $this->currentItem->update(['parent_id' => $parent]);
-        $this->redirect(url: route('file.index', ['client' => $this->client, 'item' => $parent]), navigate: true);
+        $this->redirect(url: url()->previous(), navigate: true);
     }
 }

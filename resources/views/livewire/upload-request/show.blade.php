@@ -50,6 +50,32 @@
         </div>
     </div>
 
+    @if ($request->completed_at)
+        <div class="block mt-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="mb-6 text-lg font-medium dark:text-zinc-300">{{ __("Uploaded files") }}</h3>
+            @forelse ($request->files as $file)
+                <button wire:click="$dispatchTo('file.update', 'show-item', { id: {{ $file->id }} })" class="flex items-center justify-between w-full text-left rounded-lg p-3 hover:bg-zinc-100 dark:hover:bg-zinc-800">
+                    <div class="flex items-center space-x-3">
+                        @if ($file->thumbnail)
+                            <img src="{{ route('thumbnail', ['item' => $file]) }}" class="size-8 aspect-square rounded object-cover object-center shadow">
+                        @else
+                            <img src="{{ asset( config("internal.icons.{$file->mime}") ) }}">
+                        @endif
+                        <p class="text-zinc-700 dark:text-white text-sm">{{ $file->name }}</p>
+                    </div>
+                </button>
+                @can('move', \App\Models\Item::class, Auth::user())
+                    @if ($file->parent_id === $request->item_id)
+                        <x-secondary-button wire:click="$dispatchTo('file.move', 'move-item', { client: {{ $client }}, item: {{ $file }} })">
+                            {{ __("Move") }}
+                        </x-secondary-link>
+                    @endif
+                @endcan
+            @empty
+            @endforelse
+        </div>
+    @endif
+
     @can ('complete', $request)
         <div class="block mt-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
             @livewire('upload-request.complete', ['request' => $request])
@@ -60,5 +86,13 @@
         <div class="block mt-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
             @livewire('upload-request.delete', ['request' => $request, 'client' => $client])
         </div>
+    @endcan
+
+    @livewire('file.update')
+
+    @can('move', \App\Models\Item::class, Auth::user())
+        @if ($file->parent_id === $request->item_id)
+            @livewire('file.move')
+        @endif
     @endcan
 </div>

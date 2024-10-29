@@ -66,7 +66,7 @@ class Complete extends Component
                         );
                     }
 
-                    Item::create([
+                    $this->request->files()->create([
                         'team_id' => $this->request->team_id,
                         'client_id' => $this->request->client_id,
                         'parent_id' => $this->request->item_id,

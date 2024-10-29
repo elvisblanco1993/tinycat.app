@@ -40,6 +40,14 @@ class ItemPolicy
     }
 
     /**
+     * Determine whether the user can move the item.
+     */
+    public function move(User $user): bool
+    {
+        return !$user->is_client;
+    }
+
+    /**
      * Determine whether the user can delete the model.
      */
     public function delete(User $user, Item $item): bool
