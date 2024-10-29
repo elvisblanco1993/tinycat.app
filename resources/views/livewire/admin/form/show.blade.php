@@ -1,6 +1,6 @@
 <div>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-slate-800 dark:text-slate-200 leading-tight">
+        <h2 class="font-semibold text-xl text-zinc-800 dark:text-zinc-200 leading-tight">
             {{ $form->title }}
         </h2>
         @can('update', $form)

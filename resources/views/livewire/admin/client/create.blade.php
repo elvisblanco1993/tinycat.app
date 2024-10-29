@@ -31,7 +31,7 @@
             <div class="mt-4">
                 <x-label for="owner_email">{{ __("Owner's email") }}</x-label>
                 <x-input id="owner_email" type="email" wire:model="owner_email" wire:keydown.enter="save" placeholder="email@example.com" class="w-full mt-1" autocomplete="false" />
-                <small class="text-xs text-slate-700 dark:text-slate-300">{{ __("Login credentials will be sent to this email address.") }}</small>
+                <small class="text-xs text-zinc-700 dark:text-zinc-300">{{ __("Login credentials will be sent to this email address.") }}</small>
                 <x-input-error for="owner_email" />
             </div>
 
@@ -43,7 +43,7 @@
                     @empty
                     @endforelse
                 </x-select>
-                <small class="text-xs text-slate-700 dark:text-slate-300">{{ __("Choose a template, and we'll automatically set up all the folders for you.") }}</small>
+                <small class="text-xs text-zinc-700 dark:text-zinc-300">{{ __("Choose a template, and we'll automatically set up all the folders for you.") }}</small>
                 <x-input-error for="filesystem" />
             </div>
         </x-slot>

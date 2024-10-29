@@ -1,6 +1,4 @@
 <x-mail::message>
-{{ __("You have a new request below:") }}
-
 <div class="prose">
     {!! $message !!}
 </div>

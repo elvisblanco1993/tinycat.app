@@ -8,11 +8,11 @@
 </x-slot>
 
 <div class="py-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-white dark:bg-slate-800 dark:text-white rounded-lg shadow overflow-hidden">
+    <div class="bg-white dark:bg-zinc-800 dark:text-white rounded-lg shadow overflow-hidden">
         <div class="p-4">
             <div class="font-semibold text-lg">{{ $client->name }}</div>
 
-            <div @class(["mt-2 text-slate-500 dark:text-slate-300 flex items-center space-x-4 text-sm" => ($client->phone || $client->billing_email)])>
+            <div @class(["mt-2 text-zinc-500 dark:text-zinc-300 flex items-center space-x-4 text-sm" => ($client->phone || $client->billing_email)])>
                 @if ($client->phone)
                     <a href="tel:{{$client->phone}}" class="flex items-center space-x-1 hover:text-indigo-600 dark:hover:text-white transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="px-4 border-t-2 border-slate-100 dark:border-slate-700">
+        <div class="px-4 border-t-2 border-zinc-100 dark:border-zinc-700">
             @include('partials.client.nav')
         </div>
     </div>

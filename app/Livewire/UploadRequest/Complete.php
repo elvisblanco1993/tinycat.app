@@ -2,15 +2,17 @@
 
 namespace App\Livewire\UploadRequest;
 
+use App\Mail\UploadRequestCompleted;
 use App\Models\Item;
 use App\Models\Request;
-use Livewire\Component;
-use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
+use Livewire\Attributes\Validate;
+use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class Complete extends Component
@@ -81,6 +83,9 @@ class Complete extends Component
                     'completed_at' => now(),
                     'completed_by' => Auth::id(),
                 ]);
+
+                // Send email to provider users
+                Mail::to($this->request->team->allUsers())->queue(new UploadRequestCompleted($this->request));
             });
 
             session()->flash('flash.banner', 'Files successfully uploaded!');

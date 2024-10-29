@@ -9,13 +9,11 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class UploadRequestSent extends Mailable
+class UploadRequestCompleted extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $requestor;
-
-    public $message;
+    public $clientName;
 
     public $url;
 
@@ -24,8 +22,7 @@ class UploadRequestSent extends Mailable
      */
     public function __construct(Request $request)
     {
-        $this->requestor = $request->team->name;
-        $this->message = $request->message;
+        $this->clientName = $request->client->name;
         $this->url = route('upload-request.show', ['client' => $request->client_id, 'request' => $request->id]);
     }
 
@@ -35,7 +32,7 @@ class UploadRequestSent extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New request from '.$this->requestor,
+            subject: "Upload Request Completed by $this->clientName",
         );
     }
 
@@ -45,12 +42,11 @@ class UploadRequestSent extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.upload-request-sent',
+            markdown: 'mail.upload-request-completed',
             with: [
-                'requestor' => $this->requestor,
-                'message' => $this->message,
+                'clientName' => $this->clientName,
                 'request_url' => $this->url,
-            ]
+            ],
         );
     }
 }

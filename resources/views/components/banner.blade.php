@@ -11,7 +11,7 @@
         show = true;
     ">
 
-    <div class="flex items-center w-full p-2 mb-4 text-slate-500 bg-white rounded-xl drop-shadow-lg dark:text-slate-400 dark:bg-slate-800" role="alert">
+    <div class="flex items-center w-full p-2 mb-4 text-zinc-500 bg-white rounded-xl drop-shadow-lg dark:text-zinc-400 dark:bg-zinc-800" role="alert">
         <span class="flex p-1.5 rounded-lg" :class="{ 'bg-green-200': style == 'success', 'bg-red-200': style == 'danger', 'bg-amber-200': style == 'warning', 'bg-indigo-200': style == ''}">
             <svg x-show="style == 'success'" class="size-5 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -30,7 +30,7 @@
         <p class="ms-3 text-sm font-normal" x-text="message"></p>
 
         <button type="button"
-            class="ms-auto bg-white text-slate-400 hover:text-slate-900 rounded-lg focus:ring-2 focus:ring-slate-300 p-1.5 hover:bg-slate-100 inline-flex items-center justify-center aspect-square size-6 dark:text-slate-500 dark:hover:text-white dark:bg-slate-800 dark:hover:bg-slate-700" data-dismiss-target="#toast-success" aria-label="Close"
+            class="ms-auto bg-white text-zinc-400 hover:text-zinc-900 rounded-lg focus:ring-2 focus:ring-zinc-300 p-1.5 hover:bg-zinc-100 inline-flex items-center justify-center aspect-square size-6 dark:text-zinc-500 dark:hover:text-white dark:bg-zinc-800 dark:hover:bg-zinc-700" data-dismiss-target="#toast-success" aria-label="Close"
             aria-label="Dismiss"
             x-on:click="show = false"
         >

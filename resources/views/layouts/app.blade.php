@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-slate-50 dark:bg-slate-900">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-zinc-50 dark:bg-zinc-900">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

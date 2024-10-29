@@ -11,12 +11,12 @@
     x-transition:leave="translate-x-full"
     x-cloak
 >
-    <div class="h-full md:rounded-2xl divide-y drop-shadow dark:divide-slate-700 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-y-auto">
+    <div class="h-full md:rounded-2xl divide-y drop-shadow dark:divide-zinc-700 border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 overflow-y-auto">
         <div class="h-16 px-4 flex items-center justify-between">
             <div class="inline-flex items-center dark:text-white">
                 {{ $title }}
             </div>
-            <button @click="show = false" type="button" class="text-slate-500 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 hover:bg-slate-200 hover:text-slate-900 rounded-lg text-sm w-8 h-8 flex items-center justify-center dark:hover:bg-slate-600 dark:hover:text-white" >
+            <button @click="show = false" type="button" class="text-zinc-500 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-700 hover:bg-zinc-200 hover:text-zinc-900 rounded-lg text-sm w-8 h-8 flex items-center justify-center dark:hover:bg-zinc-600 dark:hover:text-white" >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
                     <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
                 </svg>

@@ -1,7 +1,7 @@
-<nav class="hidden fixed md:block md:h-full md:w-72 bg-slate-100 dark:bg-slate-800 md:py-6 px-4 sm:px-6">
+<nav class="hidden fixed md:block md:h-full md:w-72 bg-zinc-100 dark:bg-zinc-800 md:py-6 px-4 sm:px-6">
     <x-application-logo />
 
-    <div class="hidden md:block mt-6 font-medium text-slate-500">
+    <div class="hidden md:block mt-6 font-medium text-zinc-500">
         <x-sidenav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
                 <path d="m3.196 12.87-.825.483a.75.75 0 0 0 0 1.294l7.25 4.25a.75.75 0 0 0 .758 0l7.25-4.25a.75.75 0 0 0 0-1.294l-.825-.484-5.666 3.322a2.25 2.25 0 0 1-2.276 0L3.196 12.87Z" />
@@ -54,7 +54,7 @@
             </x-sidenav-link>
         @endunless
 
-        <div class="mt-6 border-t w-4 border-t-slate-400"></div>
+        <div class="mt-6 border-t w-4 border-t-zinc-400"></div>
 
         <div class="mt-6">
             @unless (Auth::user()->is_client)

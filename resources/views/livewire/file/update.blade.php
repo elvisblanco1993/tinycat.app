@@ -28,27 +28,27 @@
                 @endunless
 
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Type") }}</span>
-                    <div class="dark:text-slate-100">{{ $item->mime }}</div>
+                    <span class="block font-medium text-sm text-zinc-700 dark:text-zinc-300">{{ __("Type") }}</span>
+                    <div class="dark:text-zinc-100">{{ $item->mime }}</div>
                 </div>
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Size") }}</span>
-                    <div class="dark:text-slate-100">{{ $item->formatBytes($item->size) }}</div>
+                    <span class="block font-medium text-sm text-zinc-700 dark:text-zinc-300">{{ __("Size") }}</span>
+                    <div class="dark:text-zinc-100">{{ $item->formatBytes($item->size) }}</div>
                 </div>
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Location") }}</span>
-                    <div class="dark:text-slate-100">{{ $item->parent?->name ?? '/' }}</div>
+                    <span class="block font-medium text-sm text-zinc-700 dark:text-zinc-300">{{ __("Location") }}</span>
+                    <div class="dark:text-zinc-100">{{ $item->parent?->name ?? '/' }}</div>
                 </div>
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Uploaded") }}</span>
-                    <div class="dark:text-slate-100">{{ $item->created_at->format('M d, Y h:i a') }}</div>
+                    <span class="block font-medium text-sm text-zinc-700 dark:text-zinc-300">{{ __("Uploaded") }}</span>
+                    <div class="dark:text-zinc-100">{{ $item->created_at->format('M d, Y h:i a') }}</div>
                 </div>
                 <div class="mt-4">
-                    <span class="block font-medium text-sm text-slate-700 dark:text-slate-300">{{ __("Modified") }}</span>
-                    <div class="dark:text-slate-100">{{ $item->updated_at->format('M d, Y h:i a') }}</div>
+                    <span class="block font-medium text-sm text-zinc-700 dark:text-zinc-300">{{ __("Modified") }}</span>
+                    <div class="dark:text-zinc-100">{{ $item->updated_at->format('M d, Y h:i a') }}</div>
                 </div>
 
-                <div class="mt-4 border-t dark:border-t-slate-700"></div>
+                <div class="mt-4 border-t dark:border-t-zinc-700"></div>
 
                 <div class="mt-4">
                     <div class="flex items-center justify-between">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <x-input id="item-name" wire:model="name" wire:keydown.enter="updateName" class="mt-1 w-full" />
-                    <small class="text-slate-600 dark:text-slate-400 text-xs">Press <kbd class="font-mono font-semibold p-0.5 text-slate-900 dark:text-slate-200 border dark:border-slate-500 rounded">Enter</kbd> to save.</small>
+                    <small class="text-zinc-600 dark:text-zinc-400 text-xs">Press <kbd class="font-mono font-semibold p-0.5 text-zinc-900 dark:text-zinc-200 border dark:border-zinc-500 rounded">Enter</kbd> to save.</small>
                     <x-input-error for="name" />
                 </div>
 
