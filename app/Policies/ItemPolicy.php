@@ -44,7 +44,7 @@ class ItemPolicy
      */
     public function move(User $user): bool
     {
-        return !$user->is_client;
+        return ! $user->is_client;
     }
 
     /**

@@ -12,7 +12,7 @@
     ">
 
     <div class="flex items-center w-full p-2 mb-4 text-zinc-500 bg-white rounded-xl drop-shadow-lg dark:text-zinc-400 dark:bg-zinc-800" role="alert">
-        <span class="flex p-1.5 rounded-lg" :class="{ 'bg-green-200': style == 'success', 'bg-red-200': style == 'danger', 'bg-amber-200': style == 'warning', 'bg-indigo-200': style == ''}">
+        <span class="flex p-1.5 rounded-lg" :class="{ 'bg-green-200': style == 'success', 'bg-red-200': style == 'danger', 'bg-amber-200': style == 'warning', 'bg-blue-200': style == ''}">
             <svg x-show="style == 'success'" class="size-5 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -22,7 +22,7 @@
             <svg x-show="style == 'warning'" class="size-5 text-amber-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495ZM10 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 5Zm0 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
             </svg>
-            <svg x-show="style != 'success' && style != 'danger' && style != 'warning'" class="size-5 text-indigo-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
+            <svg x-show="style != 'success' && style != 'danger' && style != 'warning'" class="size-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" >
                 <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z" clip-rule="evenodd" />
             </svg>
         </span>

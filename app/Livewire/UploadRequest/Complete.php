@@ -3,7 +3,6 @@
 namespace App\Livewire\UploadRequest;
 
 use App\Mail\UploadRequestCompleted;
-use App\Models\Item;
 use App\Models\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

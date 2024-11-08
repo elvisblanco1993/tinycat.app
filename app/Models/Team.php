@@ -61,4 +61,9 @@ class Team extends JetstreamTeam
     {
         return $this->hasMany(Form::class)->chaperone();
     }
+
+    public function projects(): HasMany
+    {
+        return $this->hasMany(Project::class)->chaperone();
+    }
 }

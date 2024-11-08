@@ -17,7 +17,7 @@
                 <x-label for='slug'>{{ __("Slug") }}</x-label>
                 <x-input id="slug" type="text" wire:model.live.debounce.250="slug" class="mt-2 w-full" />
                 <small class="block mt-1 text-zinc-500 dark:text-zinc-400">{{ config('app.url') }}/{{ Auth::user()->currentTeam->id }}/{{ $slug }}</small>
-                <small class="block mt-1 text-zinc-500 dark:text-zinc-400">{{ __("You can update your team URL slug in") }} <a href="{{ route('teams.show', ['team' => Auth::user()->currentTeam]) }}" class="underline text-indigo-600 dark:text-indigo-500">Team Settings</a></small>
+                <small class="block mt-1 text-zinc-500 dark:text-zinc-400">{{ __("You can update your team URL slug in") }} <a href="{{ route('teams.show', ['team' => Auth::user()->currentTeam]) }}" class="underline text-blue-600 dark:text-blue-500">Team Settings</a></small>
                 <x-input-error for="slug" />
             </div>
             <div class="mt-4">

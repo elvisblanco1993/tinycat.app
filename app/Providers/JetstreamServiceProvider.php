@@ -62,6 +62,10 @@ class JetstreamServiceProvider extends ServiceProvider
             'upload-request:view',
             'upload-request:update',
             'upload-request:delete',
+            'project:create',
+            'project:view',
+            'project:update',
+            'project:delete',
         ])->description('Administrator users can perform any action.');
 
         Jetstream::role('editor', 'Employee', [

@@ -22,8 +22,8 @@ Route::middleware([
     Route::get('/clients/{client}', fn ($client) => redirect(route('file.index', ['client' => $client])))->name('client.show');
     Route::get('/clients/{client}/edit', \App\Livewire\Admin\Client\Update::class)->name('client.update');
     // Projects
-    Route::get('/projects/{client?}', fn () => view('dashboard'))->name('project.index');
-    Route::get('/projects/{client?}/{project}', fn () => view('dashboard'))->name('project.show');
+    Route::get('/projects', \App\Livewire\Project\Index::class)->name('project.index');
+    Route::get('/projects/{project}', \App\Livewire\Project\Show::class)->name('project.show');
     // Upload Requests
     Route::get('/requests/{client?}', \App\Livewire\UploadRequest\Index::class)->name('upload-request.index');
     Route::get('/requests/{client?}/{request}', \App\Livewire\UploadRequest\Show::class)->name('upload-request.show');
@@ -39,7 +39,5 @@ Route::middleware([
     Route::get('/download/{item}', [FileAccessController::class, 'downloadPrivately'])->name('download');
 
     // @TODO: Create middleware to only allow clients to see these routes.
-    Route::prefix('my')->group(function () {
-        Route::get('/tasks', fn () => view('dashboard'))->name('my.task.index');
-    });
+    Route::get('/tasks', fn () => view('dashboard'))->name('my.task.index');
 });

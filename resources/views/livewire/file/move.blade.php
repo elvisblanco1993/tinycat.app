@@ -12,7 +12,7 @@
                         <span class="ms-1">{{ __("Root") }}</span>
                     </div>
 
-                    <button wire:confirm="You are moving: \n\n{{$currentItem->name}} => Root folder\n\nClick OK to proceed." wire:click="move()" class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium uppercase bg-indigo-100 dark:bg-indigo-900 text-indigo-900 dark:text-indigo-300 dark:hover:text-white hover:bg-indigo-200 dark:hover:bg-indigo-800">
+                    <button wire:confirm="You are moving: \n\n{{$currentItem->name}} => Root folder\n\nClick OK to proceed." wire:click="move()" class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium uppercase bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-300 dark:hover:text-white hover:bg-blue-200 dark:hover:bg-blue-800">
                         <span class="me-1">{{ __("Move") }}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                             <path d="M11.25 2A2.75 2.75 0 0 1 14 4.75v6.5A2.75 2.75 0 0 1 11.25 14h-3a2.75 2.75 0 0 1-2.75-2.75v-.5a.75.75 0 0 1 1.5 0v.5c0 .69.56 1.25 1.25 1.25h3c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25h-3C7.56 3.5 7 4.06 7 4.75v.5a.75.75 0 0 1-1.5 0v-.5A2.75 2.75 0 0 1 8.25 2h3Z" />
@@ -32,7 +32,7 @@
                         </div>
 
                         @unless ($item->id === $currentItem->id || $currentItem->parent_id === $item->id || $item->parent_id === $currentItem->id)
-                            <button wire:confirm="You are moving: \n\n🗎 {{$currentItem->name}} => 📁 {{ $item->name }}\n\nClick OK to proceed." wire:click="move({{$item->id}})" class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium uppercase bg-indigo-100 dark:bg-indigo-900 text-indigo-900 dark:text-indigo-300 dark:hover:text-white hover:bg-indigo-200 dark:hover:bg-indigo-800">
+                            <button wire:confirm="You are moving: \n\n🗎 {{$currentItem->name}} => 📁 {{ $item->name }}\n\nClick OK to proceed." wire:click="move({{$item->id}})" class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium uppercase bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-300 dark:hover:text-white hover:bg-blue-200 dark:hover:bg-blue-800">
                                 <span class="me-1">{{ __("Move") }}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                                     <path d="M11.25 2A2.75 2.75 0 0 1 14 4.75v6.5A2.75 2.75 0 0 1 11.25 14h-3a2.75 2.75 0 0 1-2.75-2.75v-.5a.75.75 0 0 1 1.5 0v.5c0 .69.56 1.25 1.25 1.25h3c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25h-3C7.56 3.5 7 4.06 7 4.75v.5a.75.75 0 0 1-1.5 0v-.5A2.75 2.75 0 0 1 8.25 2h3Z" />

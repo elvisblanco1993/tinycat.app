@@ -25,7 +25,7 @@
             @include('navigation-menu')
 
             <div class="md:ml-72 w-full">
-                <div class="w-full max-w-7xl mx-auto py-6">
+                <div class="w-full max-w-screen-2xl mx-auto py-6">
                     @if (isset($header))
                         <header>
                             <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
