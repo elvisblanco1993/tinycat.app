@@ -3,8 +3,8 @@
 namespace App\Livewire\Deck;
 
 use App\Models\Deck;
-use Livewire\Component;
 use Livewire\Attributes\Validate;
+use Livewire\Component;
 
 class Update extends Component
 {

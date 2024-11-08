@@ -4,8 +4,8 @@ namespace App\Livewire\Deck;
 
 use App\Models\Deck;
 use App\Models\Project;
-use Livewire\Component;
 use Livewire\Attributes\Renderless;
+use Livewire\Component;
 
 class Index extends Component
 {
