@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Deck;
+use App\Models\Client;
 use App\Models\Milestone;
 use App\Models\Project;
 use Illuminate\Database\Migrations\Migration;
@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Project::class)->onDelete('cascade');
             $table->foreignIdFor(Milestone::class)->nullOnDelete();
-            $table->foreignIdFor(Deck::class)->nullOnDelete();
+            $table->foreignIdFor(Client::class)->nullOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
             $table->enum('priority', ['low', 'medium', 'high']);

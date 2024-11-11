@@ -30,11 +30,6 @@ class Project extends Model
         return $this->hasMany(Milestone::class);
     }
 
-    public function decks(): HasMany
-    {
-        return $this->hasMany(Deck::class);
-    }
-
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);

@@ -13,7 +13,7 @@
     @endunless
     {{-- End | Client Card --}}
 
-    <div class="mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8 sm:flex items-center justify-between">
+    <div class="mt-3 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 sm:flex items-center justify-between">
         <div class="font-medium text-zinc-700 dark:text-white">{{ $request->ulid }}</div>
 
         <div class="mt-3 sm:mt-0 flex items-center space-x-3">
@@ -42,16 +42,16 @@
         </div>
     </div>
 
-    <div class="block mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="block mt-3 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white dark:bg-zinc-800 px-4 py-6 rounded-lg shadow overflow-hidden">
-            <div class="prose dark:prose-invert max-w-full">
+            <div class="prose dark:prose-invert max-w-5xl">
                 {!! $request->message !!}
             </div>
         </div>
     </div>
 
     @if ($request->completed_at)
-        <div class="block mt-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="block mt-6 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="mb-6 text-lg font-medium dark:text-zinc-300">{{ __("Uploaded files") }}</h3>
             @forelse ($request->files as $file)
                 <button wire:click="$dispatchTo('file.update', 'show-item', { id: {{ $file->id }} })" class="flex items-center justify-between w-full text-left rounded-lg p-3 hover:bg-zinc-100 dark:hover:bg-zinc-800">
@@ -77,13 +77,13 @@
     @endif
 
     @can ('complete', $request)
-        <div class="block mt-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="block mt-6 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             @livewire('upload-request.complete', ['request' => $request])
         </div>
     @endcan
 
     @can('delete', $request)
-        <div class="block mt-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="block mt-6 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             @livewire('upload-request.delete', ['request' => $request, 'client' => $client])
         </div>
     @endcan

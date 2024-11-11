@@ -26,11 +26,6 @@ class Task extends Model
         return $this->belongsTo(Milestone::class);
     }
 
-    public function deck(): BelongsTo
-    {
-        return $this->belongsTo(Deck::class);
-    }
-
     public function assignees(): BelongsToMany
     {
         return $this->belongsToMany(User::class);

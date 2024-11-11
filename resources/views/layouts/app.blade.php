@@ -28,7 +28,7 @@
                 <div class="w-full max-w-screen-2xl mx-auto py-6">
                     @if (isset($header))
                         <header>
-                            <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                                 {{ $header }}
                             </div>
                         </header>

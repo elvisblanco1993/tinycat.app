@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->date('due_date');
-            $table->boolean('completed')->default(false);
+            $table->integer('precentage_completed')->default(0);
+            $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });
     }

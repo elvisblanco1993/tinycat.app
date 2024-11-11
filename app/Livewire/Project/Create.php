@@ -51,13 +51,6 @@ class Create extends Component
             'status' => ProjectStatuses::NOT_STARTED,
         ]);
 
-        $project->decks()->createMany([
-            ['name' => 'Pending', 'order' => 1],
-            ['name' => 'In progress', 'order' => 2],
-            ['name' => 'Waiting for client', 'order' => 3],
-            ['name' => 'Done', 'order' => 4],
-        ]);
-
         $this->redirect(url: route('project.show', ['project' => $project]), navigate: true);
     }
 }

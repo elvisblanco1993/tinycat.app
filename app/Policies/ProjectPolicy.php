@@ -36,7 +36,7 @@ class ProjectPolicy
      */
     public function update(User $user, Project $project): bool
     {
-        //
+        return $user->hasTeamPermission($user->currentTeam, 'project:update');
     }
 
     /**

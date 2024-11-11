@@ -3,7 +3,7 @@
     @include('partials.client.profile')
     {{-- End | Client Card --}}
 
-    <div class="py-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="py-6 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white dark:bg-zinc-800 dark:text-white rounded-lg shadow overflow-hidden">
             <div class="px-4 border-b dark:border-b-zinc-700 h-12 flex space-x-3">
                 <x-nav-button wire:click="$set('navigate', 'business-details')" :active="$navigate === 'business-details'">

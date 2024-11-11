@@ -24,6 +24,7 @@ Route::middleware([
     // Projects
     Route::get('/projects', \App\Livewire\Project\Index::class)->name('project.index');
     Route::get('/projects/{project}', \App\Livewire\Project\Show::class)->name('project.show');
+    Route::get('/projects/{project}/edit', \App\Livewire\Project\Update::class)->name('project.update');
     // Upload Requests
     Route::get('/requests/{client?}', \App\Livewire\UploadRequest\Index::class)->name('upload-request.index');
     Route::get('/requests/{client?}/{request}', \App\Livewire\UploadRequest\Show::class)->name('upload-request.show');

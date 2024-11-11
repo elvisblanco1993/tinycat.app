@@ -7,7 +7,7 @@
     </x-secondary-button-link>
 </x-slot>
 
-<div class="py-6 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+<div class="py-6 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="bg-white dark:bg-zinc-800 dark:text-white rounded-lg shadow overflow-hidden">
         <div class="p-4">
             <div class="font-semibold text-lg">{{ $client->name }}</div>
