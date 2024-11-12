@@ -16,7 +16,7 @@
             <x-input-error for="files" />
         </div>
 
-        <div class="mt-3">
+        <div class="mt-6">
             <x-button>
                 <span wire:loading.remove wire:target="save">{{ __("Upload files") }}</span>
 

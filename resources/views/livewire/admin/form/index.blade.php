@@ -9,12 +9,12 @@
     </x-slot>
 
     <div class="py-6">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="">
             <div class="flex items-center justify-between">
                 <x-tinycat.search type="search" wire:model.live.debounce.250="search" placeholder="Search..." class="text-sm" />
             </div>
 
-            <div class="mt-3 relative overflow-x-auto shadow-md sm:rounded-lg">
+            <div class="mt-6 relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-left rtl:text-right text-zinc-500 dark:text-zinc-400">
                     <thead class="text-xs text-zinc-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-zinc-400">
                         <tr>

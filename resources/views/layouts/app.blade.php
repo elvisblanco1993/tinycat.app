@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-zinc-50 dark:bg-zinc-900">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-zinc-100 dark:bg-zinc-900">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,25 +21,21 @@
 
         <x-banner />
 
-        <div class="h-screen min-h-screen md:flex items-start">
-            @include('navigation-menu')
+        @include('navigation-menu')
 
-            <div class="md:ml-72 w-full">
-                <div class="w-full mx-auto">
-                    @if (isset($header))
-                        <header class="bg-white dark:bg-zinc-800 h-16 sticky top-0 z-10 border-b dark:border-b-zinc-700">
-                            <div class="h-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-                                {{ $header }}
-                            </div>
-                        </header>
-                    @endif
+        <div class="min-h-screen">
+            @if (isset($header))
+                <header class="mt-6 px-4 sm:px-6 sticky top-4 z-10">
+                    <div class="bg-white dark:bg-zinc-900 h-16 rounded-lg border dark:border-zinc-700 max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
 
-                    <!-- Page Content -->
-                    <main>
-                        {{ $slot }}
-                    </main>
-                </div>
-            </div>
+            <!-- Page Content -->
+            <main class="max-w-7xl mx-auto px-4 sm:px-6">
+                {{ $slot }}
+            </main>
         </div>
 
         @stack('modals')

@@ -14,7 +14,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.deck.index', [
-            'decks' => $this->project->decks()->with('tasks')->orderBy('order')->get(),
+            'decks' => $this->project->decks()->with('tasks.creator')->orderBy('order')->get(),
         ]);
     }
 

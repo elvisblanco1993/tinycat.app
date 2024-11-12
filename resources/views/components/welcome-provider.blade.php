@@ -3,7 +3,7 @@
         Getting started with Tinycat
     </h1>
 
-    <p class="mt-3 text-zinc-500 dark:text-zinc-400 leading-relaxed">
+    <p class="mt-6 text-zinc-500 dark:text-zinc-400 leading-relaxed">
         To begin setting up your clients, we recommend starting with these steps.
     </p>
 </div>

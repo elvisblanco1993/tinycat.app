@@ -3,7 +3,7 @@
         Welcome to your new portal.
     </h1>
 
-    <p class="mt-3 text-zinc-700 dark:text-zinc-400 leading-relaxed">
+    <p class="mt-6 text-zinc-700 dark:text-zinc-400 leading-relaxed">
         Here you can securely share information and collaborate with {{ Auth::user()->ownedClient->team->name }}.
     </p>
 </div>

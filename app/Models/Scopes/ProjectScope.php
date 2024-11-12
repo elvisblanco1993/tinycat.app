@@ -14,7 +14,6 @@ class ProjectScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        $builder->where('team_id', Auth::user()->current_team_id)
-            ->orWhere('client_id', Auth::user()->client_id);
+        $builder->where('team_id', Auth::user()->current_team_id);
     }
 }

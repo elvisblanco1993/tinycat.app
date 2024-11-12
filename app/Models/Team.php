@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
@@ -55,6 +56,11 @@ class Team extends JetstreamTeam
     public function clients(): HasMany
     {
         return $this->hasMany(Client::class)->chaperone();
+    }
+
+    public function clientUsers(): HasManyThrough
+    {
+        return $this->hasManyThrough(User::class, Client::class);
     }
 
     public function forms(): HasMany

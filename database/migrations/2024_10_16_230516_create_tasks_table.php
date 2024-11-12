@@ -4,6 +4,7 @@ use App\Models\Client;
 use App\Models\Deck;
 use App\Models\Milestone;
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,14 +19,15 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Project::class)->onDelete('cascade');
+            $table->foreignIdFor(User::class, 'created_by')->onDelete('cascade');
             $table->foreignIdFor(Deck::class)->nullOnDelete();
-            $table->foreignIdFor(Milestone::class)->nullOnDelete();
-            $table->foreignIdFor(Client::class)->nullOnDelete();
+            $table->foreignIdFor(Milestone::class)->nullOnDelete()->nullable();
+            $table->foreignIdFor(Client::class)->nullOnDelete()->nullable();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->enum('priority', ['low', 'medium', 'high']);
-            $table->enum('status', ['pending', 'in_progress', 'completed']);
-            $table->date('due_date');
+            $table->enum('priority', ['low', 'medium', 'high'])->nullable();
+            $table->enum('status', ['pending', 'in_progress', 'completed'])->nullable();
+            $table->date('due_date')->nullable();
             $table->integer('progress')->default(0);
             $table->timestamps();
             $table->softDeletes();

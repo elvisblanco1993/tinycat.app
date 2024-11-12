@@ -24,7 +24,7 @@
                         @endforelse
                     @endif
                 </x-select>
-                <x-textarea wire:model.live.debounce.250="options" rows="4" class="mt-3 w-full text-zinc-500" placeholder="{{ __('Insert one option per line.') }}" />
+                <x-textarea wire:model.live.debounce.250="options" rows="4" class="mt-6 w-full text-zinc-500" placeholder="{{ __('Insert one option per line.') }}" />
             @elseif ($question->type === 'file')
                 <div class="mt-2">
                     <x-file-input wire:model="dummyfile" />

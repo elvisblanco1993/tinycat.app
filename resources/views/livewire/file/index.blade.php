@@ -2,20 +2,20 @@
     @unless (Auth::user()->is_client)
         @include('partials.client.profile')
     @else
-    <h2 class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 font-semibold text-xl text-zinc-800 dark:text-zinc-200">
-        {{ __("Files") }}
-    </h2>
+        <h2 class="font-semibold text-xl text-zinc-800 dark:text-zinc-200">
+            {{ __("Files") }}
+        </h2>
     @endunless
 
-    <div class="mt-3 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mt-6">
         <div class="flex items-center justify-between">
             <x-tinycat.search type="search" wire:model.live.debounce.250="search" placeholder="Search..." class="text-sm" />
             @include('partials.client.file-menu')
         </div>
-        <div class="mt-3">
+        <div class="mt-6">
             @include('partials.client.file-breadcrumbs')
         </div>
-        <ul class="mt-3 space-y-2">
+        <ul class="mt-6 space-y-2">
             @forelse ($items as $item)
                 <li class="flex items-center justify-between rounded-lg px-3 py-1 hover:bg-zinc-100 dark:hover:bg-zinc-800">
                     @if ($item->is_folder)
@@ -74,10 +74,6 @@
             @endforelse
         </ul>
     </div>
-
-    <div class="mt-3 w-full px-4 sm:px-6 lg:px-8 text-sm font-medium">
-    </div>
-
 
     @livewire('file.update')
     @livewire('file.move')

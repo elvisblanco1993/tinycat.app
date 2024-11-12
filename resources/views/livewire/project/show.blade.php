@@ -11,12 +11,12 @@
             Settings
         </x-secondary-button-link>
     </x-slot>
-    <div class="mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-between">
+    <div class="mt-6 flex justify-between">
         <div class="flex items-center space-x-2">
             <span class="text-sm text-zinc-700 dark:text-zinc-400 ">People:</span>
             <div class="flex -space-x-4 rtl:space-x-reverse">
                 @forelse ($project->users as $user)
-                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="" alt="">
+                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-zinc-800" src="" alt="">
                 @empty
                 @endforelse
             </div>
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="mt-3 max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mt-6">
         @livewire('deck.index', ['project' => $project])
     </div>
 </div>

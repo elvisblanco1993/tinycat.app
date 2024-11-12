@@ -21,7 +21,7 @@
                 <div class="block font-semibold text-zinc-800 dark:text-zinc-300">
                     {{ __("Set a schedule (optional)") }}
                 </div>
-                <div class="mt-3 md:flex items-center gap-8">
+                <div class="mt-6 md:flex items-center gap-8">
                     <div class="w-full md:w-1/2">
                         <x-label for="start_date">{{ __("Start date") }}</x-label>
                         <x-input id="start_date" type="date" wire:model="start_date" class="mt-1 w-full"/>

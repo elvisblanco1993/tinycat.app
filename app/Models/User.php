@@ -3,8 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -70,9 +73,23 @@ class User extends Authenticatable
         ];
     }
 
+    public function getFirstNameAndInitialAttribute()
+    {
+        $names = explode(' ', $this->name);
+        $firstName = $names[0];
+        $lastInitial = isset($names[1]) ? strtoupper(substr($names[1], 0, 1)) . '.' : '';
+
+        return $firstName . ' ' . $lastInitial;
+    }
+
     public function ownedClient(): HasOne
     {
         return $this->hasOne(Client::class, 'owner_id');
+    }
+
+    public function provider(): BelongsTo
+    {
+        return $this->belongsTo(Team::class);
     }
 
     public function clients(): BelongsToMany
@@ -83,5 +100,10 @@ class User extends Authenticatable
     public function projects(): BelongsToMany
     {
         return $this->belongsToMany(Project::class);
+    }
+
+    public function tasksCreated(): HasMany
+    {
+        return $this->hasMany(Task::class);
     }
 }
