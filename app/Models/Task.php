@@ -13,7 +13,7 @@ class Task extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'project_id', 'milestone_id', 'title', 'description', 'priority', 'status', 'due_date', 'progress',
+        'project_id', 'deck_id', 'milestone_id', 'title', 'description', 'priority', 'status', 'due_date', 'progress',
     ];
 
     public function project(): BelongsTo
@@ -24,6 +24,11 @@ class Task extends Model
     public function milestone(): BelongsTo
     {
         return $this->belongsTo(Milestone::class);
+    }
+
+    public function deck(): BelongsTo
+    {
+        return $this->belongsTo(Deck::class);
     }
 
     public function assignees(): BelongsToMany

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Client;
+use App\Models\Deck;
 use App\Models\Milestone;
 use App\Models\Project;
 use Illuminate\Database\Migrations\Migration;
@@ -17,6 +18,7 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Project::class)->onDelete('cascade');
+            $table->foreignIdFor(Deck::class)->nullOnDelete();
             $table->foreignIdFor(Milestone::class)->nullOnDelete();
             $table->foreignIdFor(Client::class)->nullOnDelete();
             $table->string('title');

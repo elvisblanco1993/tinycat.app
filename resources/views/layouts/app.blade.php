@@ -25,10 +25,10 @@
             @include('navigation-menu')
 
             <div class="md:ml-72 w-full">
-                <div class="w-full max-w-screen-2xl mx-auto py-6">
+                <div class="w-full mx-auto">
                     @if (isset($header))
-                        <header>
-                            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                        <header class="bg-white dark:bg-zinc-800 h-16 sticky top-0 z-10 border-b dark:border-b-zinc-700">
+                            <div class="h-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                                 {{ $header }}
                             </div>
                         </header>

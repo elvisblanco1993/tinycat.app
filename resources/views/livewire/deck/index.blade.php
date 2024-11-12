@@ -20,8 +20,5 @@
             </div>
         @empty
         @endforelse
-
-        {{-- Create a new deck --}}
-        @livewire('deck.create', ['project' => $project])
     </div>
 </div>

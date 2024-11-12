@@ -1,5 +1,5 @@
 <div
-    class="fixed top-0 right-0 z-30 h-screen overflow-y-auto transition-transform w-full md:w-1/2 lg:w-1/4 p-4"
+    class="fixed top-0 right-0 z-30 h-screen overflow-y-auto transition-transform w-full md:w-1/2 lg:w-1/4 border border-zinc-200 dark:border-zinc-700 md:rounded-l-2xl shadow-xl"
     aria-labelledby="drawer-label"
     x-data="{ show: @entangle($attributes->wire('model')) }"
     x-on:close.stop="show = false"
@@ -11,7 +11,7 @@
     x-transition:leave="translate-x-full"
     x-cloak
 >
-    <div class="h-full md:rounded-2xl divide-y drop-shadow dark:divide-zinc-700 border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 overflow-y-auto">
+    <div class="h-full divide-y dark:divide-zinc-700 bg-white dark:bg-zinc-800 overflow-y-auto">
         <div class="h-16 px-4 flex items-center justify-between">
             <div class="inline-flex items-center dark:text-white">
                 {{ $title }}

@@ -1,4 +1,4 @@
-<nav class="hidden fixed md:block md:h-full md:w-72 bg-zinc-100 dark:bg-zinc-800 md:py-6 px-4 sm:px-6">
+<nav class="hidden fixed md:block md:h-full md:w-72 bg-zinc-100 dark:bg-zinc-800 md:py-6 px-4 sm:px-6 border-r dark:border-r-zinc-700">
     <x-application-logo />
 
     <div class="hidden md:block mt-6 font-medium text-zinc-500">
