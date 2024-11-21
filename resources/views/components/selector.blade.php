@@ -23,7 +23,7 @@ $ptions sample:
 <div
     x-data="{
         query: '',
-        selected: @entangle($attributes->wire('model')),
+        selected: @entangle($attributes->wire('model')) || [],
         options: {{ json_encode($options) }},
         get filteredOptions() {
             return this.query === ''
@@ -40,8 +40,8 @@ $ptions sample:
 >
     <div x-combobox x-model="selected" multiple by="id" class="bg-transparent border-none !p-0 text-sm">
         <div x-show="selected.length" class="mt-1 mb-2 flex flex-wrap items-center gap-1.5">
-            <template x-for="selectedOption in selected" :key="selectedOption.id">
-                <button x-on:click.prevent="remove(selectedOption)" class="inline-flex items-center gap-1 p-1 px-2 text-xs rounded-full bg-zinc-100 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-100 hover:text-zinc-800 dark:hover:text-white">
+            <template x-for="selectedOption in selected" :key="index">
+                <button x-on:click.prevent="remove(selectedOption)" class="inline-flex items-center gap-1 p-1 px-2 text-xs rounded-full border border-zinc-300 border-dashed bg-zinc-50 text-zinc-800 dark:bg-zinc-900/60 dark:border-zinc-500 dark:text-zinc-100 hover:text-zinc-800 dark:hover:text-white">
                     <img :src="selectedOption.profile_photo_url" class="w-5 h-5 rounded-full mr-1">
                     <span x-text="selectedOption.name"></span>
                     <!-- Heroicons mini x-mark -->

@@ -36,14 +36,14 @@ class Task extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
-    public function assignees(): BelongsToMany
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }
 
     public function comments(): HasMany
     {
-        return $this->hasMany(TaskComment::class);
+        return $this->hasMany(TaskComment::class)->chaperone();
     }
 
     public function labels(): BelongsToMany
@@ -53,6 +53,6 @@ class Task extends Model
 
     public function dependencies(): HasMany
     {
-        return $this->hasMany(TaskDependency::class, 'dependent_task_id');
+        return $this->hasMany(TaskDependency::class, 'dependent_task_id')->chaperone();
     }
 }

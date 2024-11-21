@@ -23,17 +23,17 @@ class Project extends Model
 
     public function tasks(): HasMany
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Task::class)->chaperone();
     }
 
     public function milestones(): HasMany
     {
-        return $this->hasMany(Milestone::class);
+        return $this->hasMany(Milestone::class)->chaperone();
     }
 
     public function decks(): HasMany
     {
-        return $this->hasMany(Deck::class);
+        return $this->hasMany(Deck::class)->chaperone();
     }
 
     public function client(): BelongsTo

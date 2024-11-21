@@ -1,5 +1,5 @@
 <div>
-    <div wire:sortable="updateOrder" class="max-w-7xl flex flex-row items-stretch gap-2 overflow-x-auto scroll-mb-6">
+    <div wire:sortable="updateDeckOrder" wire:sortable-group="updateTaskDeck" wire:sortable.options="{ animation: 50 }" class="min-h-96 max-w-7xl flex flex-row items-start gap-2 overflow-x-auto">
         @forelse ($decks as $deck)
             <div @class([
                 "min-w-72 w-auto px-2 py-3 rounded-lg",
@@ -18,11 +18,28 @@
                     @endcan
                 </div>
 
-                <div class="mt-6">
-                    @livewire('task.by-deck', ['tasks' => $deck->tasks], key('tasksForDeck'.$deck->id))
+                <div class="mt-6"
+                    wire:sortable-group.item-group="{{ $deck->id }}" wire:sortable-group.options="{ animation: 100 }"
+                >
+                    {{-- Tasks --}}
+                    @forelse ($deck->tasks as $task)
+                        <div wire:sortable-group.item="{{ $task->id }}" wire:key="task-{{ $task->id }}" wire:sortable-group.handle
+                            class="max-w-72 w-full bg-white/90 hover:bg-white dark:bg-zinc-900/90 dark:hover:bg-zinc-900 dark:text-white rounded-lg text-sm p-2 mb-2"
+                        >
+                            <div class="flex items-center justify-between">
+                                <button @click="$dispatch('update-task', { task: {{$task->id}} })">{{ $task->title }}</button>
+                                @livewire('task.self-assign', ['task' => $task], key('selfassignTask'.$task->id))
+                            </div>
+                            <small class="block mt-1">By {{ $task->creator->first_name_and_initial }} {{ $task->created_at->diffForHumans() }}</small>
+                        </div>
+                    @empty
+                    @endforelse
+                    {{-- End - Tasks --}}
                 </div>
             </div>
         @empty
         @endforelse
     </div>
+
+    @livewire('task.update', ['task' => $task], key('updateTask'.$task->id))
 </div>

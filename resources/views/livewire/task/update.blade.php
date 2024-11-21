@@ -1,7 +1,37 @@
 <div>
-    <button class="flex items-center justify-center text-zinc-500 size-6 rounded-full border dark:border-zinc-500">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-            <path d="M2 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM6.5 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM12.5 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" />
-        </svg>
-    </button>
+    @if ($teamUsers)
+        <x-drawer wire:model="drawer" width="md:w-1/2">
+            <x-slot name="title">
+                <x-secondary-button wire:click="save">Save</x-secondary-button>
+            </x-slot>
+            <x-slot name="content">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="col-span-3 md:col-span-2">
+                        <div class="grid grid-cols-4 gap-4 items-center">
+                            <x-label for="update_task_title"><strong>{{ __("Title") }}</strong></x-label>
+                            <x-sm-input id="update_task_title" type="text" wire:model.live="title" class="col-span-3" placeholder="{{ __('Type a title...') }}" />
+                        </div>
+                        <div class="mt-6 grid grid-cols-4 gap-4 items-start">
+                            <x-label for="update_task_assign_to"><strong>{{ __("Assigned to") }}</strong></x-label>
+                            <div class="col-span-3">
+                                <x-selector id="update_task_assign_to" :options="$teamUsers" wire:model.live="assign_to"></x-selector>
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-4 gap-4 items-center">
+                            <x-label for="update-deck"><strong>{{ __("Move along to") }}</strong></x-label>
+                            <div class="col-span-3">
+                                <x-select id="update-deck" wire:model.live="selected_deck" class="text-sm">
+                                    @forelse ($decks as $deck)
+                                        <option value="{{ $deck->id }}">{{ $deck->name }}</option>
+                                    @empty
+                                    @endforelse
+                                </x-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-3 md:col-span-1"></div>
+                </div>
+            </x-slot>
+        </x-drawer>
+    @endif
 </div>

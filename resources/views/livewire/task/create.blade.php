@@ -17,7 +17,7 @@
             <div class="mt-6 grid grid-cols-4 gap-4 items-center">
                 <x-label for="assign_to"><strong>Assign to</strong></x-label>
                 <div class="col-span-3">
-                    <x-selector  id="assign_to" :options="$options" wire:model="assign_to"></x-selector>
+                    <x-selector  id="assign_to" :options="$teamUsers" wire:model="assign_to"></x-selector>
                 </div>
             </div>
 

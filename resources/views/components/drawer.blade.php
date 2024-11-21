@@ -1,5 +1,6 @@
+@props(['width' => 'md:w-1/2 lg:w-1/4'])
 <div
-    class="fixed top-0 right-0 z-30 h-screen overflow-y-auto transition-transform w-full md:w-1/2 lg:w-1/4 border border-zinc-200 dark:border-zinc-700 md:rounded-l-2xl shadow-xl"
+    class="fixed top-0 right-0 z-30 h-screen overflow-y-auto transition-transform w-full {{ $width }} border border-zinc-200 dark:border-zinc-700 md:rounded-l-2xl shadow-xl"
     aria-labelledby="drawer-label"
     x-data="{ show: @entangle($attributes->wire('model')) }"
     x-on:close.stop="show = false"
@@ -24,7 +25,7 @@
             </button>
         </div>
 
-        <div class="p-4">
+        <div class="px-4 py-6">
             {{ $content }}
         </div>
     </div>

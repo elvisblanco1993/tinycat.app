@@ -104,6 +104,6 @@ class User extends Authenticatable
 
     public function tasksCreated(): HasMany
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Task::class)->chaperone();
     }
 }

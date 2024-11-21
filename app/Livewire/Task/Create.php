@@ -24,13 +24,13 @@ class Create extends Component
     public function render()
     {
         return view('livewire.task.create', [
-            'options' => $this->users,
+            'teamUsers' => teamUsers(),
         ]);
     }
 
     public function save()
     {
-        $assignees = collect($this->assign_to)->pluck('id');
+        $users = collect($this->assign_to)->pluck('id');
 
         $task = $this->project->tasks()->create([
             'deck_id' => $this->project->decks()->firstOrCreate(['order' => 1], ['name' => 'Triage', 'order' => 1])->id,
@@ -40,29 +40,8 @@ class Create extends Component
             'due_date' => $this->due_date,
         ]);
 
-        $task->assignees()->attach($assignees);
+        $task->users()->attach($users);
 
         $this->redirect(url: url()->previous(), navigate: true);
-    }
-
-    public function getUsersProperty()
-    {
-        $team = Auth::user()->currentTeam;
-
-        return User::select('id', 'name', 'profile_photo_path')
-            ->where('current_team_id', $team->id)
-            ->orWhereHas('ownedClient', function ($q) use ($team) {
-                $q->where('team_id', $team->id);
-            })
-            ->get()
-            ->map(function ($user) {
-                return [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'profile_photo_url' => $user->profile_photo_url,
-                    'disabled' => false,
-                ];
-            })
-            ->toArray();
     }
 }
