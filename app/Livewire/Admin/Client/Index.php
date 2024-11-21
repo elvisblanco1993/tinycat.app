@@ -39,7 +39,7 @@ class Index extends Component
     public function updatedSelectPage($value)
     {
         $this->selected = $value
-            ? $this->clients->pluck('id')
+            ? $this->clients->modelKeys()
             : [];
 
         $this->select_all = $this->clients->count() < $this->clients->total() ? false : true;
@@ -49,7 +49,7 @@ class Index extends Component
 
     public function selectAll()
     {
-        $this->dispatch('update-selection', selection: Client::pluck('id'));
+        $this->dispatch('update-selection', selection: Client::modelKeys());
         $this->select_all = true;
     }
 

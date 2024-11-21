@@ -13,7 +13,9 @@
                     <div @class(['text-sm font-semibold text-zinc-900', 'dark:text-zinc-300' => !$deck->color])>
                         {{ $deck->name }} <span @class(['font-light text-zinc-700', 'dark:text-zinc-400' => !$deck->color])>({{ $deck->tasks->count() }})</span>
                     </div>
-                    @livewire('deck.update', ['deck' => $deck], key('update-deck-'.$deck->id))
+                    @can('update', $deck)
+                        @livewire('deck.update', ['deck' => $deck], key('update-deck-'.$deck->id))
+                    @endcan
                 </div>
 
                 <div class="mt-6">

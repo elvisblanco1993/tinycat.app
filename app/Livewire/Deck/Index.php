@@ -31,6 +31,6 @@ class Index extends Component
                 throw $th;
             }
         }
-        $this->redirect(url: url()->previous(), navigate: true);
+        // $this->redirect(url: url()->previous(), navigate: true);
     }
 }

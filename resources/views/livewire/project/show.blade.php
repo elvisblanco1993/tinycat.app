@@ -1,4 +1,4 @@
-<div>
+<div class="">
     <x-slot name="header">
         <x-secondary-button-link href="{{ route('project.index') }}" wire:navigate>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">

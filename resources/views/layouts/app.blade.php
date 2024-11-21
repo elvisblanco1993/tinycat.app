@@ -17,23 +17,23 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased" x-data="themeSwitcher()" :class="{ 'dark': switchOn }">
+    <body class="font-sans antialiased min-h-screen w-full flex flex-col" x-data="themeSwitcher()" :class="{ 'dark': switchOn }">
 
         <x-banner />
 
         @include('navigation-menu')
 
-        <div class="min-h-screen">
+        <div>
             @if (isset($header))
-                <header class="mt-6 px-4 sm:px-6 sticky top-4 z-10">
-                    <div class="bg-white dark:bg-zinc-900 h-16 rounded-lg border dark:border-zinc-700 max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+                <header class="z-10 px-4 sticky top-2">
+                    <div class="bg-white dark:bg-zinc-900 h-16 rounded-lg border dark:border-zinc-700 max-w-7xl mx-auto px-4 flex items-center justify-between">
                         {{ $header }}
                     </div>
                 </header>
             @endif
 
             <!-- Page Content -->
-            <main class="max-w-7xl mx-auto px-4 sm:px-6">
+            <main class="h-full min-h-full max-w-7xl w-full mx-auto px-4">
                 {{ $slot }}
             </main>
         </div>

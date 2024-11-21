@@ -8,7 +8,7 @@
         </x-secondary-button-link>
     </x-slot>
 
-    <div class="py-6 max-w-7xl mx-auto px-4 sm:px-6 ">
+    <div class="py-6 max-w-7xl mx-auto">
         <div class="bg-white dark:bg-zinc-800 dark:text-white rounded-lg shadow overflow-hidden">
             <form wire:submit.prevent="save">
                 @csrf

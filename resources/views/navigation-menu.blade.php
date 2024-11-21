@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="text-zinc-800 dark:text-white">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-full mx-auto px-4 lg:px-8">
         <div class="flex justify-between h-12">
             <div class="flex">
                 <!-- Logo -->
@@ -192,7 +192,7 @@
     </div>
 </nav>
 
-{{-- <nav class="hidden fixed md:block md:h-full md:w-72 bg-zinc-100 dark:bg-zinc-800 md:py-6 px-4 sm:px-6 border-r dark:border-r-zinc-700">
+{{-- <nav class="hidden fixed md:block md:h-full md:w-72 bg-zinc-100 dark:bg-zinc-800 md:py-6 px-4 border-r dark:border-r-zinc-700">
     <x-application-logo />
 
     <div class="hidden md:block mt-6 font-medium text-zinc-500">

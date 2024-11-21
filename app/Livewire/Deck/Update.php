@@ -17,12 +17,9 @@ class Update extends Component
 
     public $color;
 
-    public $is_expanded;
-
     public function mount()
     {
         $this->name = $this->deck->name;
-        $this->is_expanded = $this->deck->is_expanded;
         $this->color = $this->deck->color;
     }
 
@@ -36,7 +33,6 @@ class Update extends Component
         $this->validate();
         $this->deck->update([
             'name' => $this->name,
-            'is_expanded' => $this->is_expanded,
             'color' => $this->color,
         ]);
         $this->redirect(url: url()->previous(), navigate: true);

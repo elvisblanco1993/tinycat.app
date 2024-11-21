@@ -77,9 +77,9 @@ class User extends Authenticatable
     {
         $names = explode(' ', $this->name);
         $firstName = $names[0];
-        $lastInitial = isset($names[1]) ? strtoupper(substr($names[1], 0, 1)) . '.' : '';
+        $lastInitial = isset($names[1]) ? strtoupper(substr($names[1], 0, 1)).'.' : '';
 
-        return $firstName . ' ' . $lastInitial;
+        return $firstName.' '.$lastInitial;
     }
 
     public function ownedClient(): HasOne

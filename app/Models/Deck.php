@@ -13,7 +13,6 @@ class Deck extends Model
         'name',
         'color',
         'order',
-        'is_expanded',
     ];
 
     public function project(): BelongsTo

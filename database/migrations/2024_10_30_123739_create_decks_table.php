@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('color')->nullable();
             $table->integer('order');
-            $table->boolean('is_expanded')->default(0);
             $table->timestamps();
         });
     }

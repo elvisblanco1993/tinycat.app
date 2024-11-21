@@ -13,13 +13,8 @@
             <x-input-error for="name" />
 
             <div class="mt-4">
-                <x-label for="color">{{ __("Background color") }}</x-label>
-                <x-input type="color" id="color" wire:model="color" class="mt-1" wire:keyup.enter="save" />
+                <x-color-selector wire:model="color" label="{{__('Background color')}}" />
                 <x-input-error for="color" />
-            </div>
-
-            <div class="mt-4">
-                <x-switch wire:model="is_expanded" label="Expand"/>
             </div>
         </x-slot>
         <x-slot name="footer">

@@ -36,7 +36,7 @@ class DeckPolicy
      */
     public function update(User $user, Deck $deck): bool
     {
-        //
+        return $deck->project->users->contains('is', $user->id);
     }
 
     /**
