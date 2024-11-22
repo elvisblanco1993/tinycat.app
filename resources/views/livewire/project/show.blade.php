@@ -1,4 +1,4 @@
-<div class="">
+<div>
     <x-slot name="header">
         <x-secondary-button-link href="{{ route('project.index') }}" wire:navigate>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
@@ -7,10 +7,9 @@
             <span class="ms-2">{{__("Back")}}</span>
         </x-secondary-button-link>
         <h2 class="font-semibold text-xl text-zinc-800 dark:text-zinc-200 leading-tight">{{ $project->name }}</h2>
-        <x-secondary-button-link href="{{ route('project.update', ['project' => $project]) }}">
-            Settings
-        </x-secondary-button-link>
+        @livewire('project.update', ['project' => $project])
     </x-slot>
+
     <div class="mt-6 flex justify-between">
         <div class="flex items-center space-x-2">
             <span class="text-sm text-zinc-700 dark:text-zinc-400 ">People:</span>

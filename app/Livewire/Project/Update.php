@@ -10,16 +10,11 @@ class Update extends Component
 {
     public Project $project;
 
-    #[Url]
-    public $navigate = 'details';
-
     public $name;
-
     public $description;
-
     public $start_date;
-
     public $end_date;
+    public $modal;
 
     public function mount()
     {
@@ -45,7 +40,8 @@ class Update extends Component
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
         ]);
-
-        $this->dispatch('saved');
+        session()->flash('flash.banner', 'Project details updated.');
+        session()->flash('flash.bannerStyle', 'success');
+        $this->redirect(url: url()->previous(), navigate: true);
     }
 }

@@ -11,6 +11,7 @@
                 <x-input id="name" type="text" wire:model="name" placeholder="e.g: Tax Season Readiness" class="w-full mt-1" autocomplete="false" />
                 <x-input-error for="name" />
             </div>
+
             <div class="mt-6">
                 <x-label for="description">{{ __("Add a description (optional)") }}</x-label>
                 <x-textarea id="description" type="text" wire:model="description" rows="4" placeholder="e.g: Plans and scheduling for the upcoming tax season." class="w-full mt-1" autocomplete="false" />
