@@ -13,7 +13,7 @@
             <label for="{{$inputId}}">
                 <input id="{{$inputId}}" type="radio" x-model="selectedColor" value="{{$value}}" class="hidden">
                 <div class="size-6 rounded-full border-2 inline-flex items-center justify-center"
-                    :class="selectedColor === '{{ $value }}' ? 'ring ring-offset-2 ring-black' : ''"
+                    :class="selectedColor === '{{ $value }}' ? 'ring-3 ring-offset-2 ring-black' : ''"
                     style="background-color: {{ $value }};"
                 >
                 <svg x-show="selectedColor == '{{ $value }}'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="black" class="size-4">

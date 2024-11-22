@@ -4,7 +4,7 @@
     {{-- End | Client Card --}}
 
     <div class="py-6">
-        <div class="bg-white dark:bg-zinc-800 dark:text-white rounded-lg shadow overflow-hidden">
+        <div class="bg-white dark:bg-zinc-800 dark:text-white rounded-lg shadow-sm overflow-hidden">
             <div class="px-4 border-b dark:border-b-zinc-700 h-12 flex space-x-3">
                 <x-nav-button wire:click="$set('navigate', 'business-details')" :active="$navigate === 'business-details'">
                     {{ __("Business") }}

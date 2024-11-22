@@ -43,7 +43,7 @@
     </div>
 
     <div class="block mt-6 max-w-7xl mx-auto">
-        <div class="bg-white dark:bg-zinc-800 px-4 py-6 rounded-lg shadow overflow-hidden">
+        <div class="bg-white dark:bg-zinc-800 px-4 py-6 rounded-lg shadow-sm overflow-hidden">
             <div class="prose dark:prose-invert max-w-7xl">
                 {!! $request->message !!}
             </div>
@@ -57,7 +57,7 @@
                 <button wire:click="$dispatchTo('file.update', 'show-item', { id: {{ $file->id }} })" class="flex items-center justify-between w-full text-left rounded-lg p-3 hover:bg-zinc-100 dark:hover:bg-zinc-800">
                     <div class="flex items-center space-x-3">
                         @if ($file->thumbnail)
-                            <img src="{{ route('thumbnail', ['item' => $file]) }}" class="size-8 aspect-square rounded object-cover object-center shadow">
+                            <img src="{{ route('thumbnail', ['item' => $file]) }}" class="size-8 aspect-square rounded-sm object-cover object-center shadow-sm">
                         @else
                             <img src="{{ asset( config("internal.icons.{$file->mime}") ) }}">
                         @endif

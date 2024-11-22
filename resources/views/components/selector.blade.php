@@ -38,7 +38,7 @@ $ptions sample:
     }"
     class="w-full"
 >
-    <div x-combobox x-model="selected" multiple by="id" class="bg-transparent border-none !p-0 text-sm">
+    <div x-combobox x-model="selected" multiple by="id" class="bg-transparent border-none p-0! text-sm">
         <div x-show="selected.length" class="mt-1 mb-2 flex flex-wrap items-center gap-1.5">
             <template x-for="selectedOption in selected" :key="index">
                 <button x-on:click.prevent="remove(selectedOption)" class="inline-flex items-center gap-1 p-1 px-2 text-xs rounded-full border border-zinc-300 border-dashed bg-zinc-50 text-zinc-800 dark:bg-zinc-900/60 dark:border-zinc-500 dark:text-zinc-100 hover:text-zinc-800 dark:hover:text-white">
@@ -51,11 +51,11 @@ $ptions sample:
         </div>
 
         <div class="mt-1 relative rounded-lg border border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900 text-black dark:text-zinc-100 focus-within:ring-0 focus-within:border-blue-500">
-            <div class="flex items-center justify-between gap-2 w-full px-3 py-2 rounded-lg shadow-sm">
+            <div class="flex items-center justify-between gap-2 w-full px-3 py-2 rounded-lg shadow-xs">
                 <input
                     x-combobox:input
                     @change="query = $event.target.value;"
-                    class="border-none p-0 focus:outline-none focus:ring-0 !text-sm bg-inherit"
+                    class="border-none p-0 focus:outline-hidden focus:ring-0 text-sm! bg-inherit"
                     placeholder="Start typing..."
                 />
                 <button x-combobox:button class="absolute inset-y-0 right-0 flex items-center pr-2">
@@ -64,7 +64,7 @@ $ptions sample:
                 </button>
             </div>
 
-            <div x-combobox:options x-cloak class="absolute left-0 w-full max-h-60 mt-2 z-10 origin-top-right overflow-auto border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-black dark:text-zinc-100 rounded-lg shadow-md outline-none" x-transition.out.opacity>
+            <div x-combobox:options x-cloak class="absolute left-0 w-full max-h-60 mt-2 z-10 origin-top-right overflow-auto border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-black dark:text-zinc-100 rounded-lg shadow-md outline-hidden" x-transition.out.opacity>
                 <ul class="divide-y divide-zinc-100 dark:divide-zinc-800">
                     <template
                         x-for="option in filteredOptions"

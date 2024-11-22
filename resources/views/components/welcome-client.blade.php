@@ -1,4 +1,4 @@
-<div class="p-6 lg:p-8 bg-white dark:bg-zinc-800 dark:bg-gradient-to-bl dark:from-zinc-700/50 dark:via-transparent border-b border-zinc-200 dark:border-zinc-700">
+<div class="p-6 lg:p-8 bg-white dark:bg-zinc-800 dark:bg-linear-to-bl dark:from-zinc-700/50 dark:via-transparent border-b border-zinc-200 dark:border-zinc-700">
     <h1 class="text-2xl font-medium text-zinc-900 dark:text-white">
         Welcome to your new portal.
     </h1>

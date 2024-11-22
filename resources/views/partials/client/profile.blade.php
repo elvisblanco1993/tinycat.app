@@ -8,7 +8,7 @@
 </x-slot>
 
 <div class="py-6">
-    <div class="bg-white dark:bg-zinc-800 dark:text-white rounded-lg shadow overflow-hidden">
+    <div class="bg-white dark:bg-zinc-800 dark:text-white rounded-lg shadow-sm overflow-hidden">
         <div class="p-4">
             <div class="font-semibold text-lg">{{ $client->name }}</div>
 

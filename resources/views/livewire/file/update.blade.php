@@ -6,7 +6,7 @@
                 @unless (str_starts_with($item->mime, 'audio/'))
                     <object data="{{ route('download', ['item' => $item]) }}" type="{{ $item->mime }}"
                         @class([
-                            "w-full object-cover rounded-lg drop-shadow mx-auto bg-black",
+                            "w-full object-cover rounded-lg drop-shadow-sm mx-auto bg-black",
                             "aspect-auto" => str_starts_with($item->mime, 'image/'),
                             "aspect-video" => str_starts_with($item->mime, 'video/'),
                             "aspect-square" => str_starts_with($item->mime, 'application/'),
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <x-input id="item-name" wire:model="name" wire:keydown.enter="updateName" class="mt-1 w-full" />
-                    <small class="text-zinc-600 dark:text-zinc-400 text-xs">Press <kbd class="font-mono font-semibold p-0.5 text-zinc-900 dark:text-zinc-200 border dark:border-zinc-500 rounded">Enter</kbd> to save.</small>
+                    <small class="text-zinc-600 dark:text-zinc-400 text-xs">Press <kbd class="font-mono font-semibold p-0.5 text-zinc-900 dark:text-zinc-200 border dark:border-zinc-500 rounded-sm">Enter</kbd> to save.</small>
                     <x-input-error for="name" />
                 </div>
 

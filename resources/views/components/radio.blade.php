@@ -1,1 +1,1 @@
-<input type="radio" {!! $attributes->merge(['class' => 'rounded-full dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-blue-600 shadow-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:focus:ring-offset-zinc-800']) !!}>
+<input type="radio" {!! $attributes->merge(['class' => 'rounded-full dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 text-blue-600 shadow-xs focus:ring-blue-500 dark:focus:ring-blue-600 dark:focus:ring-offset-zinc-800']) !!}>

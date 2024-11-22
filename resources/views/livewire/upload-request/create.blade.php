@@ -8,7 +8,7 @@
         <x-slot name="content">
             <x-label for="message">{{__("Provide the client with clear instructions")}}</x-label>
             <div class="mt-1">
-                <x-editor id="message" wire:model.blur="message"></x-editor>
+                <x-editor id="message" wire:model.blur-sm="message"></x-editor>
             </div>
 
             <div class="mt-4">
