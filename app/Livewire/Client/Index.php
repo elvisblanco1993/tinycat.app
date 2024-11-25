@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\Client;
+namespace App\Livewire\Client;
 
 use App\Models\Client;
 use Livewire\Attributes\On;
@@ -14,7 +14,7 @@ class Index extends Component
 
     public $search = '';
 
-    public $per_page = 25;
+    public $per_page = 10;
 
     public $selected = [];
 
@@ -30,7 +30,7 @@ class Index extends Component
     #[On('client-added')]
     public function render()
     {
-        return view('livewire.admin.client.index', [
+        return view('livewire.client.index', [
             'clients' => $this->clients,
         ]);
     }

@@ -18,27 +18,13 @@ Route::middleware([
     Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
 
     // Clients
-    Route::get('/clients', \App\Livewire\Admin\Client\Index::class)->name('client.index');
-    Route::get('/clients/{client}', fn ($client) => redirect(route('file.index', ['client' => $client])))->name('client.show');
-    Route::get('/clients/{client}/edit', \App\Livewire\Admin\Client\Update::class)->name('client.update');
-    // Projects
-    Route::get('/projects', \App\Livewire\Project\Index::class)->name('project.index');
-    Route::get('/projects/{project}', \App\Livewire\Project\Show::class)->name('project.show');
-    Route::get('/projects/{project}/edit', \App\Livewire\Project\Update::class)->name('project.update');
-    // Upload Requests
-    Route::get('/requests/{client?}', \App\Livewire\UploadRequest\Index::class)->name('upload-request.index');
-    Route::get('/requests/{client?}/{request}', \App\Livewire\UploadRequest\Show::class)->name('upload-request.show');
-    Route::get('/requests/{client?}/{request}/upload', fn () => view('dashboard'))->name('upload-request.complete');
-    // Files
-    Route::get('/files/{client?}/{item?}', \App\Livewire\File\Index::class)->name('file.index');
-    // Forms
-    Route::get('/forms', \App\Livewire\Admin\Form\Index::class)->name('form.index');
-    Route::get('/forms/{form}', \App\Livewire\Admin\Form\Show::class)->name('form.show');
+    Route::get('/c', \App\Livewire\Client\Index::class)->name('client.index');
+    Route::get('/c/{client}', fn ($client) => redirect(route('client.file.index', ['client' => $client])))->name('client.show');
+    Route::get('/c/{client}/edit', \App\Livewire\Client\Update::class)->name('client.update');
+    Route::get('/c/{client?}/files/{item?}', \App\Livewire\File\Index::class)->name('client.file.index');
+    Route::get('c/{client?}/tasks', \App\Livewire\Task\Index::class)->name('client.task.index');
 
     // Attachments
     Route::get('/get-thumbnail/{item}', [FileAccessController::class, 'downloadThumbnail'])->name('thumbnail');
     Route::get('/download/{item}', [FileAccessController::class, 'downloadPrivately'])->name('download');
-
-    // @TODO: Create middleware to only allow clients to see these routes.
-    Route::get('/tasks', fn () => view('dashboard'))->name('my.task.index');
 });

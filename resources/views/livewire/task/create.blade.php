@@ -7,7 +7,7 @@
     </x-button>
 
     <x-dialog-modal wire:model="modal">
-        <x-slot name="title">{{ __("New task for ") . $project->name }}</x-slot>
+        <x-slot name="title">{{ __("New task ") }}</x-slot>
         <x-slot name="content">
             <div class="grid grid-cols-4 gap-4 items-center">
                 <x-label for="title"><strong>Title</strong></x-label>

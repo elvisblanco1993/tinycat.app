@@ -41,5 +41,7 @@
         @endforelse
     </div>
 
-    @livewire('task.update', ['task' => $task, 'projectUsers' => $projectUsers], key('updateTask'.$task->id))
+    @if ($task)
+        @livewire('task.update', ['task' => $task, 'projectUsers' => $projectUsers], key('updateTask'.$task->id))
+    @endif
 </div>

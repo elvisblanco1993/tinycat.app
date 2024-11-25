@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\Client;
+namespace App\Livewire\Client;
 
 use App\Models\Client;
 use Livewire\Attributes\On;
@@ -12,7 +12,7 @@ class Delete extends Component
 
     public function render()
     {
-        return view('livewire.admin.client.delete');
+        return view('livewire.client.delete');
     }
 
     public function delete()

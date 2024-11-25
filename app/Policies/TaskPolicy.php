@@ -28,7 +28,7 @@ class TaskPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return ! $user->is_client && $user->hasTeamPermission($user->currentTeam, 'task:create');
     }
 
     /**

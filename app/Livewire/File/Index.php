@@ -22,7 +22,7 @@ class Index extends Component
         if (! $client && $user->is_client) {
             $this->client = $user->ownedClient;
         } else {
-            $this->client = Client::where('id', $client)->firstOrFail();
+            $this->client = Client::findOrFail($client);
         }
     }
 

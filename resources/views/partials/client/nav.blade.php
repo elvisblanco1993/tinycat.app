@@ -1,13 +1,13 @@
 <nav class="h-12 flex justify-between">
     <div class="flex space-x-3">
-        <x-nav-link wire:navigate href="{{ route('file.index', ['client' => $client]) }}" :active="request()->routeIs('file.index*')">
+        <x-nav-link wire:navigate href="{{ route('client.file.index', ['client' => $client]) }}" :active="request()->routeIs('client.file.*')">
             {{ __("Files") }}
         </x-nav-link>
-        <x-nav-link wire:navigate href="{{ route('project.index', ['client' => $client]) }}" :active="request()->routeIs('project.index')">
-            {{ __("Projects") }}
+        <x-nav-link wire:navigate href="{{ route('client.task.index', ['client' => $client]) }}" :active="request()->routeIs('client.task.index')">
+            {{ __("Tasks") }}
         </x-nav-link>
-        <x-nav-link wire:navigate href="{{ route('upload-request.index', ['client' => $client]) }}" :active="request()->routeIs('upload-request.*')">
-            {{ __("Requests") }}
+        <x-nav-link wire:navigate href="" :active="false">
+            {{ __("Messages") }}
         </x-nav-link>
     </div>
     <x-nav-link wire:navigate href="{{ route('client.update', ['client' => $client]) }}" :active="request()->routeIs('client.update*')">

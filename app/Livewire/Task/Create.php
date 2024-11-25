@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public Project $project;
+    public ?Project $project;
 
     public $modal;
 
@@ -22,6 +22,11 @@ class Create extends Component
     public $due_date;
 
     public $description;
+
+    public function mount()
+    {
+        $this->teamUsers = $this->teamUsers ?? teamUsers();
+    }
 
     public function render()
     {

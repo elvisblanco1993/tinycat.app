@@ -4,7 +4,7 @@
             {{ __('Clients') }}
         </h2>
         @can('create', \App\Models\Client::class)
-            @livewire('admin.client.create')
+            @livewire('client.create')
         @endcan
     </x-slot>
 
@@ -17,8 +17,8 @@
                     <x-secondary-button x-cloak x-bind:disabled="{{ count($selected) < 1 }}">{{ __("Bulk actions") }}</x-secondary-button>
                 </x-slot>
                 <x-slot name="content">
-                    <livewire:admin.client.export />
-                    <livewire:admin.client.delete />
+                    <livewire:client.export />
+                    <livewire:client.delete />
                 </x-slot>
             </x-dropdown>
         </div>

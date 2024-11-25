@@ -19,7 +19,7 @@
             @forelse ($items as $item)
                 <li class="flex items-center justify-between rounded-lg px-3 py-1 hover:bg-zinc-100 dark:hover:bg-zinc-800">
                     @if ($item->is_folder)
-                        <a href="{{ route('file.index', ['client' => $client, 'item' => $item]) }}" class="w-full">
+                        <a href="{{ route('client.file.index', ['client' => $client, 'item' => $item]) }}" class="w-full">
                             <div class="flex items-center space-x-3 h-16 ">
                                 <img src="{{ asset( config('internal.icons.dir') ) }}">
                                 <div class="">

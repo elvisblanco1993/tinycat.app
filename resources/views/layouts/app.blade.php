@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-zinc-100 dark:bg-zinc-900">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white dark:bg-zinc-900">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
         <div>
             @if (isset($header))
                 <header class="z-10 px-4 sticky top-2">
-                    <div class="bg-white dark:bg-zinc-900 h-16 rounded-lg border dark:border-zinc-700 max-w-7xl mx-auto px-4 flex items-center justify-between">
+                    <div class="bg-white dark:bg-zinc-900 h-16 rounded-lg border dark:border-zinc-700 max-w-7xl mx-auto px-4 flex items-center justify-between shadow-xs">
                         {{ $header }}
                     </div>
                 </header>

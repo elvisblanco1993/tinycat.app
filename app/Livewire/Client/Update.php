@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\Client;
+namespace App\Livewire\Client;
 
 use App\Models\Client;
 use Livewire\Attributes\Url;
@@ -48,7 +48,7 @@ class Update extends Component
 
     public function render()
     {
-        return view('livewire.admin.client.update');
+        return view('livewire.client.update');
     }
 
     public function save()

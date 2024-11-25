@@ -23,7 +23,11 @@
 
         <div class="flex items-center space-x-3">
             @livewire('deck.create', ['project' => $project])
-            @livewire('task.create', ['project' => $project, 'teamUsers' => $teamUsers, 'projectUsers' => $projectUsers])
+            @if ($project->decks->count() > 0)
+                @can('create', \App\Models\Task::class)
+                    @livewire('task.create', ['project' => $project, 'teamUsers' => $teamUsers, 'projectUsers' => $projectUsers])
+                @endcan
+            @endif
         </div>
     </div>
 

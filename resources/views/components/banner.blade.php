@@ -2,7 +2,7 @@
 
 <div x-data="{{ json_encode(['show' => true, 'style' => $style, 'message' => $message]) }}"
     x-init="setTimeout( () => show = false, 10000 )"
-    class="z-40 fixed top-8 sm:right-8 block w-full sm:max-w-96 sm:min-w-72"
+    class="z-40 fixed bottom-6 right-0 left-0 block w-full sm:max-w-96 sm:min-w-72 mx-auto"
     style="display: none;"
     x-show="show && message"
     x-on:banner-message.window="
@@ -11,7 +11,7 @@
         show = true;
     ">
 
-    <div class="flex items-center w-full p-2 mb-4 text-zinc-500 bg-white rounded-xl drop-shadow-lg dark:text-zinc-400 dark:bg-zinc-800" role="alert">
+    <div class="flex items-center w-full p-2 mb-4 text-zinc-600 bg-white rounded-xl drop-shadow-lg dark:text-zinc-400 dark:bg-zinc-800" role="alert">
         <span class="flex p-1.5 rounded-lg" :class="{ 'bg-green-200': style == 'success', 'bg-red-200': style == 'danger', 'bg-amber-200': style == 'warning', 'bg-blue-200': style == ''}">
             <svg x-show="style == 'success'" class="size-5 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

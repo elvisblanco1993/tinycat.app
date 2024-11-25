@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\Client;
+namespace App\Livewire\Client;
 
 use App\Mail\ClientOwnerAccountCreated;
 use App\Models\User;
@@ -28,7 +28,7 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.admin.client.create', [
+        return view('livewire.client.create', [
             'itemTemplates' => Auth::user()->currentTeam->itemTemplates,
         ]);
     }

@@ -18,10 +18,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Project::class)->onDelete('cascade');
-            $table->foreignIdFor(User::class, 'created_by')->onDelete('cascade');
-            $table->foreignIdFor(Deck::class)->nullOnDelete();
-            $table->foreignIdFor(Milestone::class)->nullOnDelete()->nullable();
+            $table->foreignIdFor(User::class, 'created_by')->onDelete('cascade')->nullable();
             $table->foreignIdFor(Client::class)->nullOnDelete()->nullable();
             $table->string('title');
             $table->text('description')->nullable();

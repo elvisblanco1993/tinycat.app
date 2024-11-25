@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\Client;
+namespace App\Livewire\Client;
 
 use App\Exports\ClientExport;
 use App\Models\Client;
@@ -14,7 +14,7 @@ class Export extends Component
 
     public function render()
     {
-        return view('livewire.admin.client.export');
+        return view('livewire.client.export');
     }
 
     public function export()
