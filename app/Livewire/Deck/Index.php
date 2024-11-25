@@ -4,15 +4,15 @@ namespace App\Livewire\Deck;
 
 use App\Models\Deck;
 use App\Models\Task;
-use App\Models\User;
 use App\Models\Project;
 use Livewire\Component;
 use Livewire\Attributes\Renderless;
-use Illuminate\Support\Facades\Auth;
 
 class Index extends Component
 {
     public Project $project;
+    public $teamUsers;
+    public $projectUsers;
 
     protected $listeners = ['decks:refresh' => 'refresh'];
 

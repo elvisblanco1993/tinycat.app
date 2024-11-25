@@ -12,7 +12,7 @@
     x-transition:leave="translate-x-full"
     x-cloak
 >
-    <div class="h-full divide-y dark:divide-zinc-700 bg-white dark:bg-zinc-800 overflow-y-auto">
+    <div class="h-full divide-y dark:divide-zinc-700 bg-white dark:bg-zinc-800 flex flex-col">
         <div class="h-16 px-4 flex items-center justify-between">
             <div class="inline-flex items-center dark:text-white">
                 {{ $title }}
@@ -25,8 +25,12 @@
             </button>
         </div>
 
-        <div class="px-4 py-6">
+        <div class="px-4 py-6 grow overflow-y-auto">
             {{ $content }}
+        </div>
+
+        <div class="px-4 py-2 bg-zinc-100 dark:bg-zinc-700 flex items-center justify-end">
+            {{ $footer ?? '' }}
         </div>
     </div>
  </div>

@@ -14,6 +14,9 @@ class Update extends Component
     public $description;
     public $start_date;
     public $end_date;
+    public $assign_to = [];
+    public $teamUsers;
+    public $projectUsers;
     public $modal;
 
     public function mount()
@@ -25,6 +28,8 @@ class Update extends Component
             'start_date',
             'end_date',
         ]));
+
+        $this->assign_to = $this->projectUsers;
     }
 
     public function render()
@@ -40,6 +45,11 @@ class Update extends Component
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
         ]);
+
+        $this->project->users()->sync(
+            collect($this->assign_to)->pluck('id')
+        );
+
         session()->flash('flash.banner', 'Project details updated.');
         session()->flash('flash.bannerStyle', 'success');
         $this->redirect(url: url()->previous(), navigate: true);

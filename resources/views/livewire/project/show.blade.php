@@ -7,15 +7,15 @@
             <span class="ms-2">{{__("Back")}}</span>
         </x-secondary-button-link>
         <h2 class="font-semibold text-xl text-zinc-800 dark:text-zinc-200 leading-tight">{{ $project->name }}</h2>
-        @livewire('project.update', ['project' => $project])
+        @livewire('project.update', ['project' => $project, 'teamUsers' => $teamUsers, 'projectUsers' => $projectUsers])
     </x-slot>
 
     <div class="mt-6 flex justify-between">
         <div class="flex items-center space-x-2">
             <span class="text-sm text-zinc-700 dark:text-zinc-400 ">People:</span>
             <div class="flex -space-x-4 rtl:space-x-reverse">
-                @forelse ($project->users as $user)
-                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-zinc-800" src="" alt="">
+                @forelse ($projectUsers as $user)
+                    <img class="size-8 shadow-xs rounded-full dark:border-zinc-800" src="{{ $user['profile_photo_url'] }}" alt="">
                 @empty
                 @endforelse
             </div>
@@ -23,11 +23,11 @@
 
         <div class="flex items-center space-x-3">
             @livewire('deck.create', ['project' => $project])
-            @livewire('task.create', ['project' => $project])
+            @livewire('task.create', ['project' => $project, 'teamUsers' => $teamUsers, 'projectUsers' => $projectUsers])
         </div>
     </div>
 
     <div class="mt-6">
-        @livewire('deck.index', ['project' => $project])
+        @livewire('deck.index', ['project' => $project, 'teamUsers' => $teamUsers, 'projectUsers' => $projectUsers])
     </div>
 </div>

@@ -3,11 +3,8 @@
 namespace App\Livewire\Task;
 
 use App\Models\Task;
-use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\On;
-use Livewire\Attributes\Renderless;
-use Illuminate\Support\Facades\Auth;
 
 class Update extends Component
 {
@@ -16,9 +13,11 @@ class Update extends Component
     public $drawer;
 
     public $title;
+    public $description;
     public $assign_to = [];
+    public $recipient;
 
-    public $teamUsers = [];
+    public $projectUsers;
 
     public $decks = [];
 
@@ -33,7 +32,14 @@ class Update extends Component
     public function loadTask(Task $task)
     {
         $this->task = $task;
-        $this->title = $this->task->title;
+        $this->fill($this->task->only([
+            'title',
+            'description',
+            'priority',
+            'status',
+            'due_date',
+            'progress',
+        ]));
         $this->assign_to = $this->task->users->map(function ($user) {
             return [
                 'id' => $user->id,
@@ -42,7 +48,6 @@ class Update extends Component
                 'disabled' => false,
             ];
         })->toArray();
-        $this->teamUsers = teamUsers();
         $this->decks = $this->task->project->decks;
         $this->selected_deck = $this->task->deck->id;
         $this->drawer = true;

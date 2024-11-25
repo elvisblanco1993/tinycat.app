@@ -11,6 +11,9 @@ class Show extends Component
 
     public function render()
     {
-        return view('livewire.project.show');
+        return view('livewire.project.show', [
+            'teamUsers' => teamUsers(),
+            'projectUsers' => projectUsers($this->project),
+        ]);
     }
 }

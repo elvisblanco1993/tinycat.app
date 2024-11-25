@@ -9,9 +9,12 @@
     <x-dialog-modal wire:model="modal">
         <x-slot name="title">{{ __("New task for ") . $project->name }}</x-slot>
         <x-slot name="content">
-            <div class=" grid grid-cols-4 gap-4 items-center">
+            <div class="grid grid-cols-4 gap-4 items-center">
                 <x-label for="title"><strong>Title</strong></x-label>
-                <x-sm-input id="title" type="text" wire:model="title" class="col-span-3" placeholder="{{ __('Type a title...') }}" />
+                <div class="col-span-3">
+                    <x-sm-input id="title" type="text" wire:model="title" class="w-full" placeholder="{{ __('Type a title...') }}" />
+                    <x-input-error for="title" class="mt-1" />
+                </div>
             </div>
 
             <div class="mt-6 grid grid-cols-4 gap-4 items-center">

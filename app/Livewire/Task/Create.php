@@ -17,19 +17,23 @@ class Create extends Component
 
     public $assign_to = [];
 
+    public $teamUsers;
+
     public $due_date;
 
     public $description;
 
     public function render()
     {
-        return view('livewire.task.create', [
-            'teamUsers' => teamUsers(),
-        ]);
+        return view('livewire.task.create');
     }
 
     public function save()
     {
+        $this->validate([
+            'title' => 'required',
+        ]);
+
         $users = collect($this->assign_to)->pluck('id');
 
         $task = $this->project->tasks()->create([

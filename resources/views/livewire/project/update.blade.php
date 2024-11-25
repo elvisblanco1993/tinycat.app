@@ -3,7 +3,7 @@
         {{ __("Settings") }}
     </x-secondary-button>
 
-    <x-dialog-modal wire:model="modal">
+    <x-drawer wire:model="modal">
         <x-slot name="title">{{ __("Project settings") }}</x-slot>
         <x-slot name="content">
             <div>
@@ -19,24 +19,26 @@
             </div>
 
             <div class="mt-6">
-                <div class="block font-semibold text-zinc-800 dark:text-zinc-300">
-                    {{ __("Set a schedule (optional)") }}
-                </div>
-                <div class="mt-6 md:flex items-center gap-8">
-                    <div class="w-full md:w-1/2">
+                <div class="md:grid grid-cols-2 gap-4">
+                    <div class="col-span-2 md:col-span-1">
                         <x-label for="start_date">{{ __("Start date") }}</x-label>
                         <x-input id="start_date" type="date" wire:model="start_date" class="mt-1 w-full"/>
                     </div>
-                    <div class="w-full md:w-1/2">
+                    <div class="col-span-2 md:col-span-1">
                         <x-label for="end_date">{{ __("End date") }}</x-label>
                         <x-input id="end_date" type="date" wire:model="end_date" class="mt-1 w-full"/>
                     </div>
                 </div>
+            </div>
+
+            <div class="mt-6">
+                <x-label for="projectPeople">{{ __("People in this project") }}</x-label>
+                <x-selector id="projectPeople" :options="$teamUsers" wire:model="assign_to"></x-selector>
             </div>
         </x-slot>
         <x-slot name="footer">
             <x-secondary-button wire:click="$toggle('modal')">{{ __("Cancel") }}</x-secondary-button>
             <x-button wire:click="save" class="ms-4">{{ __("Save changes") }}</x-button>
         </x-slot>
-    </x-dialog-modal>
+    </x-drawer>
 </div>
