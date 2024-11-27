@@ -40,6 +40,7 @@ class Update extends Component
     public function updatedDrawer()
     {
         if ($this->drawer == false) {
+            $this->item = null;
             $this->reset('item');
         }
     }

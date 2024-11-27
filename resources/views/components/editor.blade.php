@@ -2,7 +2,7 @@
     $wire.entangle('{{ $attributes->wire('model')->value() }}')
 )" x-init="() => init($refs.editor)" wire:ignore {{ $attributes->whereDoesntStartWith('wire:model') }}>
 
-    <div class="flex w-full border border-zinc-300 dark:border-zinc-700 border-b-0 divide-x divide-zinc-300 dark:divide-zinc-700 bg-zinc-100 dark:bg-zinc-900 rounded-t-lg">
+    <div class="flex w-full border border-zinc-300 dark:border-zinc-700 border-b-0 dark:text-zinc-300 divide-x divide-zinc-300 dark:divide-zinc-700 bg-zinc-100 dark:bg-zinc-900 rounded-t-lg">
         <button type="button" class="flex justify-center p-2 transition hover:bg-zinc-200 dark:hover:bg-zinc-700 w-10 rounded-tl-md"
             @click="toggleBold();">
             <x-svg class="w-4 h-auto" svg="bold" />

@@ -35,18 +35,13 @@ class Client extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function forms(): BelongsToMany
-    {
-        return $this->belongsToMany(Form::class)->withTimestamps();
-    }
-
     public function items(): HasMany
     {
         return $this->hasMany(Item::class, 'client_id');
     }
 
-    public function requests(): HasMany
+    public function tasks(): HasMany
     {
-        return $this->hasMany(Request::class, 'client_id')->orderBy('updated_at', 'desc');
+        return $this->hasMany(Task::class);
     }
 }

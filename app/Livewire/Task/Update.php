@@ -15,13 +15,9 @@ class Update extends Component
     public $title;
     public $description;
     public $assign_to = [];
-    public $recipient;
+    public $recipients =[];
 
-    public $projectUsers;
-
-    public $decks = [];
-
-    public $selected_deck;
+    public $clientUsers;
 
     public function mount()
     {
@@ -48,8 +44,6 @@ class Update extends Component
                 'disabled' => false,
             ];
         })->toArray();
-        $this->decks = $this->task->project->decks;
-        $this->selected_deck = $this->task->deck->id;
         $this->drawer = true;
     }
 

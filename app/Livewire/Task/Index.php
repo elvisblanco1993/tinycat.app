@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class Index extends Component
 {
     public $client;
+    public $clientUsers = [];
+    public $tasks;
 
     public $search = '';
 
@@ -21,6 +23,10 @@ class Index extends Component
         } else {
             $this->client = Client::findOrFail($client);
         }
+
+        $this->clientUsers = clientUsers($this->client);
+
+        $this->tasks = $this->client->tasks;
     }
 
     public function render()

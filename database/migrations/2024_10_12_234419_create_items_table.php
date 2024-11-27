@@ -20,7 +20,6 @@ return new class extends Migration
             $table->foreignIdFor(Team::class)->index()->onDelete('cascade');
             $table->foreignIdFor(Client::class)->index()->onDelete('cascade');
             $table->foreignIdFor(Item::class, 'parent_id')->index()->nullable();
-            $table->foreignIdFor(Request::class, 'request_id')->index()->nullable();
             $table->string('name');
             $table->string('path')->nullable();
             $table->string('thumbnail')->nullable();

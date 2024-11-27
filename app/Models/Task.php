@@ -16,19 +16,9 @@ class Task extends Model
         'project_id', 'created_by', 'deck_id', 'milestone_id', 'title', 'description', 'priority', 'status', 'due_date', 'progress',
     ];
 
-    public function project(): BelongsTo
+    public function client(): BelongsTo
     {
-        return $this->belongsTo(Project::class);
-    }
-
-    public function milestone(): BelongsTo
-    {
-        return $this->belongsTo(Milestone::class);
-    }
-
-    public function deck(): BelongsTo
-    {
-        return $this->belongsTo(Deck::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function creator(): BelongsTo
@@ -38,7 +28,7 @@ class Task extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     public function comments(): HasMany

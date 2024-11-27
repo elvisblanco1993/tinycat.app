@@ -2,14 +2,15 @@
 
 namespace App\Livewire\Task;
 
-use App\Models\Project;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Client;
+use App\Models\Project;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Create extends Component
 {
-    public ?Project $project;
+    public Client $client;
 
     public $modal;
 
@@ -17,16 +18,11 @@ class Create extends Component
 
     public $assign_to = [];
 
-    public $teamUsers;
+    public $clientUsers;
 
     public $due_date;
 
     public $description;
-
-    public function mount()
-    {
-        $this->teamUsers = $this->teamUsers ?? teamUsers();
-    }
 
     public function render()
     {
@@ -41,15 +37,20 @@ class Create extends Component
 
         $users = collect($this->assign_to)->pluck('id');
 
-        $task = $this->project->tasks()->create([
-            'deck_id' => $this->project->decks()->firstOrCreate(['order' => 1], ['name' => 'Triage', 'order' => 1])->id,
+        $task = $this->client->tasks()->create([
             'created_by' => Auth::id(),
             'title' => $this->title,
-            'description' => $this->description,
             'due_date' => $this->due_date,
+            'description' => $this->description,
+            'status' => 'pending',
+            'priority' => 'medium',
+            'progress' => 0,
         ]);
 
         $task->users()->attach($users);
+
+        session()->flash('flash.banner', 'Task created!');
+        session()->flash('flash.bannerStyle', 'success');
 
         $this->redirect(url: url()->previous(), navigate: true);
     }

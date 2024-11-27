@@ -97,13 +97,13 @@ class User extends Authenticatable
         return $this->belongsToMany(Client::class);
     }
 
-    public function projects(): BelongsToMany
-    {
-        return $this->belongsToMany(Project::class);
-    }
-
     public function tasksCreated(): HasMany
     {
         return $this->hasMany(Task::class)->chaperone();
+    }
+
+    public function tasks(): BelongsToMany
+    {
+        return $this->belongsToMany(Task::class)->withTimestamps();
     }
 }
