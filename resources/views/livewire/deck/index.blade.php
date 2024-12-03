@@ -1,5 +1,5 @@
 <div>
-    <div wire:sortable="updateDeckOrder" wire:sortable-group="updateTaskDeck" wire:sortable.options="{ animation: 50 }" class="min-h-96 max-w-7xl flex flex-row items-start gap-2 overflow-x-auto">
+    <div wire:sortable="updateDeckOrder" wire:sortable-group="updateTaskDeck" wire:sortable.options="{ animation: 50 }" class="min-h-96 max-w-5xl flex flex-row items-start gap-2 overflow-x-auto">
         @forelse ($decks as $deck)
             <div @class([
                 "min-w-72 w-auto px-2 py-3 rounded-lg",

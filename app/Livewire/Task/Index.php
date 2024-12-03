@@ -5,6 +5,7 @@ namespace App\Livewire\Task;
 use App\Models\Client;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 
 class Index extends Component
 {
@@ -29,6 +30,7 @@ class Index extends Component
         $this->tasks = $this->client->tasks;
     }
 
+    #[On('saved')]
     public function render()
     {
         return view('livewire.task.index');

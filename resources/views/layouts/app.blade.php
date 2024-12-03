@@ -25,15 +25,15 @@
 
         <div>
             @if (isset($header))
-                <header class="z-10 px-4 sticky top-2">
-                    <div class="bg-white dark:bg-zinc-900 h-16 rounded-lg border dark:border-zinc-700 max-w-7xl mx-auto px-4 flex items-center justify-between shadow-xs">
+                <header class="px-4 w-full max-w-5xl mx-auto">
+                    <div class="dark:text-white bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 h-16 rounded-lg w-full flex items-center justify-between px-4">
                         {{ $header }}
                     </div>
                 </header>
             @endif
 
             <!-- Page Content -->
-            <main class="h-full min-h-full max-w-7xl w-full mx-auto px-4">
+            <main class="h-full min-h-full max-w-5xl w-full mx-auto px-4">
                 {{ $slot }}
             </main>
         </div>

@@ -13,7 +13,7 @@ class Task extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'project_id', 'created_by', 'deck_id', 'milestone_id', 'title', 'description', 'priority', 'status', 'due_date', 'progress',
+        'created_by', 'title', 'description', 'priority', 'status', 'due_date', 'progress',
     ];
 
     public function client(): BelongsTo

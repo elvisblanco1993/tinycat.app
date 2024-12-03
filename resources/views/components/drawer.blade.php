@@ -1,4 +1,4 @@
-@props(['width' => 'md:w-1/2 lg:w-1/4'])
+@props(['width' => 'md:w-1/2 lg:w-1/3'])
 <div
     class="fixed top-0 right-0 z-30 h-screen overflow-y-auto transition-transform w-full {{ $width }} border border-zinc-200 dark:border-zinc-700 md:rounded-l-2xl shadow-xl"
     aria-labelledby="drawer-label"

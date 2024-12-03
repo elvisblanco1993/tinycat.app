@@ -49,7 +49,7 @@ class Index extends Component
 
     public function selectAll()
     {
-        $this->dispatch('update-selection', selection: Client::modelKeys());
+        $this->dispatch('update-selection', selection: Client::get()->modelKeys());
         $this->select_all = true;
     }
 

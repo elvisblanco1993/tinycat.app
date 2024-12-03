@@ -18,11 +18,11 @@ Route::middleware([
     Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
 
     // Clients
-    Route::get('/c', \App\Livewire\Client\Index::class)->name('client.index');
-    Route::get('/c/{client}', fn ($client) => redirect(route('client.file.index', ['client' => $client])))->name('client.show');
-    Route::get('/c/{client}/edit', \App\Livewire\Client\Update::class)->name('client.update');
-    Route::get('/c/{client?}/files/{item?}', \App\Livewire\File\Index::class)->name('client.file.index');
-    Route::get('c/{client?}/tasks', \App\Livewire\Task\Index::class)->name('client.task.index');
+    Route::get('/clients', \App\Livewire\Client\Index::class)->name('client.index');
+    Route::get('/clients/{client}', \App\Livewire\Client\Show::class)->name('client.show');
+    Route::get('/clients/{client?}/files/{item?}', \App\Livewire\File\Index::class)->name('client.file.index');
+    Route::get('/clients/{client?}/tasks', \App\Livewire\Task\Index::class)->name('client.task.index');
+    Route::get('/clients/{client}/edit', \App\Livewire\Client\Update::class)->name('client.update');
 
     // Attachments
     Route::get('/get-thumbnail/{item}', [FileAccessController::class, 'downloadThumbnail'])->name('thumbnail');
