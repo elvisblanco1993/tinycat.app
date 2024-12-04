@@ -50,7 +50,7 @@ class Create extends Component
                 'email' => $this->owner_email,
                 'password' => Hash::make($password),
                 'is_client' => true,
-            ]);
+            ])->searchable();
 
             $client = Auth::user()->currentTeam->clients()->create([
                 'name' => $this->name,

@@ -14,7 +14,7 @@ class Index extends Component
 
     public $search = '';
 
-    public $per_page = 10;
+    public $per_page = 15;
 
     public $selected = [];
 
@@ -62,6 +62,7 @@ class Index extends Component
 
     public function getClientsProperty()
     {
-        return Client::search($this->search)->paginate($this->per_page);
+        return Client::search($this->search)
+            ->paginate($this->per_page);
     }
 }

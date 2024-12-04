@@ -1,9 +1,32 @@
 <div>
-    {{-- Client Card --}}
-    @include('partials.client.profile')
-    {{-- End | Client Card --}}
+    <x-slot name="header">
+        @unless (Auth::user()->is_client)
+            <div class="flex items-center divide-x dark:divide-zinc-700">
+                <x-tinycat.client-close-button />
 
-    <div class="py-6">
+                <div class="pl-2 text-lg font-semibold">
+                    <h2>
+                        <a href="{{ route('client.show', ['client' => $client]) }}"
+                            wire:navigate
+                            class="text-blue-500 hover:underline"
+                            >{{ $client->name }}</a>
+                        <span>/ {{ __("Update details") }}</span>
+                    </h2>
+                </div>
+            </div>
+        @else
+            <h2 class="text-lg font-semibold">
+                {{ __("Update details") }}
+            </h2>
+        @endunless
+
+        <div class="flex items-center space-x-3">
+            <x-tinycat.client-contact-card :phone="$client->phone"/>
+            <x-tinycat.client-dropdown-menu :client="$client" />
+        </div>
+    </x-slot>
+
+    <div class="my-12 max-w-5xl mx-auto">
         <div class="bg-white dark:bg-zinc-800 dark:text-white rounded-lg shadow-sm overflow-hidden">
             <div class="px-4 border-b dark:border-b-zinc-700 h-12 flex space-x-3">
                 <x-nav-button wire:click="$set('navigate', 'business-details')" :active="$navigate === 'business-details'">

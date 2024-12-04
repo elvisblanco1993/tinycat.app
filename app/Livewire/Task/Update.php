@@ -5,6 +5,7 @@ namespace App\Livewire\Task;
 use App\Models\Task;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Renderless;
 
 class Update extends Component
 {
@@ -68,36 +69,25 @@ class Update extends Component
         return view('livewire.task.update');
     }
 
+    #[Renderless]
     public function save()
     {
         $this->validate([
             'title' => 'required',
-            'progress' => 'numeric|between:0,100',
-            'assign_to' => 'required|array'
         ]);
-
-        $this->setStatus();
 
         $this->task->update([
             'title' => $this->title,
-            'due_date' => $this->due_date,
             'description' => $this->description,
-            'status' => $this->status,
-            'priority' => $this->priority,
-            'progress' => $this->progress,
         ]);
 
         $this->dispatch('saved');
     }
 
-    public function setStatus()
+    public function setStatus($option)
     {
-        if ($this->progress == 0) {
-            $this->status = 'pending';
-        } elseif ($this->progress > 0 && $this->progress < 100) {
-            $this->status = 'in_progress';
-        } elseif ($this->progress == 100) {
-            $this->status = 'completed';
-        }
+        $this->task->update(['status' => $option]);
+        $this->status = $option;
+        $this->dispatch('saved');
     }
 }

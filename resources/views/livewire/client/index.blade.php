@@ -31,7 +31,7 @@
                         </th>
                         <th scope="col" class="px-6 py-3">{{ __("ID") }}</th>
                         <th scope="col" class="px-6 py-3">{{ __("Client") }}</th>
-                        <th scope="col" class="px-6 py-3">{{ __("Contact Person") }}</th>
+                        <th scope="col" class="px-6 py-3">{{ __("Phone Number") }}</th>
                         <th scope="col" class="px-6 py-3">
                             <span class="sr-only">{{ __("Edit") }}</span>
                         </th>
@@ -62,8 +62,7 @@
                                 {{ $client->name }}
                             </td>
                             <td class="px-6 py-4">
-                                <div>{{ $client->owner->name }}</div>
-                                <div class="text-xs">{{ $client->owner->email }}</div>
+                                {{ phone($client->phone, 'US') }}
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <x-secondary-button-link href="{{ route('client.show', ['client' => $client->id]) }}" wire:navigate>

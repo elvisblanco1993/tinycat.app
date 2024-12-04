@@ -2,23 +2,47 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\ClientScope;
-use Illuminate\Database\Eloquent\Attributes\ScopedBy;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Notifications\Notifiable;
 use Laravel\Scout\Searchable;
+use App\Models\Scopes\ClientScope;
+use App\Observers\ClientObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 #[ScopedBy(ClientScope::class)]
+#[ObservedBy(ClientObserver::class)]
 class Client extends Model
 {
     use HasFactory, Notifiable, Searchable, SoftDeletes;
 
     protected $guarded = [];
+
+    /**
+     * Modify the query used to retrieve models when making all of the models searchable.
+     */
+    protected function makeAllSearchableUsing(Builder $query): Builder
+    {
+        return $query->with(['owner']);
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'dba' => $this->dba,
+            'itin' => $this->itin,
+            'email' => $this->email,
+            'phone' => $this->phone,
+        ];
+    }
 
     public function team(): BelongsTo
     {

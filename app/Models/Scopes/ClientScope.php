@@ -14,7 +14,9 @@ class ClientScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        $builder->where('team_id', Auth::user()->current_team_id)
-            ->orWhere('owner_id', Auth::id());
+        if (!app()->runningInConsole()) {
+            $builder->where('team_id', Auth::user()->current_team_id)
+                ->orWhere('owner_id', Auth::id());
+        }
     }
 }
