@@ -44,10 +44,10 @@
                     <div class="flex items-center">
                         <div class="size-8 flex items-center justify-center rounded-md"
                             style="
-                                background-color: {{ config("internal.task_status_icons.$task->status.bg_color") }};
-                                color: {{ config("internal.task_status_icons.$task->status.text_color") }};
+                                background-color: {{ config("internal.task_statuses.$task->status.bg_color") }};
+                                color: {{ config("internal.task_statuses.$task->status.text_color") }};
                             ">
-                            {!! config("internal.task_status_icons.$task->status.icon") !!}
+                            {!! config("internal.task_statuses.$task->status.icon") !!}
                         </div>
                         <div class="ms-3">{{ $task->title }}</div>
                     </div>

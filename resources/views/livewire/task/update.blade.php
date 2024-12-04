@@ -58,30 +58,55 @@
                         <div class="mt-6 grid grid-cols-4 gap-4 items-center">
                             <x-label class="col-span-2" for="update_task_progress">{{ __("Status") }}</x-label>
                             <div class="col-span-2">
-                                <div x-data="{ open: false }" class="text-sm">
-                                    <button x-ref="button" @click="open = ! open"
-                                        class="inline-flex items-center gap-1 p-1 px-2 text-sm rounded-full border border-zinc-300 border-dashed bg-zinc-50 text-zinc-800 dark:bg-zinc-900/60 dark:border-zinc-500 dark:text-zinc-100 hover:text-zinc-800 dark:hover:text-white">
-                                        <span style="color:{{ config("internal.task_status_icons.$status.text_color") }}">
-                                            {!! config("internal.task_status_icons.$status.icon") !!}
+                                <x-dropdown>
+                                    <x-slot name="trigger">
+                                        <button class="inline-flex items-center gap-1 p-1 px-2 text-sm rounded-full border border-zinc-300 border-dashed bg-zinc-50 text-zinc-800 dark:bg-zinc-900/60 dark:border-zinc-500 dark:text-zinc-100 hover:text-zinc-800 dark:hover:text-white">
+                                        <span style="color:{{ config("internal.task_statuses.$status.text_color") }}">
+                                            {!! config("internal.task_statuses.$status.icon") !!}
                                         </span>
                                         <span class="ms-2">{{ Str::headline($status) }}</span>
                                     </button>
-
-                                    <div x-show="open" x-anchor.bottom-start.offset.5="$refs.button" @click.outside="open = ! open"
-                                        class="rounded-lg shadow-lg ring-1 ring-black/5 dark:ring-white/5 py-1 bg-white dark:bg-zinc-700 text-zinc-700 dark:text-zinc-100">
-                                        @foreach (config('internal.task_status_icons') as $option)
-                                            <button wire:click="setStatus('{{$option['label']}}')" @click="open = false" class="text-left w-full px-3 py-1 flex items-center hover:bg-zinc-100 dark:hover:bg-zinc-800" >
+                                    </x-slot>
+                                    <x-slot name="content">
+                                        @foreach (config('internal.task_statuses') as $option)
+                                            <x-dropdown-button wire:click="setStatus('{{$option['label']}}')">
                                                 <span style="color:{{$option['text_color']}}">
                                                     {!! $option['icon'] !!}
                                                 </span>
                                                 <span class="ms-2">{{ Str::headline($option['label']) }}</span>
-                                            </button>
+                                            </x-dropdown-button>
                                         @endforeach
-                                    </div>
-                                </div>
+                                    </x-slot>
+                                </x-dropdown>
                             </div>
                         </div>
 
+                        <div class="mt-6 grid grid-cols-4 gap-4 items-center">
+                            <x-label class="col-span-2" for="update_task_progress">{{ __("Priority") }}</x-label>
+                            <div class="col-span-2">
+                                <x-dropdown>
+                                    <x-slot name="trigger">
+                                        <button class="inline-flex items-center gap-1 p-1 px-2 text-sm rounded-full border border-zinc-300 border-dashed bg-zinc-50 text-zinc-800 dark:bg-zinc-900/60 dark:border-zinc-500 dark:text-zinc-100 hover:text-zinc-800 dark:hover:text-white">
+                                        <span class="size-3 rounded-full" style="background-color:{{ config("internal.task_priorities.$priority.bg_color") }}"></span>
+                                        <span class="ms-2">{{ Str::headline($priority) }}</span>
+                                    </button>
+                                    </x-slot>
+                                    <x-slot name="content">
+                                        @foreach (config('internal.task_priorities') as $option)
+                                            <x-dropdown-button wire:click="setPriority('{{$option['label']}}')">
+                                                <span class="size-3 rounded-full" style="background-color:{{$option['bg_color']}}"></span>
+                                                <span class="ms-2">{{ Str::headline($option['label']) }}</span>
+                                            </x-dropdown-button>
+                                        @endforeach
+                                    </x-slot>
+                                </x-dropdown>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 grid grid-cols-4 gap-4 items-center">
+                            <x-label class="col-span-2">{{ __("Due date") }}</x-label>
+                            <x-sm-input type="date" wire:model.live="due_date" class="col-span-2"/>
+                        </div>
                     </div>
                 </div>
             </x-slot>

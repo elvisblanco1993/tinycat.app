@@ -39,11 +39,6 @@ class Item extends Model
         return $this->belongsTo(Client::class);
     }
 
-    public function request(): BelongsTo
-    {
-        return $this->belongsTo(Request::class);
-    }
-
     public function getAncestors()
     {
         $ancestors = collect();

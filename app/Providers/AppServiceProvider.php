@@ -23,7 +23,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Vite::prefetch(3);
-        Model::preventLazyLoading(! app()->isProduction());
     }
 
     protected function configureCommands(): void

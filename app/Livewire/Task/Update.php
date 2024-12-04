@@ -69,18 +69,15 @@ class Update extends Component
         return view('livewire.task.update');
     }
 
-    #[Renderless]
     public function save()
     {
         $this->validate([
             'title' => 'required',
         ]);
-
         $this->task->update([
             'title' => $this->title,
             'description' => $this->description,
         ]);
-
         $this->dispatch('saved');
     }
 
@@ -88,6 +85,19 @@ class Update extends Component
     {
         $this->task->update(['status' => $option]);
         $this->status = $option;
+        $this->dispatch('saved');
+    }
+
+    public function setPriority($option)
+    {
+        $this->task->update(['priority' => $option]);
+        $this->priority = $option;
+        $this->dispatch('saved');
+    }
+
+    public function updatedDueDate()
+    {
+        $this->task->update(['due_date' => $this->due_date]);
         $this->dispatch('saved');
     }
 }
