@@ -19,6 +19,7 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class, 'created_by')->onDelete('cascade')->nullable();
+            $table->foreignIdFor(User::class, 'send_notification_to')->nullable();
             $table->foreignIdFor(Client::class)->nullOnDelete()->nullable();
             $table->string('title');
             $table->text('description')->nullable();

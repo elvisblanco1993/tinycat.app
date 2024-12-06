@@ -2,18 +2,21 @@
 
 namespace App\Models;
 
+use App\Observers\TaskObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+#[ObservedBy(TaskObserver::class)]
 class Task extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
-        'created_by', 'title', 'description', 'priority', 'status', 'due_date', 'progress',
+        'created_by', 'title', 'description', 'priority', 'status', 'due_date', 'progress', 'send_notification_to',
     ];
 
     public function client(): BelongsTo
@@ -24,6 +27,11 @@ class Task extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function subscribers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'subscriber_task');
     }
 
     public function users(): BelongsToMany

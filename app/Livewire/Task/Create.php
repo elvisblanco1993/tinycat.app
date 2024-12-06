@@ -44,7 +44,6 @@ class Create extends Component
             'description' => $this->description,
             'status' => 'pending',
             'priority' => 'medium',
-            'progress' => 0,
         ]);
 
         $task->users()->attach($users);

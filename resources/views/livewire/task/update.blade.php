@@ -44,7 +44,7 @@
                         <div class="grid grid-cols-4 gap-4 items-start">
                             <x-label class="col-span-2" for="update_task_assign_to">{{ __("Assigned to") }}</x-label>
                             <div class="col-span-2">
-                                <x-selector id="update_task_assign_to" :options="$clientUsers" wire:model="assign_to"></x-selector>
+                                <x-selector id="update_task_assign_to" :options="$clientUsers" wire:model.live="assign_to"></x-selector>
                                 <x-input-error for="assign_to" class="mt-1" />
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                         <div class="mt-6 grid grid-cols-4 gap-4 items-start">
                             <x-label class="col-span-2" for="update_task_notify_when_done">{{ __("When done, notify") }}</x-label>
                             <div class="col-span-2">
-                                <x-selector id="update_task_notify_when_done" :options="$teamUsers" wire:model="recipients"></x-selector>
+                                <x-selector id="update_task_notify_when_done" :options="$teamUsers" wire:model.live="subscribers"></x-selector>
                             </div>
                         </div>
                         <div class="mt-6 grid grid-cols-4 gap-4 items-center">

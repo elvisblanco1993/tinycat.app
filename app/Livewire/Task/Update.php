@@ -3,6 +3,7 @@
 namespace App\Livewire\Task;
 
 use App\Models\Task;
+use App\Notifications\TaskCompletedNotification;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Renderless;
@@ -20,7 +21,7 @@ class Update extends Component
     public $status;
     public $due_date;
     public $assign_to = [];
-    public $recipients =[];
+    public $subscribers =[];
 
     public $clientUsers;
     public $teamUsers;
@@ -51,17 +52,15 @@ class Update extends Component
                 'disabled' => false,
             ];
         })->toArray();
+        $this->subscribers = $this->task->subscribers->map(function ($user) {
+            return [
+                'id' => $user->id,
+                'name' => $user->name,
+                'profile_photo_url' => $user->profile_photo_url,
+                'disabled' => false,
+            ];
+        })->toArray();
         $this->drawer = true;
-    }
-
-    public function hasChanges(): bool
-    {
-        return $this->title !== $this->task->title ||
-            $this->description !== $this->task->description ||
-            $this->progress !== $this->task->progress ||
-            $this->priority !== $this->task->priority ||
-            $this->status !== $this->task->status ||
-            $this->assign_to !== $this->task->assign_to;
     }
 
     public function render()
@@ -86,6 +85,9 @@ class Update extends Component
         $this->task->update(['status' => $option]);
         $this->status = $option;
         $this->dispatch('saved');
+        if ($option === 'completed') {
+            $this->task->subscribers->each->notify(new TaskCompletedNotification($this->task));
+        }
     }
 
     public function setPriority($option)
@@ -99,5 +101,12 @@ class Update extends Component
     {
         $this->task->update(['due_date' => $this->due_date]);
         $this->dispatch('saved');
+    }
+
+    public function updatedSubscribers()
+    {
+        $this->task->subscribers()->sync(
+            array_map(fn($subscriber) => $subscriber['id'], $this->subscribers)
+        );
     }
 }

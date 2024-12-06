@@ -51,11 +51,6 @@
                         </div>
                         <div class="ms-3">{{ $task->title }}</div>
                     </div>
-
-                    <div class="hidden sm:block w-64 bg-gray-200 rounded-full dark:bg-gray-700">
-                        <div class="bg-blue-600 h-2 rounded-full" style="width: {{ $task->progress }}%"></div>
-                    </div>
-                    <div class="block sm:hidden text-xs text-white bg-blue-600 font-medium py-0.5 px-1 rounded-md">{{ $task->progress }}%</div>
                 </div>
             @empty
             @endforelse
