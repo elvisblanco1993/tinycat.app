@@ -2,7 +2,7 @@
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
-            <div class="mt-4 max-w-md prose">
+            <div class="mt-4 max-w-md prose dark:prose-invert">
                 <h2>{{ __("Account Setup") }}</h2>
                 <p>{{ __("Enter your name and create a strong password to activate your account and join your team.") }}</p>
             </div>

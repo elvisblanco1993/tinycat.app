@@ -39,8 +39,10 @@ class TaskCompletedNotification extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->markdown('mail.task-completed-notification')
-            ->subject('A task was completed.');
+            ->markdown('mail.task-completed-notification', [
+                'task' => $this->task,
+            ])
+            ->subject($this->task->client->name . ' completed a task.');
     }
 
     /**

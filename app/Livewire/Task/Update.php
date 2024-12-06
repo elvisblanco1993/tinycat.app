@@ -6,7 +6,6 @@ use App\Models\Task;
 use App\Notifications\TaskCompletedNotification;
 use Livewire\Component;
 use Livewire\Attributes\On;
-use Livewire\Attributes\Renderless;
 
 class Update extends Component
 {

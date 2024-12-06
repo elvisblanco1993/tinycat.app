@@ -56,6 +56,7 @@ class Create extends Component
                 'name' => $this->name,
                 'business_type' => $this->business_type,
                 'owner_id' => $owner->id,
+                'email' => $owner->email,
             ]);
 
             // Send Mail to Client Account Owner

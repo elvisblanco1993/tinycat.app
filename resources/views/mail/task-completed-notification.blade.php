@@ -1,9 +1,11 @@
 <x-mail::message>
 
-{{ $task->title }} has been completed.
+{{ $task->client->name }} completed the following task:
 
-<x-mail::button :url="route('client.task.index')">
-{{ __("View task") }}
+- {{ $task->title }}
+
+<x-mail::button :url="route('client.task.index', ['client' => $task->client->id])">
+{{ __("View client tasks") }}
 </x-mail::button>
 
 Thanks,<br>
