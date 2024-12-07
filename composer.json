@@ -16,6 +16,7 @@
         "livewire/livewire": "^3.0",
         "maatwebsite/excel": "^3.1",
         "propaganistas/laravel-phone": "^5.3",
+        "quickbooks/v3-php-sdk": "^6.1",
         "saloonphp/laravel-plugin": "^3.0",
         "saloonphp/saloon": "^3.10",
         "ueberdosis/tiptap-php": "^1.4"

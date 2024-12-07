@@ -45,7 +45,7 @@ class JetstreamServiceProvider extends ServiceProvider
     {
         Jetstream::defaultApiTokenPermissions(['read']);
 
-        Jetstream::role('admin', 'Administrator', [
+        Jetstream::role('admin', 'Account Owner', [
             'client:create',
             'client:view',
             'client:update',
@@ -66,12 +66,35 @@ class JetstreamServiceProvider extends ServiceProvider
             'project:view',
             'project:update',
             'project:delete',
-        ])->description('Administrator users can perform any action.');
+        ])->description('Account administrators have full access and can perform all actions, including managing the organization and billing settings.');
 
-        Jetstream::role('editor', 'Employee', [
+        Jetstream::role('manager', 'Manager', [
+            'client:create',
+            'client:view',
+            'client:update',
+            'client:delete',
+            'form:create',
+            'form:view',
+            'form:update',
+            'form:delete',
+            'file-template:create',
+            'file-template:view',
+            'file-template:update',
+            'file-template:delete',
+            'upload-request:create',
+            'upload-request:view',
+            'upload-request:update',
+            'upload-request:delete',
+            'project:create',
+            'project:view',
+            'project:update',
+            'project:delete',
+        ])->description('Managers can perform all employee-related actions, add employees, and oversee employee activities.');
+
+        Jetstream::role('employee', 'Employee', [
             'client:view',
             'client:create',
             'client:update',
-        ])->description('Editor users have the ability to read, create, and update.');
+        ])->description('Employees can engage with clients, manage tasks, and handle messages from clients.');
     }
 }

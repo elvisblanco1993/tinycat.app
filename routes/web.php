@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FileAccessController;
+use App\Http\Controllers\QuickbooksController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => redirect('/login'));

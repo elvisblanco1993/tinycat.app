@@ -62,14 +62,4 @@ class Team extends JetstreamTeam
     {
         return $this->hasManyThrough(User::class, Client::class);
     }
-
-    public function forms(): HasMany
-    {
-        return $this->hasMany(Form::class)->chaperone();
-    }
-
-    public function projects(): HasMany
-    {
-        return $this->hasMany(Project::class)->chaperone();
-    }
 }
