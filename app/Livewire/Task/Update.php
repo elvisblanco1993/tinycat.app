@@ -15,7 +15,6 @@ class Update extends Component
 
     public $title;
     public $description;
-    public $progress;
     public $priority;
     public $status;
     public $due_date;
@@ -41,7 +40,6 @@ class Update extends Component
             'priority',
             'status',
             'due_date',
-            'progress',
         ]));
         $this->assign_to = $this->task->users->map(function ($user) {
             return [

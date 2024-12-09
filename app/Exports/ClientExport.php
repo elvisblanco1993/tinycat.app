@@ -18,19 +18,20 @@ class ClientExport implements FromCollection, WithHeadings
     {
         return [
             'ID',
-            'Company Name',
-            'DBA',
-            'Business Type',
-            'Phone',
-            'Email',
-            'ITIN',
-            'Postal Address',
-            'Address Line 2',
-            'City',
-            'State',
-            'Zip code',
-            'Country',
-            'Date Created',
+            'name',
+            'dba',
+            'business_type',
+            'phone',
+            'email',
+            'itin',
+            'address',
+            'address_ext',
+            'city',
+            'state',
+            'zip',
+            'country',
+            'owner_name',
+            'owner_email',
         ];
     }
 
@@ -47,14 +48,15 @@ class ClientExport implements FromCollection, WithHeadings
                 $client->business_type,
                 $client->phone,
                 $client->email,
-                $client->ITIN,
+                $client->itin,
                 $client->address,
                 $client->address_ext,
                 $client->city,
                 $client->state,
                 $client->zip,
                 $client->country,
-                $client->created_at->format('Y-m-d'),
+                $client->owner->name,
+                $client->owner->email,
             ];
         });
     }

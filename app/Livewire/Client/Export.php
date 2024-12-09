@@ -19,9 +19,10 @@ class Export extends Component
 
     public function export()
     {
-        $clients = Client::whereIn('id', $this->selected)->get();
-
-        return Excel::download(new ClientExport($clients), 'clients.xlsx');
+        $clients = Client::whereIn('id', $this->selected)
+            ->with('owner:id,name,email')
+            ->get();
+        return Excel::download(new ClientExport($clients), 'clients.csv');
     }
 
     #[On('update-selection')]

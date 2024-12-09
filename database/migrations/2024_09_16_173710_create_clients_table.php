@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('business_type')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
-            $table->string('itin')->nullable();
+            $table->string('itin')->unique()->index()->nullable();
             $table->string('address')->nullable();
             $table->string('address_ext')->nullable();
             $table->string('city', 100)->nullable();

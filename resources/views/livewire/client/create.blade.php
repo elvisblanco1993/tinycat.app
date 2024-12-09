@@ -44,7 +44,7 @@
                 <x-input-error for="owner_email" />
             </div>
 
-            <div class="mt-6">
+            {{-- <div class="mt-6">
                 <x-label for="filesystem">{{ __("Select a File Organization Template") }}</x-label>
                 <x-select id="filesystem" wire:model="filesystem" class="mt-2 w-full">
                     @forelse ($itemTemplates as $template)
@@ -54,7 +54,7 @@
                 </x-select>
                 <small class="text-xs text-zinc-700 dark:text-zinc-300">{{ __("Choose from our preset templates to automatically organize folders for this client. Templates can be customized later to fit specific needs.") }}</small>
                 <x-input-error for="filesystem" />
-            </div>
+            </div> --}}
         </x-slot>
         <x-slot name="footer">
             <x-secondary-button wire:click="$toggle('modal')">{{ __("Cancel") }}</x-secondary-button>

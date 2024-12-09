@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
@@ -22,7 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Vite::prefetch(3);
+        $this->configureCommands();
+        $this->configureModels();
+        $this->configureVite();
+        $this->configureUrl();
     }
 
     protected function configureCommands(): void
@@ -30,5 +34,23 @@ class AppServiceProvider extends ServiceProvider
         DB::prohibitDestructiveCommands(
             app()->isProduction()
         );
+    }
+
+    private function configureModels(): void
+    {
+        Model::shouldBeStrict();
+        Model::unguard();
+    }
+
+    private function configureUrl(): void
+    {
+        URL::forceHttps(
+            app()->isProduction()
+        );
+    }
+
+    private function configureVite(): void
+    {
+        Vite::usePrefetchStrategy('aggressive');
     }
 }

@@ -4,7 +4,10 @@
             {{ __('Clients') }}
         </h2>
         @can('create', \App\Models\Client::class)
-            @livewire('client.create')
+            <div class="flex items-center space-x-4">
+                @livewire('client.import')
+                @livewire('client.create')
+            </div>
         @endcan
     </x-slot>
 

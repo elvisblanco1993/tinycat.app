@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
 
         $user->update(['current_team_id' => $user->ownedTeams()->first()->id]);
 
-        Client::factory()->count(10000)->create([
-            'team_id' => $user->current_team_id,
-        ]);
+        // Client::factory()->count(1000)->create([
+        //     'team_id' => $user->current_team_id,
+        // ]);
     }
 }

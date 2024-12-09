@@ -7,6 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Hash;
 
 class ClientOwnerAccountCreated extends Mailable
 {
@@ -21,11 +22,10 @@ class ClientOwnerAccountCreated extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($team, $owner_name, $password)
+    public function __construct($team, $owner_name)
     {
         $this->team = $team;
         $this->owner_name = $owner_name;
-        $this->password = $password;
     }
 
     /**
@@ -48,7 +48,6 @@ class ClientOwnerAccountCreated extends Mailable
             with: [
                 'team' => $this->team,
                 'owner_name' => $this->owner_name,
-                'password' => $this->password,
             ],
         );
     }
