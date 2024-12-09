@@ -32,5 +32,9 @@ class Import extends Component
             ->afterResponse(
                 Storage::delete($fileToImportFrom)
             );
+
+        session()->flash('flash.banner', 'Your clients are importing and will show here shortly.');
+        session()->flash('flash.bannerStyle', 'success');
+        $this->redirect(url: url()->previous());
     }
 }
