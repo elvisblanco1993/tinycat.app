@@ -16,7 +16,7 @@ class Task extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'created_by', 'title', 'description', 'priority', 'status', 'due_date', 'send_notification_to',
+        'created_by', 'title', 'description', 'priority', 'status', 'due_date', 'send_notification_to', 'parent_task_id', 'recurrence_rule',
     ];
 
     public function client(): BelongsTo

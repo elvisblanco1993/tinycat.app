@@ -1,13 +1,14 @@
 <?php
 
-use App\Models\Client;
 use App\Models\Deck;
-use App\Models\Milestone;
-use App\Models\Project;
+use App\Models\Task;
 use App\Models\User;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Client;
+use App\Models\Project;
+use App\Models\Milestone;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -21,11 +22,13 @@ return new class extends Migration
             $table->foreignIdFor(User::class, 'created_by')->onDelete('cascade')->nullable();
             $table->foreignIdFor(User::class, 'send_notification_to')->nullable();
             $table->foreignIdFor(Client::class)->nullOnDelete()->nullable();
+            $table->foreignIdFor(Task::class, 'parent_task_id')->nullOnDelete()->nullable();
             $table->string('title');
             $table->text('description')->nullable();
             $table->enum('priority', ['low', 'medium', 'high'])->nullable();
             $table->enum('status', ['pending', 'in_progress', 'completed'])->nullable();
             $table->date('due_date')->nullable();
+            $table->json('recurrence_rule')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
