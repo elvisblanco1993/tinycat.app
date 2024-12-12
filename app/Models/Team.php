@@ -62,4 +62,19 @@ class Team extends JetstreamTeam
     {
         return $this->hasManyThrough(User::class, Client::class);
     }
+
+    public function leads(): HasMany
+    {
+        return $this->hasMany(Lead::class)->chaperone();
+    }
+
+    public function audiences(): HasMany
+    {
+        return $this->hasMany(Audience::class)->chaperone();
+    }
+
+    public function email_broadcasts(): HasMany
+    {
+        return $this->hasMany(EmailBroadcast::class)->chaperone();
+    }
 }

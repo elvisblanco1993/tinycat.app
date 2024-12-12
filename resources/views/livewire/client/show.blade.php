@@ -1,7 +1,7 @@
 <div>
     <x-slot name="header">
         <div class="flex items-center divide-x dark:divide-zinc-700">
-            <x-tinycat.client-close-button />
+            <x-tinycat.close-button href="{{ route('client.index') }}"/>
 
             <div class="pl-2 text-lg font-semibold">
                 <h2>{{ $client->name }}</h2>

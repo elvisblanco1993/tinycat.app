@@ -66,6 +66,9 @@ class JetstreamServiceProvider extends ServiceProvider
             'project:view',
             'project:update',
             'project:delete',
+            'lead:view',
+            'lead:import',
+            'lead:delete',
         ])->description('Account administrators have full access and can perform all actions, including managing the organization and billing settings.');
 
         Jetstream::role('manager', 'Manager', [
@@ -89,6 +92,8 @@ class JetstreamServiceProvider extends ServiceProvider
             'project:view',
             'project:update',
             'project:delete',
+            'lead:view',
+            'lead:import',
         ])->description('Managers can perform all employee-related actions, add employees, and oversee employee activities.');
 
         Jetstream::role('employee', 'Employee', [

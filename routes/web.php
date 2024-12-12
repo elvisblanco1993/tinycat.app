@@ -28,4 +28,18 @@ Route::middleware([
     // Attachments
     Route::get('/get-thumbnail/{item}', [FileAccessController::class, 'downloadThumbnail'])->name('thumbnail');
     Route::get('/download/{item}', [FileAccessController::class, 'downloadPrivately'])->name('download');
+
+    /**
+     * Marketing Routes
+     */
+
+    // Leads
+    Route::get('/leads', \App\Livewire\Lead\Index::class)->name('lead.index');
+    Route::get('/leads/{lead}', \App\Livewire\Lead\Show::class)->name('lead.show');
+    // Audiences
+    Route::get('/audiences', \App\Livewire\Audience\Index::class)->name('audience.index');
+    Route::get('/audiences/{audience}', \App\Livewire\Audience\Show::class)->name('audience.show');
+    // Email Broadcasts
+    Route::get('/broadcasts', \App\Livewire\EmailBroadcast\Index::class)->name('broadcast.index');
+    Route::get('/broadcasts/new', \App\Livewire\EmailBroadcast\Create::class)->name('broadcast.create');
 });

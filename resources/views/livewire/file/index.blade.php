@@ -3,7 +3,7 @@
         <x-slot name="header">
             @unless (Auth::user()->is_client)
                 <div class="flex items-center divide-x dark:divide-zinc-700">
-                    <x-tinycat.client-close-button />
+                    <x-tinycat.close-button href="{{ route('client.index') }}"/>
 
                     <div class="pl-2 text-lg font-semibold">
                         <h2>
