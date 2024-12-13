@@ -36,7 +36,7 @@ class AddLeads extends Component
         ]);
 
         try {
-            Audience::findOrFail($this->audience)->leads()->sync($this->selected);
+            Audience::findOrFail($this->audience)->leads()->syncWithoutDetaching($this->selected);
             session()->flash('flash.banner', 'The selected leads were added to the list.');
             session()->flash('flash.bannerStyle', 'success');
         } catch (\Throwable $th) {

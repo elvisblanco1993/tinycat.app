@@ -26,8 +26,8 @@
                     </a>
                 </li>
             @empty
-                <li class="dark:text-white bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg w-full px-4 py-16">
-                    <div class="max-w-xl mx-auto text-center prose">
+                <li class="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg w-full px-4 py-16">
+                    <div class="max-w-xl mx-auto text-center prose dark:prose-invert">
                         <h3>{{ __("You don't have any audiences yet") }}</h3>
                         <p>{{ __("Audiences let you organize similar contacts into groups, making it easier to send them messages that are more relevant.") }}</p>
                     </div>

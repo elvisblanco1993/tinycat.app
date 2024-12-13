@@ -107,3 +107,13 @@
         color: var(--color-white) !important;
     }
 }
+
+.header-container {
+    @apply w-full max-w-5xl mx-auto;
+}
+
+.header {
+    @apply dark:text-white bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 h-16 rounded-lg w-full flex items-center justify-between px-4;
+}
+
+

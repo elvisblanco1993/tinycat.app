@@ -16,11 +16,13 @@ return new class extends Migration
         Schema::create('email_broadcasts', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Team::class);
-            $table->foreignIdFor(Audience::class);
+            $table->string('title');
             $table->string('reply_to')->nullable();
-            $table->string('subject');
+            $table->foreignIdFor(Audience::class)->nullable();
+            $table->timestamp('send_at')->nullable();
             $table->string('preview_text')->nullable();
-            $table->text('message');
+            $table->string('subject')->nullable();
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }

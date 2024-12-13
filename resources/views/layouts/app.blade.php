@@ -23,17 +23,17 @@
 
         @include('navigation-menu')
 
-        <div>
+        <div class="px-4">
             @if (isset($header))
-                <header class="px-4 w-full max-w-5xl mx-auto">
-                    <div class="dark:text-white bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 h-16 rounded-lg w-full flex items-center justify-between px-4">
+                <header class="header-container">
+                    <div class="header">
                         {{ $header }}
                     </div>
                 </header>
             @endif
 
             <!-- Page Content -->
-            <main class="h-full min-h-full max-w-5xl w-full mx-auto px-4">
+            <main class="h-full min-h-full max-w-5xl w-full mx-auto">
                 {{ $slot }}
             </main>
         </div>

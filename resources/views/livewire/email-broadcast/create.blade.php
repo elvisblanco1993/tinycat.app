@@ -1,3 +1,5 @@
 <div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+    <x-button wire:click="save">
+        {{ __("New Email") }}
+    </x-button>
 </div>

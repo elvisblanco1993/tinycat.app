@@ -33,9 +33,8 @@
                         </th>
                         <th scope="col" class="px-6 py-3">{{ __("ID") }}</th>
                         <th scope="col" class="px-6 py-3">{{ __("Full name") }}</th>
-                        <th scope="col" class="px-6 py-3">{{ __("Company name") }}</th>
                         <th scope="col" class="px-6 py-3">{{ __("Email") }}</th>
-                        <th scope="col" class="px-6 py-3">{{ __("Phone") }}</th>
+                        <th scope="col" class="px-6 py-3">{{ __("Company name") }}</th>
                         {{-- <th scope="col" class="px-6 py-3">
                             <span class="sr-only">{{ __("Edit") }}</span>
                         </th> --}}
@@ -62,10 +61,9 @@
                             <td class="px-6 py-4">
                                 {{ $lead->id }}
                             </td>
-                            <td class="px-6 py-4">{{ $lead->first_name . ' ' . $lead->last_name}}</td>
-                            <td class="px-6 py-4" title="{{ $lead->company_name }}">{{ str($lead->company_name)->limit(30) }}</td>
+                            <td class="px-6 py-4">{{ $lead->full_name }}</td>
                             <td class="px-6 py-4">{{ $lead->email }}</td>
-                            <td class="px-6 py-4">{{ phone($lead->phone, 'US') }}</td>
+                            <td class="px-6 py-4" title="{{ $lead->company_name }}">{{ str($lead->company_name)->limit(30) }}</td>
                         </tr>
                     @empty
                         <tr class="bg-white border-b dark:bg-zinc-800 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-600">
