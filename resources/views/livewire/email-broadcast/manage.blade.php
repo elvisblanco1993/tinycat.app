@@ -21,11 +21,17 @@
         <div class="mt-2 flex items-center gap-2 border-b border-b-zinc-200 dark:border-b-zinc-700">
             <x-label for="" class="w-16">{{ __("To") }}</x-label>
             <select wire:model.live="audience" name="" id=""
-            @class([
-                'appearance-none bg-none bg-transparent min-w-44 border-none ring-0 text-sm',
-                'text-gray-500' => !$audience
-            ])>
-                <option value="" selected>{{ __("Select an audience") }}</option>
+                @class([
+                    'appearance-none bg-none bg-transparent min-w-44 border-none ring-0 text-sm',
+                    'text-gray-500' => !$audience
+                ])>
+                <option value="" selected>
+                    @if (count($audience_list) > 0)
+                        {{ __("Select an audience") }}
+                    @else
+                        {{ __("You have no audiences yet") }}
+                    @endif
+                </option>
                 @forelse ($audience_list as $option)
                     <option value="{{$option->id}}">{{ $option->name }}</option>
                 @empty
@@ -35,7 +41,7 @@
 
         <div class="mt-2 flex items-center gap-2 border-b border-b-zinc-200 dark:border-b-zinc-700">
             <x-label for="" class="w-16">{{ __("When") }}</x-label>
-            <input type="datetime-local" wire:model.live.debounce.250="send_at" @class(['!appearance-none bg-none bg-transparent border-none ring-0 text-sm', 'text-gray-500' => !$send_at])>
+            <input type="datetime-local" min="{{now()->toDateTimeLocalString()}}" wire:model.live.debounce.250="send_at" @class(['!appearance-none bg-none bg-transparent border-none ring-0 text-sm', 'text-gray-500' => !$send_at])>
         </div>
 
         <div class="mt-2 flex items-center gap-2 border-b border-b-zinc-200 dark:border-b-zinc-700">

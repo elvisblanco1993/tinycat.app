@@ -6,6 +6,7 @@ use App\Models\Lead;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Events\AfterImport;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\WithUpserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -35,6 +36,14 @@ class LeadImport implements ToModel, WithHeadingRow, ShouldQueue, WithChunkReadi
         return [
             'email',
         ];
+    }
+
+    /**
+     * Dispatch Event to Front-End after import is completed
+     */
+    public static function afterImport(AfterImport $event)
+    {
+        // Notify someone...
     }
 
     /**

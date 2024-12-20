@@ -32,7 +32,7 @@ class Import extends Component
                 Storage::delete($fileToImportFrom)
             );
 
-        session()->flash('flash.banner', 'Your leads are importing and will show here shortly.');
+        session()->flash('flash.banner', 'Import in progress. Refresh the page in a few seconds to view your leads.');
         session()->flash('flash.bannerStyle', 'success');
         $this->redirect(url: url()->previous());
     }

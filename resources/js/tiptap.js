@@ -43,6 +43,20 @@ window.setupEditor = function (content) {
     this.toggleH4 = () =>  editor.chain().focus().toggleHeading({ level: 4 }).run();
     this.toggleOrderedList = () =>  editor.chain().focus().toggleOrderedList().run();
     this.toggleBulletList = () =>  editor.chain().focus().toggleBulletList().run();
+    this.toggleLink = () =>  editor.chain().focus().toggleLink().run();
+
+    Link.configure({
+        defaultProtocol: 'https',
+        protocols: ['mailto', 'tel', 'https'],
+        autolink: true,
+        openOnClick: true,
+        HTMLAttributes: {
+            // Allow search engines to follow links(remove nofollow)
+            rel: 'noopener noreferrer',
+            // Target
+            target: '_tinytab'
+        }
+    })
 
       this.$watch('content', (content) => {
         // If the new content matches TipTap's then we just skip.
