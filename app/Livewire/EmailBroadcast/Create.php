@@ -20,6 +20,6 @@ class Create extends Component
             'title' => 'Untitled',
         ]);
 
-        $this->redirect(url: route('broadcast.manage', ['emailBroadcast' => $broadcast->id]), navigate: true);
+        $this->redirect(url: route('broadcast.manage', ['broadcast' => $broadcast->id]), navigate: true);
     }
 }

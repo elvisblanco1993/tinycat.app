@@ -14,7 +14,7 @@
         <ul class="divide-y dark:divide-zinc-700">
             @forelse ($emails as $email)
                 <li>
-                    <a wire:navigate href="{{ route('broadcast.manage', ['emailBroadcast' => $email]) }}">
+                    <a wire:navigate href="{{ route('broadcast.manage', ['broadcast' => $email]) }}">
                         <div class="flex items-center justify-between p-2 hover:bg-zinc-50 dark:hover:bg-zinc-800">
                             <div class="flex items-center">
                                 <div class="text-zinc-700 dark:text-zinc-300">{{ $email->title }}</div>

@@ -41,5 +41,5 @@ Route::middleware([
     Route::get('/audiences/{audience}', \App\Livewire\Audience\Show::class)->name('audience.show');
     // Email Broadcasts
     Route::get('/broadcasts', \App\Livewire\EmailBroadcast\Index::class)->name('broadcast.index');
-    Route::get('/broadcasts/{emailBroadcast}', \App\Livewire\EmailBroadcast\Manage::class)->name('broadcast.manage');
+    Route::get('/broadcasts/{broadcast}', \App\Livewire\EmailBroadcast\Manage::class)->name('broadcast.manage');
 });

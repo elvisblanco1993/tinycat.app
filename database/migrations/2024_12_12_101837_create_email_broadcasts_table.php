@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('reply_to')->nullable();
             $table->foreignIdFor(Audience::class)->nullable();
             $table->timestamp('send_at')->nullable();
-            $table->string('preview_text')->nullable();
+            $table->string('preview')->nullable();
             $table->string('subject')->nullable();
             $table->text('message')->nullable();
             $table->timestamps();
