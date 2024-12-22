@@ -12,7 +12,7 @@ class Manage extends Component
     public EmailBroadcast $broadcast;
     public $title;
     public $reply_to;
-    public $audience;
+    public $audience_id;
     public $audience_list = [];
     public $subject;
     public $preview;
@@ -36,7 +36,7 @@ class Manage extends Component
         $this->broadcast->update([
             'title' => $this->title,
             'reply_to' => $this->reply_to,
-            'audience_id' => $this->audience,
+            'audience_id' => $this->audience_id,
             'send_at' => $this->send_at,
             'preview' => $this->preview,
             'subject' => $this->subject,
@@ -55,6 +55,9 @@ class Manage extends Component
             'preview' => 'required|string|max:255',
             'subject' => 'required|string|max:150',
             'message' => 'required',
+        ], [
+            'reply_to' => 'You must set a reply address',
+            'audience_id' => 'You must select an audience or create one if none exists.'
         ]);
 
         $this->save();

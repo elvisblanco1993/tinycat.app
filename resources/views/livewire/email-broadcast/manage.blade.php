@@ -22,10 +22,10 @@
         </div>
         <div class="mt-2 flex items-center gap-2 border-b border-b-zinc-200 dark:border-b-zinc-700">
             <x-label for="" class="w-16">{{ __("To") }}</x-label>
-            <select wire:model="audience"
+            <select wire:model="audience_id"
                 @class([
                     'appearance-none bg-none bg-transparent min-w-44 border-none ring-0 text-sm',
-                    'text-gray-500' => !$audience
+                    'text-gray-500' => !$audience_id
                 ])>
                 <option value="" selected>
                     @if (count($audience_list) > 0)
@@ -39,6 +39,7 @@
                 @empty
                 @endforelse
             </select>
+            <x-input-error for="audience_id" />
         </div>
 
         <div class="mt-2 flex items-center gap-2 border-b border-b-zinc-200 dark:border-b-zinc-700">
